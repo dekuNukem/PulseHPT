@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="0.5" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -99,6 +99,7 @@
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
 <layer number="117" name="secv21" color="7" fill="1" visible="no" active="yes"/>
 <layer number="118" name="Rect_Pads" color="7" fill="1" visible="no" active="yes"/>
+<layer number="119" name="PF_Ref" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="120" name="120" color="7" fill="1" visible="no" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="yes"/>
@@ -112,6 +113,17 @@
 <layer number="130" name="bLogo" color="7" fill="1" visible="no" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
+<layer number="133" name="bottom_silk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="134" name="silk_top" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="135" name="silk_bottom" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="136" name="silktop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="137" name="silkbottom" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="138" name="EEE" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="139" name="_tKeepout" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="140" name="mbKeepout" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="141" name="ASSEMBLY_TOP" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="142" name="mbRestrict" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="143" name="PLACE_BOUND_TOP" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
 <layer number="145" name="DrillLegend_01-02" color="7" fill="1" visible="no" active="yes"/>
 <layer number="146" name="DrillLegend_01-15" color="7" fill="1" visible="no" active="yes"/>
@@ -124,6 +136,14 @@
 <layer number="153" name="FabDoc1" color="7" fill="1" visible="no" active="yes"/>
 <layer number="154" name="FabDoc2" color="7" fill="1" visible="no" active="yes"/>
 <layer number="155" name="FabDoc3" color="7" fill="1" visible="no" active="yes"/>
+<layer number="166" name="AntennaArea" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="168" name="4mmHeightArea" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="191" name="mNets" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="192" name="mBusses" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="193" name="mPins" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="194" name="mSymbols" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="195" name="mNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="196" name="mValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="no" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="7" fill="1" visible="no" active="yes"/>
@@ -163,15 +183,16 @@
 <layer number="249" name="Edge" color="7" fill="1" visible="no" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
+<layer number="253" name="Extra" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="no" active="yes"/>
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="18" x2="0" y2="0" width="0" layer="20"/>
-<wire x1="0" y1="0" x2="12.6" y2="0" width="0" layer="20"/>
-<wire x1="12.6" y1="0" x2="12.6" y2="18" width="0" layer="20"/>
-<wire x1="12.6" y1="18" x2="0" y2="18" width="0" layer="20"/>
+<wire x1="0.5" y1="18" x2="0.5" y2="0" width="0" layer="20"/>
+<wire x1="0.5" y1="0" x2="12.1" y2="0" width="0" layer="20"/>
+<wire x1="12.1" y1="0" x2="12.1" y2="18" width="0" layer="20"/>
+<wire x1="12.1" y1="18" x2="0.5" y2="18" width="0" layer="20"/>
 <text x="60.325" y="54.61" size="0.889" layer="25">SCL</text>
 <text x="57.658" y="54.61" size="0.889" layer="25">SDA</text>
 <text x="62.738" y="54.61" size="0.889" layer="25">GND</text>
@@ -416,6 +437,15 @@ INFINEON, www.infineon.com/cmc_upload/0/000/010/257/eh_db_5b.pdf</description>
 </package>
 </packages>
 </library>
+<library name="apricot">
+<description>Generated from &lt;b&gt;apricot.sch&lt;/b&gt;&lt;p&gt;
+by exp-lbrs.ulp</description>
+<packages>
+<package name="POGO_1.5">
+<pad name="P$1" x="0" y="0" drill="1.6" shape="long" rot="R90"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -649,9 +679,12 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="R3" library="SparkFun-Passives" package="0805" value="1K" x="49.958" y="50.005" smashed="yes">
 <attribute name="NAME" x="51.6852" y="49.5605" size="0.8128" layer="25"/>
 </element>
-<element name="U$12" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="6.3" y="15.25" smashed="yes"/>
-<element name="U$1" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="10.3" y="3.5" smashed="yes"/>
-<element name="U$2" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="2.3" y="3.5" smashed="yes"/>
+<element name="U$12" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="6.3" y="15.25" locked="yes" smashed="yes"/>
+<element name="U$1" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="10.3" y="3.5" locked="yes" smashed="yes"/>
+<element name="U$2" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="2.3" y="3.5" locked="yes" smashed="yes"/>
+<element name="U$3" library="apricot" package="POGO_1.5" value="POGO_1.5MM_HOLE" x="6.3" y="9.5" locked="yes" smashed="yes"/>
+<element name="U$4" library="apricot" package="POGO_1.5" value="POGO_1.5MM_HOLE" x="2.05" y="14" locked="yes" smashed="yes"/>
+<element name="U$5" library="apricot" package="POGO_1.5" value="POGO_1.5MM_HOLE" x="10.55" y="14" locked="yes" smashed="yes"/>
 </elements>
 <signals>
 <signal name="GND">
