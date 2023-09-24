@@ -211,6 +211,8 @@
 <text x="4.953" y="-0.635" size="1.27" layer="25" rot="R270" align="center">TRIG</text>
 <text x="2.3944" y="-0.6862" size="1.27" layer="25" rot="R270" align="center">GND</text>
 <rectangle x1="3.231" y1="-22.468" x2="6.731" y2="-18.968" layer="51"/>
+<text x="-30.48" y="-29.083" size="1.778" layer="21">middle pin on 3v3, left pin coin battery, right pin regulator output
+move regulator down twoards the edge</text>
 </plain>
 <libraries>
 <library name="clock">
@@ -742,6 +744,44 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
+<library name="pinhead" urn="urn:adsk.eagle:library:325">
+<description>&lt;b&gt;Pin Header Connectors&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="1X02" urn="urn:adsk.eagle:footprint:22309/1" library_version="4">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-1.905" y1="1.27" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="0.635" x2="0" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="0.635" x2="-2.54" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="-1.27" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0" y1="0.635" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="0.635" x2="2.54" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="-0.635" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="0" y2="-0.635" width="0.1524" layer="21"/>
+<pad name="1" x="-1.27" y="0" drill="1.016" shape="long" rot="R90"/>
+<pad name="2" x="1.27" y="0" drill="1.016" shape="long" rot="R90"/>
+<text x="-2.6162" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
+<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
+</package>
+</packages>
+<packages3d>
+<package3d name="1X02" urn="urn:adsk.eagle:package:22435/2" type="model" library_version="4">
+<description>PIN HEADER</description>
+<packageinstances>
+<packageinstance name="1X02"/>
+</packageinstances>
+</package3d>
+</packages3d>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -950,11 +990,11 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 </element>
 <element name="SW3" library="3pos_slide_switch_centered" package="342_SWICH_FOOT" value="324_SW" x="18.4" y="-20" smashed="yes" rot="R180"/>
 <element name="SW4" library="3pos_slide_switch_centered" package="342_SWICH_FOOT" value="324_SW" x="-5.8" y="-20" smashed="yes" rot="R180"/>
-<element name="LED1" library="adafruit" package="CHIP-LED0805" value="" x="31.267" y="-20.356" smashed="yes" rot="R270">
-<attribute name="VALUE" x="29.997" y="-22.896" size="1.27" layer="27"/>
+<element name="LED1" library="adafruit" package="CHIP-LED0805" value="" x="29.489" y="-20.864" smashed="yes" rot="R270">
+<attribute name="VALUE" x="28.219" y="-23.404" size="1.27" layer="27"/>
 </element>
-<element name="R4" library="SparkFun-Passives" package="0805" value="1K" x="31.267" y="-22.356" smashed="yes">
-<attribute name="NAME" x="32.8164" y="-23.2069" size="0.8128" layer="25"/>
+<element name="R4" library="SparkFun-Passives" package="0805" value="1K" x="28.981" y="-22.737" smashed="yes">
+<attribute name="NAME" x="30.5304" y="-23.5879" size="0.8128" layer="25"/>
 </element>
 <element name="R5" library="joyAnalog" package="0805" value="5.1K" x="-11.1286" y="-20" smashed="yes" rot="R270">
 <attribute name="NAME" x="-11.9071" y="-19.9784" size="0.8128" layer="25" rot="R90"/>
@@ -999,9 +1039,9 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=4219599&amp;manufacturer=MPD&amp;part_name=BU2032SM-G&amp;search_term=battery holder" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
 <attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=snap" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
-<element name="J1" library="SparkFun-Connectors" package="AUDIO-JACK" value="AUDIO_JACK_3.5MM_PTH" x="43.873" y="-18.735" smashed="yes" rot="R180">
-<attribute name="PROD_ID" value="CONN-08774" x="43.873" y="-18.735" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SF_ID" value="PRT-08032" x="43.873" y="-18.735" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="J1" library="SparkFun-Connectors" package="AUDIO-JACK" value="AUDIO_JACK_3.5MM_PTH" x="43.688" y="-18.669" smashed="yes" rot="R180">
+<attribute name="PROD_ID" value="CONN-08774" x="43.688" y="-18.669" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SF_ID" value="PRT-08032" x="43.688" y="-18.669" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="J2" library="FFC3B07-05-T" package="GCT_FFC3B07-05-T" value="FFC3B07-05-T" x="-27.813" y="-20.701" smashed="yes">
 <attribute name="AVAILABILITY" value="In Stock" x="-27.813" y="-20.701" size="1.778" layer="27" display="off"/>
@@ -1015,8 +1055,16 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 </element>
 <element name="U$6" library="adafruit_changed" package="1X05" value="PINHD5" x="27.559" y="-3.81" smashed="yes"/>
 <element name="U$7" library="adafruit_changed" package="1X04-CLEANBIG" value="PINHD1X4" x="6.223" y="-3.683" smashed="yes"/>
-<element name="JP1" library="adafruit_changed" package="1X03-CLEANBIG" value="" x="6.3" y="-20.5" smashed="yes">
-<attribute name="VALUE" x="2.49" y="-23.675" size="1.27" layer="27"/>
+<element name="JP1" library="adafruit_changed" package="1X03-CLEANBIG" value="" x="6.3" y="-20.373" smashed="yes">
+<attribute name="VALUE" x="2.49" y="-23.548" size="1.27" layer="27"/>
+</element>
+<element name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" package="1X02" package3d_urn="urn:adsk.eagle:package:22435/2" value="" x="-17.653" y="-23.241" smashed="yes" rot="R180">
+<attribute name="POPULARITY" value="98" x="-17.653" y="-23.241" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="-15.113" y="-20.066" size="1.27" layer="27" rot="R180"/>
+</element>
+<element name="JP3" library="pinhead" library_urn="urn:adsk.eagle:library:325" package="1X02" package3d_urn="urn:adsk.eagle:package:22435/2" value="" x="34.036" y="-21.717" smashed="yes" rot="R90">
+<attribute name="POPULARITY" value="98" x="34.036" y="-21.717" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="37.211" y="-24.257" size="1.27" layer="27" rot="R90"/>
 </element>
 </elements>
 <signals>
@@ -1124,19 +1172,19 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="-26.813" y1="-18.251" x2="-26.813" y2="-20.05" width="0.508" layer="1"/>
 <wire x1="-26.813" y1="-20.05" x2="-26.797" y2="-20.066" width="0.508" layer="1"/>
 <contactref element="JP1" pad="3"/>
-<wire x1="28.321" y1="-14.478" x2="14.862" y2="-14.478" width="0.508" layer="16"/>
-<wire x1="14.862" y1="-14.478" x2="8.84" y2="-20.5" width="0.508" layer="16"/>
-<wire x1="8.84" y1="-20.5" x2="7.3436" y2="-21.9964" width="0.508" layer="16"/>
+<wire x1="28.321" y1="-14.478" x2="14.735" y2="-14.478" width="0.508" layer="16"/>
+<wire x1="14.735" y1="-14.478" x2="8.84" y2="-20.373" width="0.508" layer="16"/>
+<wire x1="8.84" y1="-20.373" x2="7.3436" y2="-21.8694" width="0.508" layer="16"/>
 <wire x1="-2.794" y1="-18.923" x2="-5.842" y2="-18.923" width="0.508" layer="16"/>
-<wire x1="7.3436" y1="-21.9964" x2="0.2794" y2="-21.9964" width="0.508" layer="16"/>
-<wire x1="0.2794" y1="-21.9964" x2="-2.794" y2="-18.923" width="0.508" layer="16"/>
+<wire x1="7.3436" y1="-21.8694" x2="0.1524" y2="-21.8694" width="0.508" layer="16"/>
+<wire x1="0.1524" y1="-21.8694" x2="-2.794" y2="-18.923" width="0.508" layer="16"/>
 <wire x1="-8" y1="-18.875" x2="-5.89" y2="-18.875" width="0.508" layer="1"/>
 <wire x1="-5.89" y1="-18.875" x2="-5.842" y2="-18.923" width="0.508" layer="1"/>
 <wire x1="-3.6" y1="-18.875" x2="-5.794" y2="-18.875" width="0.508" layer="1"/>
 <wire x1="-5.794" y1="-18.875" x2="-5.842" y2="-18.923" width="0.508" layer="1"/>
 <wire x1="-28.829" y1="-20.066" x2="-28.829" y2="-10.795" width="0.508" layer="16"/>
 <wire x1="-28.829" y1="-10.795" x2="-30.48" y2="-9.144" width="0.508" layer="16"/>
-<wire x1="28.25" y1="-15.8718" x2="30.217" y2="-20.356" width="0" layer="19" extent="1-1"/>
+<wire x1="28.25" y1="-15.8718" x2="28.439" y2="-20.864" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USB_DP">
 <contactref element="U2" pad="A6"/>
@@ -1239,7 +1287,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <signal name="N$5">
 <contactref element="LED1" pad="C"/>
 <contactref element="R4" pad="2"/>
-<wire x1="32.167" y1="-22.356" x2="32.317" y2="-20.356" width="0" layer="19" extent="1-1"/>
+<wire x1="29.881" y1="-22.737" x2="30.539" y2="-20.864" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SWCLK">
 <contactref element="IC3" pad="20"/>
@@ -1359,7 +1407,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="BT1" pad="+"/>
 <contactref element="JP1" pad="2"/>
 <wire x1="-3.1" y1="-13.5" x2="1.054" y2="-13.5" width="0.508" layer="16"/>
-<wire x1="6.3" y1="-18.746" x2="6.3" y2="-20.5" width="0.508" layer="16"/>
+<wire x1="6.3" y1="-18.746" x2="6.3" y2="-20.373" width="0.508" layer="16"/>
 <wire x1="1.054" y1="-13.5" x2="6.3" y2="-18.746" width="0.508" layer="16"/>
 </signal>
 </signals>
@@ -1372,4 +1420,25 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 </mfgpreviewcolors>
 </board>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+<note version="8.2" severity="warning">
+Since Version 8.2, EAGLE supports online libraries. The ids
+of those online libraries will not be understood (or retained)
+with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports URNs for individual library
+assets (packages, symbols, and devices). The URNs of those assets
+will not be understood (or retained) with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports the association of 3D packages
+with devices in libraries, schematics, and board files. Those 3D
+packages will not be understood (or retained) with this version.
+</note>
+</compatibility>
 </eagle>
