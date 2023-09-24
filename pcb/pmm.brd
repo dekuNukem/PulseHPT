@@ -206,6 +206,11 @@
 <wire x1="10.9" y1="-22.5" x2="10.9" y2="-25" width="0" layer="20"/>
 <wire x1="10.9" y1="-25" x2="47.1" y2="-25" width="0" layer="20"/>
 <text x="21.3174" y="-6.6552" size="1.27" layer="25" rot="R270" align="center">3V3</text>
+<text x="10.0144" y="-0.6862" size="1.27" layer="25" rot="R270" align="center">GND</text>
+<text x="7.4744" y="-0.5592" size="1.27" layer="25" rot="R270" align="center">TRIG</text>
+<text x="4.953" y="-0.635" size="1.27" layer="25" rot="R270" align="center">TRIG</text>
+<text x="2.3944" y="-0.6862" size="1.27" layer="25" rot="R270" align="center">GND</text>
+<rectangle x1="3.231" y1="-22.468" x2="6.731" y2="-18.968" layer="51"/>
 </plain>
 <libraries>
 <library name="clock">
@@ -364,32 +369,6 @@ MAX3223-MAX3243.pdf</description>
 <smd name="20" x="-2.925" y="2.9178" dx="0.3048" dy="0.9906" layer="1"/>
 <text x="-3.5456" y="-2.0828" size="1.016" layer="25" font="vector" ratio="10" rot="R90">&gt;NAME</text>
 <text x="4.5362" y="-2.0828" size="1.016" layer="27" font="vector" ratio="10" rot="R90">&gt;VALUE</text>
-</package>
-<package name="SWITCH-SPST-SMD-A">
-<wire x1="-3.35" y1="1.3" x2="-3.35" y2="-1.3" width="0.127" layer="51"/>
-<wire x1="-3.35" y1="-1.3" x2="3.35" y2="-1.3" width="0.127" layer="51"/>
-<wire x1="3.35" y1="-1.3" x2="3.35" y2="1.3" width="0.127" layer="51"/>
-<wire x1="3.35" y1="1.3" x2="-0.1" y2="1.3" width="0.127" layer="51"/>
-<wire x1="-0.1" y1="1.3" x2="-1.4" y2="1.3" width="0.127" layer="51"/>
-<wire x1="-1.4" y1="1.3" x2="-3.35" y2="1.3" width="0.127" layer="51"/>
-<wire x1="-0.1" y1="1.3" x2="-0.1" y2="2.8" width="0.127" layer="51"/>
-<wire x1="-0.1" y1="2.8" x2="-1.4" y2="2.8" width="0.127" layer="51"/>
-<wire x1="-1.4" y1="2.8" x2="-1.4" y2="1.3" width="0.127" layer="51"/>
-<wire x1="-3.35" y1="0.3" x2="-3.35" y2="-0.3" width="0.2032" layer="21"/>
-<wire x1="3.35" y1="0.3" x2="3.35" y2="-0.3" width="0.2032" layer="21"/>
-<wire x1="2.7" y1="1.3" x2="-2.7" y2="1.3" width="0.2032" layer="21"/>
-<wire x1="1.5" y1="-1.3" x2="0" y2="-1.3" width="0.2032" layer="21"/>
-<smd name="1" x="-2.25" y="-1.75" dx="0.7" dy="1.5" layer="1" rot="R180"/>
-<smd name="2" x="-0.75" y="-1.75" dx="0.7" dy="1.5" layer="1" rot="R180"/>
-<smd name="3" x="2.25" y="-1.75" dx="0.7" dy="1.5" layer="1" rot="R180"/>
-<smd name="G1" x="-3.65" y="1" dx="1" dy="0.6" layer="1" thermals="no"/>
-<smd name="G2" x="-3.65" y="-1.1" dx="1" dy="0.8" layer="1" thermals="no"/>
-<smd name="G3" x="3.65" y="1" dx="1" dy="0.6" layer="1" thermals="no"/>
-<smd name="G4" x="3.65" y="-1.1" dx="1" dy="0.8" layer="1" thermals="no"/>
-<text x="-1.27" y="0.635" size="0.6096" layer="25">&gt;Name</text>
-<text x="-1.27" y="-1.27" size="0.6096" layer="27">&gt;Value</text>
-<hole x="-1.5" y="0" drill="0.9"/>
-<hole x="1.5" y="0" drill="0.9"/>
 </package>
 </packages>
 </library>
@@ -739,6 +718,28 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <rectangle x1="-4.064" y1="-0.254" x2="-3.556" y2="0.254" layer="51"/>
 <rectangle x1="-6.604" y1="-0.254" x2="-6.096" y2="0.254" layer="51"/>
 </package>
+<package name="1X04-CLEANBIG">
+<pad name="1" x="-3.81" y="0" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="2" x="-1.27" y="0" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="3" x="1.27" y="0" drill="1.016" diameter="1.778" rot="R90"/>
+<pad name="4" x="3.81" y="0" drill="1.016" diameter="1.778" rot="R90"/>
+<text x="-2.6162" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="3.556" y1="-0.254" x2="4.064" y2="0.254" layer="51"/>
+<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
+<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
+<rectangle x1="-4.064" y1="-0.254" x2="-3.556" y2="0.254" layer="51"/>
+</package>
+<package name="1X03-CLEANBIG">
+<pad name="1" x="-2.54" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<text x="-3.8862" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<rectangle x1="-2.794" y1="-0.254" x2="-2.286" y2="0.254" layer="51"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+</package>
 </packages>
 </library>
 </libraries>
@@ -949,17 +950,11 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 </element>
 <element name="SW3" library="3pos_slide_switch_centered" package="342_SWICH_FOOT" value="324_SW" x="18.4" y="-20" smashed="yes" rot="R180"/>
 <element name="SW4" library="3pos_slide_switch_centered" package="342_SWICH_FOOT" value="324_SW" x="-5.8" y="-20" smashed="yes" rot="R180"/>
-<element name="LED1" library="adafruit" package="CHIP-LED0805" value="" x="48.158" y="61.305" smashed="yes" rot="R270">
-<attribute name="VALUE" x="46.888" y="58.765" size="1.27" layer="27"/>
+<element name="LED1" library="adafruit" package="CHIP-LED0805" value="" x="31.267" y="-20.356" smashed="yes" rot="R270">
+<attribute name="VALUE" x="29.997" y="-22.896" size="1.27" layer="27"/>
 </element>
-<element name="R4" library="SparkFun-Passives" package="0805" value="1K" x="48.158" y="59.305" smashed="yes">
-<attribute name="NAME" x="49.7074" y="58.4541" size="0.8128" layer="25"/>
-</element>
-<element name="LED2" library="adafruit" package="CHIP-LED0805" value="" x="48.158" y="68.305" smashed="yes" rot="R270">
-<attribute name="VALUE" x="46.888" y="65.765" size="1.27" layer="27"/>
-</element>
-<element name="R6" library="SparkFun-Passives" package="0805" value="1K" x="48.1364" y="66.2318" smashed="yes">
-<attribute name="NAME" x="49.889" y="65.8127" size="0.8128" layer="25"/>
+<element name="R4" library="SparkFun-Passives" package="0805" value="1K" x="31.267" y="-22.356" smashed="yes">
+<attribute name="NAME" x="32.8164" y="-23.2069" size="0.8128" layer="25"/>
 </element>
 <element name="R5" library="joyAnalog" package="0805" value="5.1K" x="-11.1286" y="-20" smashed="yes" rot="R270">
 <attribute name="NAME" x="-11.9071" y="-19.9784" size="0.8128" layer="25" rot="R90"/>
@@ -967,12 +962,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="U4" library="3pos_slide_switch" package="SOT23R_INFINEON" value="XC6206_DEV" x="35.179" y="-6.731" smashed="yes" rot="R180"/>
 <element name="C2" library="clock" package="0805" value="1uF" x="28.067" y="-7.874" smashed="yes">
 <attribute name="NAME" x="30.7378" y="-7.6035" size="0.8128" layer="25" rot="R180"/>
-</element>
-<element name="LED3" library="adafruit" package="CHIP-LED0805" value="" x="48.158" y="54.305" smashed="yes" rot="R270">
-<attribute name="VALUE" x="46.888" y="51.765" size="1.27" layer="27"/>
-</element>
-<element name="R3" library="SparkFun-Passives" package="0805" value="1K" x="48.158" y="52.305" smashed="yes">
-<attribute name="NAME" x="49.8852" y="51.8605" size="0.8128" layer="25"/>
 </element>
 <element name="U$12" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="6.3" y="15.25" locked="yes" smashed="yes"/>
 <element name="U$1" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="10.3" y="3.5" locked="yes" smashed="yes"/>
@@ -999,23 +988,20 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="R8" library="joyAnalog" package="0805" value="5.1K" x="-31.877" y="-9.144" smashed="yes" rot="R90">
 <attribute name="NAME" x="-31.5595" y="-7.62" size="0.8128" layer="25" rot="R90"/>
 </element>
-<element name="BT1" library="BU2032SM-G" package="BAT_BU2032SM-G" value="BU2032SM-G" x="-17.6" y="-14.6" smashed="yes" rot="MR180">
-<attribute name="AVAILABILITY" value="In Stock" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=eda" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="DESCRIPTION" value=" BATTERY HOLDER COIN 20MM SMD " x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MF" value="MPD" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="MP" value="BU2032SM-G" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PACKAGE" value="None" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PRICE" value="None" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=4219599&amp;manufacturer=MPD&amp;part_name=BU2032SM-G&amp;search_term=battery holder" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
-<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=snap" x="-17.6" y="-14.6" size="1.778" layer="28" rot="MR180" display="off"/>
+<element name="BT1" library="BU2032SM-G" package="BAT_BU2032SM-G" value="BU2032SM-G" x="-17.6" y="-13.5" smashed="yes" rot="MR0">
+<attribute name="AVAILABILITY" value="In Stock" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=eda" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="DESCRIPTION" value=" BATTERY HOLDER COIN 20MM SMD " x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MF" value="MPD" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MP" value="BU2032SM-G" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PACKAGE" value="None" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PRICE" value="None" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=4219599&amp;manufacturer=MPD&amp;part_name=BU2032SM-G&amp;search_term=battery holder" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=snap" x="-17.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="J1" library="SparkFun-Connectors" package="AUDIO-JACK" value="AUDIO_JACK_3.5MM_PTH" x="43.873" y="-18.735" smashed="yes" rot="R180">
 <attribute name="PROD_ID" value="CONN-08774" x="43.873" y="-18.735" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SF_ID" value="PRT-08032" x="43.873" y="-18.735" size="1.778" layer="27" rot="R180" display="off"/>
-</element>
-<element name="SW1" library="tx" package="SWITCH-SPST-SMD-A" value="" x="6.3" y="-21" smashed="yes" rot="R180">
-<attribute name="VALUE" x="7.57" y="-19.73" size="0.6096" layer="27" rot="R180"/>
 </element>
 <element name="J2" library="FFC3B07-05-T" package="GCT_FFC3B07-05-T" value="FFC3B07-05-T" x="-27.813" y="-20.701" smashed="yes">
 <attribute name="AVAILABILITY" value="In Stock" x="-27.813" y="-20.701" size="1.778" layer="27" display="off"/>
@@ -1028,6 +1014,10 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/FFC3B07-05-T/Global+Connector+Technology/view-part/?ref=snap" x="-27.813" y="-20.701" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U$6" library="adafruit_changed" package="1X05" value="PINHD5" x="27.559" y="-3.81" smashed="yes"/>
+<element name="U$7" library="adafruit_changed" package="1X04-CLEANBIG" value="PINHD1X4" x="6.223" y="-3.683" smashed="yes"/>
+<element name="JP1" library="adafruit_changed" package="1X03-CLEANBIG" value="" x="6.3" y="-20.5" smashed="yes">
+<attribute name="VALUE" x="2.49" y="-23.675" size="1.27" layer="27"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -1050,7 +1040,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="C4" pad="1"/>
 <contactref element="SW3" pad="P$1"/>
 <contactref element="SW3" pad="P$4"/>
-<contactref element="R6" pad="1"/>
 <contactref element="R5" pad="1"/>
 <contactref element="U4" pad="1"/>
 <contactref element="C2" pad="1"/>
@@ -1079,18 +1068,22 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="-24.384" y1="-8.525" x2="-27.797" y2="-8.525" width="0.254" layer="1"/>
 <wire x1="-27.797" y1="-8.525" x2="-28.956" y2="-7.366" width="0.254" layer="1"/>
 <wire x1="-28.956" y1="-7.355" x2="-28.956" y2="-7.366" width="0.254" layer="1"/>
-<wire x1="10.55" y1="14" x2="47.2364" y2="66.2318" width="0" layer="19" extent="1-1"/>
+<contactref element="U$7" pad="1"/>
+<contactref element="U$7" pad="4"/>
+<contactref element="BT1" pad="-"/>
+<contactref element="J2" pad="S1"/>
+<contactref element="J2" pad="S2"/>
+<contactref element="J2" pad="1"/>
+<contactref element="J2" pad="5"/>
 </signal>
 <signal name="+3V3">
 <contactref element="IC3" pad="16"/>
 <contactref element="IC3" pad="5"/>
 <contactref element="LED1" pad="A"/>
-<contactref element="LED2" pad="A"/>
 <contactref element="SW4" pad="P$1"/>
 <contactref element="SW4" pad="P$4"/>
 <contactref element="U4" pad="2"/>
 <contactref element="C2" pad="2"/>
-<contactref element="LED3" pad="A"/>
 <contactref element="C4" pad="2"/>
 <contactref element="U1" pad="5"/>
 <contactref element="U1" pad="7"/>
@@ -1119,22 +1112,40 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="-24.384" y1="-9.025" x2="-22.479" y2="-9.025" width="0.254" layer="1"/>
 <wire x1="-22.479" y1="-8.025" x2="-24.384" y2="-8.025" width="0.254" layer="1"/>
 <wire x1="-22.479" y1="-9.025" x2="-22.479" y2="-8.025" width="0.254" layer="1"/>
-<wire x1="47.108" y1="61.305" x2="47.108" y2="68.305" width="0" layer="19" extent="1-1"/>
-<wire x1="47.108" y1="54.305" x2="47.108" y2="61.305" width="0" layer="19" extent="1-1"/>
-<wire x1="34.229" y1="-5.731" x2="47.108" y2="54.305" width="0" layer="19" extent="1-1"/>
-<wire x1="-3.6" y1="-18.875" x2="28.25" y2="-15.8718" width="0" layer="19" extent="1-1"/>
-<wire x1="-5.842" y1="-18.923" x2="-3.6" y2="-18.875" width="0" layer="19" extent="1-1"/>
-<wire x1="-8" y1="-18.875" x2="-5.842" y2="-18.923" width="0" layer="19" extent="1-1"/>
-<wire x1="-24.384" y1="-9.025" x2="-8" y2="-18.875" width="0" layer="19" extent="1-1"/>
+<via x="-26.797" y="-20.066" extent="1-16" drill="0.45"/>
+<via x="-28.829" y="-20.066" extent="1-16" drill="0.45"/>
+<contactref element="J2" pad="2"/>
+<contactref element="J2" pad="4"/>
+<wire x1="-5.842" y1="-18.923" x2="-6.985" y2="-20.066" width="0.508" layer="16"/>
+<wire x1="-6.985" y1="-20.066" x2="-26.797" y2="-20.066" width="0.508" layer="16"/>
+<wire x1="-26.797" y1="-20.066" x2="-28.829" y2="-20.066" width="0.508" layer="16"/>
+<wire x1="-28.813" y1="-18.251" x2="-28.813" y2="-20.05" width="0.508" layer="1"/>
+<wire x1="-28.813" y1="-20.05" x2="-28.829" y2="-20.066" width="0.508" layer="1"/>
+<wire x1="-26.813" y1="-18.251" x2="-26.813" y2="-20.05" width="0.508" layer="1"/>
+<wire x1="-26.813" y1="-20.05" x2="-26.797" y2="-20.066" width="0.508" layer="1"/>
+<contactref element="JP1" pad="3"/>
+<wire x1="28.321" y1="-14.478" x2="14.862" y2="-14.478" width="0.508" layer="16"/>
+<wire x1="14.862" y1="-14.478" x2="8.84" y2="-20.5" width="0.508" layer="16"/>
+<wire x1="8.84" y1="-20.5" x2="7.3436" y2="-21.9964" width="0.508" layer="16"/>
+<wire x1="-2.794" y1="-18.923" x2="-5.842" y2="-18.923" width="0.508" layer="16"/>
+<wire x1="7.3436" y1="-21.9964" x2="0.2794" y2="-21.9964" width="0.508" layer="16"/>
+<wire x1="0.2794" y1="-21.9964" x2="-2.794" y2="-18.923" width="0.508" layer="16"/>
+<wire x1="-8" y1="-18.875" x2="-5.89" y2="-18.875" width="0.508" layer="1"/>
+<wire x1="-5.89" y1="-18.875" x2="-5.842" y2="-18.923" width="0.508" layer="1"/>
+<wire x1="-3.6" y1="-18.875" x2="-5.794" y2="-18.875" width="0.508" layer="1"/>
+<wire x1="-5.794" y1="-18.875" x2="-5.842" y2="-18.923" width="0.508" layer="1"/>
+<wire x1="-28.829" y1="-20.066" x2="-28.829" y2="-10.795" width="0.508" layer="16"/>
+<wire x1="-28.829" y1="-10.795" x2="-30.48" y2="-9.144" width="0.508" layer="16"/>
+<wire x1="28.25" y1="-15.8718" x2="30.217" y2="-20.356" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="USB_DP">
 <contactref element="U2" pad="A6"/>
 <contactref element="U2" pad="B6"/>
 <contactref element="IC3" pad="18"/>
-<wire x1="26.67" y1="-11.303" x2="25.019" y2="-11.303" width="0.1524" layer="1"/>
+<wire x1="26.67" y1="-11.049" x2="24.765" y2="-11.049" width="0.1524" layer="1"/>
 <wire x1="22.479" y1="-8.763" x2="22.479" y2="-2.921" width="0.1524" layer="1"/>
 <wire x1="22.479" y1="-2.921" x2="22.987" y2="-2.413" width="0.1524" layer="1"/>
-<wire x1="25.019" y1="-11.303" x2="22.479" y2="-8.763" width="0.1524" layer="1"/>
+<wire x1="24.765" y1="-11.049" x2="22.479" y2="-8.763" width="0.1524" layer="1"/>
 <wire x1="39.4265" y1="-6.235" x2="40.652" y2="-6.235" width="0.1524" layer="1"/>
 <wire x1="40.652" y1="-6.235" x2="40.767" y2="-6.35" width="0.1524" layer="1"/>
 <wire x1="40.767" y1="-6.35" x2="40.767" y2="-7.112" width="0.1524" layer="1"/>
@@ -1147,8 +1158,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="36.195" y1="-4.826" x2="36.703" y2="-4.826" width="0.1524" layer="1"/>
 <wire x1="38.112" y1="-6.235" x2="39.4265" y2="-6.235" width="0.1524" layer="1"/>
 <wire x1="36.703" y1="-4.826" x2="38.112" y2="-6.235" width="0.1524" layer="1"/>
-<wire x1="26.95" y1="-10.0362" x2="26.95" y2="-11.023" width="0.1524" layer="1"/>
-<wire x1="26.95" y1="-11.023" x2="26.67" y2="-11.303" width="0.1524" layer="1"/>
+<wire x1="26.95" y1="-10.0362" x2="26.95" y2="-10.769" width="0.1524" layer="1"/>
+<wire x1="26.95" y1="-10.769" x2="26.67" y2="-11.049" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$31">
 <contactref element="R1" pad="1"/>
@@ -1214,33 +1225,21 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="IC3" pad="1"/>
 <contactref element="R5" pad="2"/>
 <wire x1="25.65" y1="-15.8718" x2="25.65" y2="-19.181" width="0.2032" layer="1"/>
-<wire x1="12.065" y1="-20.066" x2="11.176" y2="-20.955" width="0.2032" layer="1"/>
-<wire x1="11.176" y1="-20.955" x2="9.398" y2="-20.955" width="0.2032" layer="1"/>
-<wire x1="8.509" y1="-21.844" x2="4.064" y2="-21.844" width="0.2032" layer="1"/>
-<wire x1="4.064" y1="-21.844" x2="3.175" y2="-20.955" width="0.2032" layer="1"/>
-<wire x1="3.175" y1="-20.955" x2="-3.43" y2="-20.955" width="0.2032" layer="1"/>
 <wire x1="-3.43" y1="-20.955" x2="-3.6" y2="-21.125" width="0.2032" layer="1"/>
 <wire x1="25.65" y1="-19.181" x2="24.765" y2="-20.066" width="0.2032" layer="1"/>
-<wire x1="24.765" y1="-20.066" x2="12.065" y2="-20.066" width="0.2032" layer="1"/>
-<wire x1="9.398" y1="-20.955" x2="8.509" y2="-21.844" width="0.2032" layer="1"/>
 <wire x1="-3.6" y1="-21.125" x2="-8" y2="-21.125" width="1.016" layer="1"/>
 <wire x1="-11.1286" y1="-20.9" x2="-8.225" y2="-20.9" width="0.2" layer="1"/>
 <wire x1="-8.225" y1="-20.9" x2="-8" y2="-21.125" width="0.2" layer="1"/>
+<wire x1="11.557" y1="-20.066" x2="10.414" y2="-18.923" width="0.2032" layer="1"/>
+<wire x1="10.414" y1="-18.923" x2="2.413" y2="-18.923" width="0.2032" layer="1"/>
+<wire x1="0.211" y1="-21.125" x2="-3.6" y2="-21.125" width="0.2032" layer="1"/>
+<wire x1="24.765" y1="-20.066" x2="11.557" y2="-20.066" width="0.2032" layer="1"/>
+<wire x1="2.413" y1="-18.923" x2="0.211" y2="-21.125" width="0.2032" layer="1"/>
 </signal>
 <signal name="N$5">
 <contactref element="LED1" pad="C"/>
 <contactref element="R4" pad="2"/>
-<wire x1="49.058" y1="59.305" x2="49.208" y2="61.305" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$29">
-<contactref element="LED2" pad="C"/>
-<contactref element="R6" pad="2"/>
-<wire x1="49.0364" y1="66.2318" x2="49.208" y2="68.305" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="N$1">
-<contactref element="LED3" pad="C"/>
-<contactref element="R3" pad="2"/>
-<wire x1="49.058" y1="52.305" x2="49.208" y2="54.305" width="0" layer="19" extent="1-1"/>
+<wire x1="32.167" y1="-22.356" x2="32.317" y2="-20.356" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SWCLK">
 <contactref element="IC3" pad="20"/>
@@ -1316,21 +1315,21 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="IC3" pad="13"/>
 <wire x1="30.48" y1="-9.017" x2="31.75" y2="-9.017" width="0.2032" layer="1"/>
 <wire x1="31.75" y1="-9.017" x2="32.258" y2="-9.525" width="0.2032" layer="1"/>
-<wire x1="32.258" y1="-9.525" x2="32.258" y2="-11.684" width="0.2032" layer="1"/>
-<wire x1="32.258" y1="-11.684" x2="31.623" y2="-12.319" width="0.2032" layer="1"/>
-<wire x1="31.623" y1="-12.319" x2="-17.907" y2="-12.319" width="0.2032" layer="1"/>
+<wire x1="32.258" y1="-9.525" x2="32.258" y2="-12.192" width="0.2032" layer="1"/>
+<wire x1="32.258" y1="-12.192" x2="31.623" y2="-12.827" width="0.2032" layer="1"/>
+<wire x1="31.623" y1="-12.827" x2="-17.399" y2="-12.827" width="0.2032" layer="1"/>
 <wire x1="30.2" y1="-10.0362" x2="30.2" y2="-9.297" width="0.2032" layer="1"/>
 <wire x1="30.2" y1="-9.297" x2="30.48" y2="-9.017" width="0.2032" layer="1"/>
-<wire x1="-17.907" y1="-12.319" x2="-18.701" y2="-11.525" width="0.2032" layer="1"/>
+<wire x1="-17.399" y1="-12.827" x2="-18.701" y2="-11.525" width="0.2032" layer="1"/>
 <wire x1="-18.701" y1="-11.525" x2="-24.384" y2="-11.525" width="0.2032" layer="1"/>
 </signal>
 <signal name="OLED_SCK">
 <contactref element="U1" pad="11"/>
 <contactref element="IC3" pad="11"/>
-<wire x1="30.861" y1="-11.811" x2="-17.526" y2="-11.811" width="0.2032" layer="1"/>
-<wire x1="31.5" y1="-10.0362" x2="31.5" y2="-11.172" width="0.2032" layer="1"/>
-<wire x1="31.5" y1="-11.172" x2="30.861" y2="-11.811" width="0.2032" layer="1"/>
-<wire x1="-17.526" y1="-11.811" x2="-18.312" y2="-11.025" width="0.2032" layer="1"/>
+<wire x1="30.861" y1="-12.319" x2="-17.018" y2="-12.319" width="0.2032" layer="1"/>
+<wire x1="31.5" y1="-10.0362" x2="31.5" y2="-11.68" width="0.2032" layer="1"/>
+<wire x1="31.5" y1="-11.68" x2="30.861" y2="-12.319" width="0.2032" layer="1"/>
+<wire x1="-17.018" y1="-12.319" x2="-18.312" y2="-11.025" width="0.2032" layer="1"/>
 <wire x1="-18.312" y1="-11.025" x2="-24.384" y2="-11.025" width="0.2032" layer="1"/>
 </signal>
 <signal name="OLED_DC">
@@ -1338,6 +1337,30 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 </signal>
 <signal name="OLED_CS">
 <contactref element="U1" pad="8"/>
+</signal>
+<signal name="N$2">
+<contactref element="IC3" pad="14"/>
+<contactref element="U$3" pad="P$1"/>
+<wire x1="29.55" y1="-10.836" x2="29.55" y2="-10.0362" width="0.2032" layer="1"/>
+<wire x1="28.575" y1="-11.811" x2="29.55" y2="-10.836" width="0.2032" layer="1"/>
+<contactref element="U$7" pad="3"/>
+<contactref element="U$7" pad="2"/>
+<wire x1="4.953" y1="-3.683" x2="6.3" y2="-3.683" width="0.2032" layer="1"/>
+<wire x1="6.3" y1="-3.683" x2="7.493" y2="-3.683" width="0.2032" layer="1"/>
+<wire x1="6.3" y1="9.5" x2="6.3" y2="-3.683" width="0.2032" layer="1"/>
+<wire x1="7.493" y1="-3.683" x2="7.493" y2="-7.239" width="0.2032" layer="1"/>
+<wire x1="12.065" y1="-11.811" x2="28.575" y2="-11.811" width="0.2032" layer="1"/>
+<wire x1="7.493" y1="-7.239" x2="12.065" y2="-11.811" width="0.2032" layer="1"/>
+</signal>
+<signal name="LIGHT_SENSE">
+<contactref element="J2" pad="3"/>
+</signal>
+<signal name="N$3">
+<contactref element="BT1" pad="+"/>
+<contactref element="JP1" pad="2"/>
+<wire x1="-3.1" y1="-13.5" x2="1.054" y2="-13.5" width="0.508" layer="16"/>
+<wire x1="6.3" y1="-18.746" x2="6.3" y2="-20.5" width="0.508" layer="16"/>
+<wire x1="1.054" y1="-13.5" x2="6.3" y2="-18.746" width="0.508" layer="16"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
