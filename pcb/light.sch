@@ -1206,6 +1206,96 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="adafruit_changed">
+<packages>
+<package name="1X03">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-3.175" y1="1.27" x2="-1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="-1.27" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="0.635" x2="-3.81" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-3.175" y1="1.27" x2="-3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="-0.635" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="-1.27" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="3.175" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="1.27" x2="3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="0.635" x2="3.81" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="-0.635" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<pad name="1" x="-2.54" y="0" drill="1.016" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" rot="R90"/>
+<text x="-3.8862" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<rectangle x1="-2.794" y1="-0.254" x2="-2.286" y2="0.254" layer="51"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+</package>
+<package name="1X03-CLEANBIG">
+<pad name="1" x="-2.54" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<text x="-3.8862" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<rectangle x1="-2.794" y1="-0.254" x2="-2.286" y2="0.254" layer="51"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="PINHD3">
+<wire x1="-6.35" y1="-5.08" x2="1.27" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="-5.08" x2="1.27" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="5.08" x2="-6.35" y2="-5.08" width="0.4064" layer="94"/>
+<text x="-6.35" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="3" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PINHD-1X3" prefix="JP" uservalue="yes">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<gates>
+<gate name="A" symbol="PINHD3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X03">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+<connect gate="A" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="CB" package="1X03-CLEANBIG">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+<connect gate="A" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1226,6 +1316,9 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="C1" library="clock" deviceset="CAP" device="0805" value="100nF"/>
 <part name="+3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="GND3" library="SparkFun" deviceset="GND" device=""/>
+<part name="JP1" library="adafruit_changed" deviceset="PINHD-1X3" device="CB"/>
+<part name="GND4" library="SparkFun" deviceset="GND" device=""/>
+<part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1267,6 +1360,16 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <instance part="GND3" gate="1" x="40.64" y="43.18" smashed="yes">
 <attribute name="VALUE" x="38.1" y="40.64" size="1.778" layer="96"/>
 </instance>
+<instance part="JP1" gate="A" x="-15.24" y="10.16" smashed="yes">
+<attribute name="NAME" x="-21.59" y="15.875" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-21.59" y="2.54" size="1.778" layer="96"/>
+</instance>
+<instance part="GND4" gate="1" x="-33.02" y="7.62" smashed="yes">
+<attribute name="VALUE" x="-35.56" y="5.08" size="1.778" layer="96"/>
+</instance>
+<instance part="+3V3" gate="G$1" x="-33.02" y="15.24" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-30.48" y="10.16" size="1.778" layer="96" rot="MR90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -1276,10 +1379,15 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <wire x1="20.32" y1="48.26" x2="20.32" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="E1"/>
 <pinref part="J3" gate="G$1" pin="3"/>
-<wire x1="-22.86" y1="43.18" x2="20.32" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-22.86" y1="43.18" x2="10.16" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="10.16" y1="43.18" x2="20.32" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="43.18" x2="20.32" y2="40.64" width="0.1524" layer="91"/>
 <junction x="20.32" y="43.18"/>
+<pinref part="JP1" gate="A" pin="3"/>
+<wire x1="10.16" y1="43.18" x2="10.16" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="7.62" x2="-17.78" y2="7.62" width="0.1524" layer="91"/>
+<junction x="10.16" y="43.18"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -1305,6 +1413,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="JP1" gate="A" pin="2"/>
+<pinref part="GND4" gate="1" pin="GND"/>
+<wire x1="-17.78" y1="10.16" x2="-33.02" y2="10.16" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -1324,6 +1437,11 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="A" pin="1"/>
+<pinref part="+3V3" gate="G$1" pin="+3V3"/>
+<wire x1="-17.78" y1="12.7" x2="-33.02" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
