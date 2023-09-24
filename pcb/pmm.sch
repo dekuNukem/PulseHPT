@@ -3980,10 +3980,11 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="U$8" library="adafruit_changed" deviceset="PINHD1X2" device=""/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
-<part name="U$9" library="adafruit_changed" deviceset="PINHD1X2" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="C3" library="clock" deviceset="CAP" device="0805" value="1uF"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
+<part name="JP2" library="adafruit_changed" deviceset="PINHD-1X3" device="CB"/>
+<part name="+3V9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4205,10 +4206,6 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <instance part="GND18" gate="1" x="0" y="-48.26" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="2.54" y="-50.8" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="U$9" gate="1" x="-48.26" y="66.04" smashed="yes">
-<attribute name="NAME" x="-54.61" y="71.755" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-54.61" y="60.96" size="1.778" layer="96"/>
-</instance>
 <instance part="GND19" gate="1" x="-38.1" y="63.5" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="-35.56" y="60.96" size="1.778" layer="96" rot="MR0"/>
 </instance>
@@ -4218,6 +4215,13 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 </instance>
 <instance part="GND20" gate="1" x="360.68" y="20.32" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="363.22" y="17.78" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="JP2" gate="A" x="-55.88" y="66.04" smashed="yes">
+<attribute name="NAME" x="-62.23" y="71.755" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-62.23" y="58.42" size="1.778" layer="96"/>
+</instance>
+<instance part="+3V9" gate="G$1" x="-68.58" y="66.04" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-66.04" y="60.96" size="1.778" layer="96" rot="MR90"/>
 </instance>
 </instances>
 <busses>
@@ -4353,9 +4357,9 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <wire x1="-5.08" y1="-45.72" x2="0" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$9" gate="1" pin="2"/>
 <pinref part="GND19" gate="1" pin="GND"/>
-<wire x1="-50.8" y1="66.04" x2="-38.1" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="-58.42" y1="66.04" x2="-38.1" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="JP2" gate="A" pin="2"/>
 </segment>
 <segment>
 <pinref part="GND20" gate="1" pin="GND"/>
@@ -4429,6 +4433,11 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <pinref part="+3V10" gate="G$1" pin="+3V3"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="35.56" y1="-5.08" x2="35.56" y2="-7.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="A" pin="3"/>
+<pinref part="+3V9" gate="G$1" pin="+3V3"/>
+<wire x1="-58.42" y1="63.5" x2="-68.58" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="USB_DP" class="0">
@@ -4700,9 +4709,9 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <net name="LIGHT_SENSE" class="0">
 <segment>
 <pinref part="J2" gate="G$1" pin="3"/>
-<wire x1="-10.16" y1="68.58" x2="-50.8" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="68.58" x2="-58.42" y2="68.58" width="0.1524" layer="91"/>
 <label x="-38.1" y="68.58" size="1.778" layer="95"/>
-<pinref part="U$9" gate="1" pin="1"/>
+<pinref part="JP2" gate="A" pin="1"/>
 </segment>
 <segment>
 <wire x1="40.64" y1="27.94" x2="20.32" y2="27.94" width="0.1524" layer="91"/>
