@@ -4084,8 +4084,6 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="LED3" library="adafruit" deviceset="LED" device="CHIP-LED0805"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="1K"/>
 <part name="+3V4" library="backplane" deviceset="+3V3" device=""/>
-<part name="+3V6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="GND3" library="backplane" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="U$12" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
 <part name="U$1" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
@@ -4172,16 +4170,16 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 </instance>
 <instance part="SW3" gate="G$1" x="91.44" y="55.88" smashed="yes" rot="R90"/>
 <instance part="SW4" gate="G$1" x="91.44" y="2.54" smashed="yes" rot="MR270"/>
-<instance part="LED1" gate="G$1" x="-71.12" y="53.34" smashed="yes" rot="R90">
-<attribute name="NAME" x="-66.548" y="56.896" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-66.548" y="59.055" size="1.778" layer="96" rot="R180"/>
+<instance part="LED1" gate="G$1" x="-25.4" y="-45.72" smashed="yes" rot="R90">
+<attribute name="NAME" x="-20.828" y="-42.164" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-20.828" y="-40.005" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R4" gate="G$1" x="-60.96" y="53.34" smashed="yes" rot="R180">
-<attribute name="NAME" x="-57.15" y="51.8414" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-57.15" y="56.642" size="1.778" layer="96" rot="R180"/>
+<instance part="R4" gate="G$1" x="-15.24" y="-45.72" smashed="yes" rot="R180">
+<attribute name="NAME" x="-11.43" y="-47.2186" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-11.43" y="-42.418" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="+3V9" gate="G$1" x="-73.66" y="55.88" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="-71.12" y="50.8" size="1.778" layer="96" rot="MR90"/>
+<instance part="+3V9" gate="G$1" x="-27.94" y="-43.18" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-25.4" y="-48.26" size="1.778" layer="96" rot="MR90"/>
 </instance>
 <instance part="+3V16" gate="G$1" x="106.68" y="73.66" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="109.22" y="68.58" size="1.778" layer="96" rot="MR90"/>
@@ -4214,22 +4212,16 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <attribute name="NAME" x="343.916" y="25.019" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="343.916" y="30.099" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="LED3" gate="G$1" x="-71.12" y="43.18" smashed="yes" rot="R90">
-<attribute name="NAME" x="-66.548" y="46.736" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-66.548" y="48.895" size="1.778" layer="96" rot="R180"/>
+<instance part="LED3" gate="G$1" x="-25.4" y="-55.88" smashed="yes" rot="R90">
+<attribute name="NAME" x="-20.828" y="-52.324" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-20.828" y="-50.165" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="R3" gate="G$1" x="-60.96" y="43.18" smashed="yes" rot="R180">
-<attribute name="NAME" x="-57.15" y="41.6814" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-57.15" y="46.482" size="1.778" layer="96" rot="R180"/>
+<instance part="R3" gate="G$1" x="-15.24" y="-55.88" smashed="yes" rot="R180">
+<attribute name="NAME" x="-11.43" y="-57.3786" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-11.43" y="-52.578" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="+3V4" gate="G$1" x="-73.66" y="45.72" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="-71.12" y="40.64" size="1.778" layer="96" rot="MR90"/>
-</instance>
-<instance part="+3V6" gate="G$1" x="-27.94" y="66.04" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="-25.4" y="60.96" size="1.778" layer="96" rot="MR90"/>
-</instance>
-<instance part="GND3" gate="1" x="-17.78" y="55.88" smashed="yes">
-<attribute name="VALUE" x="-20.32" y="53.34" size="1.778" layer="96"/>
+<instance part="+3V4" gate="G$1" x="-27.94" y="-53.34" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-25.4" y="-58.42" size="1.778" layer="96" rot="MR90"/>
 </instance>
 <instance part="+3V3" gate="G$1" x="276.86" y="88.9" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="279.4" y="83.82" size="1.778" layer="96" rot="MR90"/>
@@ -4286,9 +4278,9 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <instance part="GND30" gate="1" x="99.06" y="121.92" smashed="yes">
 <attribute name="VALUE" x="96.52" y="119.38" size="1.778" layer="96"/>
 </instance>
-<instance part="BT1" gate="G$1" x="25.4" y="78.74" smashed="yes">
-<attribute name="NAME" x="19.038640625" y="82.553790625" size="2.543790625" layer="95"/>
-<attribute name="VALUE" x="19.03816875" y="72.38211875" size="2.543940625" layer="96"/>
+<instance part="BT1" gate="G$1" x="-43.18" y="-17.78" smashed="yes">
+<attribute name="NAME" x="-49.541359375" y="-13.966209375" size="2.543790625" layer="95"/>
+<attribute name="VALUE" x="-49.54183125" y="-24.13788125" size="2.543940625" layer="96"/>
 </instance>
 <instance part="J1" gate="G$1" x="50.8" y="-58.42" smashed="yes">
 <attribute name="NAME" x="45.72" y="-52.832" size="1.778" layer="95" font="vector"/>
@@ -4549,25 +4541,18 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <pinref part="R3" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="SWCLK" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PA14"/>
-<wire x1="-17.78" y1="12.7" x2="-35.56" y2="12.7" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="12.7" x2="-35.56" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="12.7" x2="-40.64" y2="12.7" width="0.1524" layer="91"/>
+<label x="-40.64" y="12.7" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="SWDIO" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PA13"/>
-<wire x1="-17.78" y1="15.24" x2="-33.02" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-33.02" y1="15.24" x2="-33.02" y2="58.42" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="IC3" gate="G$1" pin="PA2"/>
-<wire x1="-17.78" y1="35.56" x2="-30.48" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="-30.48" y1="35.56" x2="-30.48" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="15.24" x2="-40.64" y2="15.24" width="0.1524" layer="91"/>
+<label x="-40.64" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$35" class="0">
@@ -4622,31 +4607,59 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <wire x1="38.1" y1="119.38" x2="27.94" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$43" class="0">
+<net name="OLED_RESET" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="/RES"/>
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="38.1" y1="134.62" x2="99.06" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="134.62" x2="-114.3" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="134.62" x2="12.7" y2="134.62" width="0.1524" layer="91"/>
 <junction x="38.1" y="134.62"/>
+<label x="12.7" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="UART2_TX" class="0">
+<segment>
+<pinref part="IC3" gate="G$1" pin="PA2"/>
+<wire x1="-17.78" y1="35.56" x2="-40.64" y2="35.56" width="0.1524" layer="91"/>
+<label x="-40.64" y="35.56" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="OLED_MOSI" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="SDIN"/>
-<wire x1="38.1" y1="127" x2="-73.66" y2="127" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="127" x2="12.7" y2="127" width="0.1524" layer="91"/>
+<label x="12.7" y="127" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC3" gate="G$1" pin="PA7"/>
+<wire x1="-17.78" y1="22.86" x2="-40.64" y2="22.86" width="0.1524" layer="91"/>
+<label x="-40.64" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$14" class="0">
+<net name="OLED_SCK" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="SCLK"/>
-<wire x1="38.1" y1="129.54" x2="-78.74" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="129.54" x2="12.7" y2="129.54" width="0.1524" layer="91"/>
+<label x="12.7" y="129.54" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC3" gate="G$1" pin="PA5"/>
+<wire x1="-17.78" y1="27.94" x2="-40.64" y2="27.94" width="0.1524" layer="91"/>
+<label x="-40.64" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$16" class="0">
+<net name="OLED_DC" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="DC"/>
-<wire x1="38.1" y1="132.08" x2="-83.82" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="132.08" x2="12.7" y2="132.08" width="0.1524" layer="91"/>
+<label x="12.7" y="132.08" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="OLED_CS" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="/CS"/>
+<wire x1="38.1" y1="137.16" x2="12.7" y2="137.16" width="0.1524" layer="91"/>
+<label x="12.7" y="137.16" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
