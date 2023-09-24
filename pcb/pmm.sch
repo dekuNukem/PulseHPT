@@ -4626,6 +4626,11 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <wire x1="-17.78" y1="35.56" x2="-40.64" y2="35.56" width="0.1524" layer="91"/>
 <label x="-40.64" y="35.56" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="-83.82" y1="30.48" x2="-106.68" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U$6" gate="G$1" pin="4"/>
+<label x="-106.68" y="30.48" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="OLED_MOSI" class="0">
 <segment>
