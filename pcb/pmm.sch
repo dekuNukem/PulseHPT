@@ -3095,8 +3095,8 @@ INFINEON, www.infineon.com/cmc_upload/0/000/010/257/eh_db_5b.pdf</description>
 <description>Generated from &lt;b&gt;apricot.sch&lt;/b&gt;&lt;p&gt;
 by exp-lbrs.ulp</description>
 <packages>
-<package name="POGO_1.5">
-<pad name="P$1" x="0" y="0" drill="1.6" shape="long" rot="R90"/>
+<package name="POGO_1.8">
+<pad name="P$1" x="0" y="0" drill="1.9" diameter="2.1844" shape="long" rot="R90"/>
 </package>
 </packages>
 <symbols>
@@ -3109,12 +3109,12 @@ by exp-lbrs.ulp</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="POGO_1.5MM_HOLE">
+<deviceset name="POGO_TH001">
 <gates>
 <gate name="G$1" symbol="POGO" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="POGO_1.5">
+<device name="" package="POGO_1.8">
 <connects>
 <connect gate="G$1" pin="P$1" pad="P$1"/>
 </connects>
@@ -3230,12 +3230,6 @@ SPI COMM</text>
 <wire x1="14.3" y1="-3.5" x2="10.645" y2="-3.5" width="0.127" layer="51"/>
 <wire x1="14.3" y1="-3.5" x2="14.3" y2="3.5" width="0.127" layer="51"/>
 <wire x1="14.3" y1="3.5" x2="10.645" y2="3.5" width="0.127" layer="51"/>
-<polygon width="0.000009375" layer="29">
-<vertex x="-5.6" y="3.6"/>
-<vertex x="5.6" y="3.6"/>
-<vertex x="5.6" y="-3.6"/>
-<vertex x="-5.6" y="-3.6"/>
-</polygon>
 <wire x1="-14.3" y1="2.42" x2="-14.3" y2="3.5" width="0.127" layer="21"/>
 <wire x1="-14.3" y1="3.5" x2="-10.645" y2="3.5" width="0.127" layer="21"/>
 <wire x1="-14.3" y1="-2.42" x2="-14.3" y2="-3.5" width="0.127" layer="21"/>
@@ -3945,9 +3939,9 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="U$12" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
 <part name="U$1" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
 <part name="U$2" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
-<part name="U$3" library="apricot" deviceset="POGO_1.5MM_HOLE" device=""/>
-<part name="U$4" library="apricot" deviceset="POGO_1.5MM_HOLE" device=""/>
-<part name="U$5" library="apricot" deviceset="POGO_1.5MM_HOLE" device=""/>
+<part name="U$3" library="apricot" deviceset="POGO_TH001" device=""/>
+<part name="U$4" library="apricot" deviceset="POGO_TH001" device=""/>
+<part name="U$5" library="apricot" deviceset="POGO_TH001" device=""/>
 <part name="U1" library="lul" deviceset="LUL_DISP_OLED_UG-2864HSWEG01" device=""/>
 <part name="GND26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -4711,7 +4705,7 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <label x="22.86" y="27.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="VBAT" class="0">
 <segment>
 <pinref part="BT1" gate="G$1" pin="+"/>
 <pinref part="JP1" gate="A" pin="1"/>

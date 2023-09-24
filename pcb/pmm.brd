@@ -225,6 +225,11 @@
 <text x="18.5932" y="-23.3866" size="1.9304" layer="25" align="center">RESET</text>
 <text x="2.4642" y="-17.4176" size="2.1844" layer="25" align="center">ON</text>
 <text x="9.3222" y="-17.4176" size="2.1844" layer="25" align="center">OFF</text>
+<rectangle x1="-7.239" y1="-17.272" x2="1.143" y2="-9.906" layer="16"/>
+<text x="32.893" y="-13.335" size="1.27" layer="25" align="center">PC</text>
+<text x="32.893" y="-15.875" size="1.27" layer="25" rot="R180" align="center">G</text>
+<text x="-16.891" y="-20.828" size="1.27" layer="25" rot="R90" align="center">LS</text>
+<text x="-14.3696" y="-20.4982" size="1.27" layer="25" rot="R270" align="center">GND</text>
 </plain>
 <libraries>
 <library name="clock">
@@ -463,8 +468,8 @@ INFINEON, www.infineon.com/cmc_upload/0/000/010/257/eh_db_5b.pdf</description>
 <description>Generated from &lt;b&gt;apricot.sch&lt;/b&gt;&lt;p&gt;
 by exp-lbrs.ulp</description>
 <packages>
-<package name="POGO_1.5">
-<pad name="P$1" x="0" y="0" drill="1.6" shape="long" rot="R90"/>
+<package name="POGO_1.8">
+<pad name="P$1" x="0" y="0" drill="1.9" diameter="2.1844" shape="long" rot="R90"/>
 </package>
 </packages>
 </library>
@@ -508,12 +513,6 @@ by exp-lbrs.ulp</description>
 <wire x1="14.3" y1="-3.5" x2="10.645" y2="-3.5" width="0.127" layer="51"/>
 <wire x1="14.3" y1="-3.5" x2="14.3" y2="3.5" width="0.127" layer="51"/>
 <wire x1="14.3" y1="3.5" x2="10.645" y2="3.5" width="0.127" layer="51"/>
-<polygon width="0.000009375" layer="29">
-<vertex x="-5.6" y="3.6"/>
-<vertex x="5.6" y="3.6"/>
-<vertex x="5.6" y="-3.6"/>
-<vertex x="-5.6" y="-3.6"/>
-</polygon>
 <wire x1="-14.3" y1="2.42" x2="-14.3" y2="3.5" width="0.127" layer="21"/>
 <wire x1="-14.3" y1="3.5" x2="-10.645" y2="3.5" width="0.127" layer="21"/>
 <wire x1="-14.3" y1="-2.42" x2="-14.3" y2="-3.5" width="0.127" layer="21"/>
@@ -979,7 +978,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="NAME" x="37.0074" y="-11.7769" size="0.8128" layer="25"/>
 </element>
 <element name="R5" library="joyAnalog" package="0805" value="5.1K" x="-11.1286" y="-20" smashed="yes" rot="R270">
-<attribute name="NAME" x="-11.9071" y="-19.9784" size="0.8128" layer="25" rot="R90"/>
+<attribute name="NAME" x="-12.1611" y="-20.4864" size="0.8128" layer="25" rot="R90"/>
 </element>
 <element name="U4" library="3pos_slide_switch" package="SOT23R_INFINEON" value="XC6206_DEV" x="34.036" y="-22.86" smashed="yes" rot="R270"/>
 <element name="C2" library="clock" package="0805" value="100nF" x="28.067" y="-7.874" smashed="yes">
@@ -988,9 +987,9 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="U$12" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="6.3" y="15.25" locked="yes" smashed="yes"/>
 <element name="U$1" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="10.3" y="3.5" locked="yes" smashed="yes"/>
 <element name="U$2" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="2.3" y="3.5" locked="yes" smashed="yes"/>
-<element name="U$3" library="apricot" package="POGO_1.5" value="POGO_1.5MM_HOLE" x="6.3" y="9.5" locked="yes" smashed="yes"/>
-<element name="U$4" library="apricot" package="POGO_1.5" value="POGO_1.5MM_HOLE" x="2.05" y="14" locked="yes" smashed="yes"/>
-<element name="U$5" library="apricot" package="POGO_1.5" value="POGO_1.5MM_HOLE" x="10.55" y="14" locked="yes" smashed="yes"/>
+<element name="U$3" library="apricot" package="POGO_1.8" value="POGO_TH001" x="6.3" y="9.5" locked="yes" smashed="yes"/>
+<element name="U$4" library="apricot" package="POGO_1.8" value="POGO_TH001" x="2.05" y="14" locked="yes" smashed="yes"/>
+<element name="U$5" library="apricot" package="POGO_1.8" value="POGO_TH001" x="10.55" y="14" locked="yes" smashed="yes"/>
 <element name="U1" library="lul" package="LUL_UG-2864HSWEG01_1.3_WRAPAROUND" value="" x="-24.384" y="-9.525" smashed="yes" rot="R90"/>
 <element name="R7" library="SparkFun-Passives" package="0805" value="390K" x="-27.559" y="-11.049" smashed="yes">
 <attribute name="NAME" x="-29.464" y="-10.795" size="0.8128" layer="25" rot="R180"/>
@@ -1047,7 +1046,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="NAME" x="32.512" y="-17.5895" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="U$8" library="adafruit_changed" package="1X02" value="PINHD1X2" x="34.671" y="-14.605" smashed="yes" rot="R90"/>
-<element name="U$9" library="adafruit_changed" package="1X02" value="PINHD1X2" x="-18.161" y="-23.368" smashed="yes"/>
+<element name="U$9" library="adafruit_changed" package="1X02" value="PINHD1X2" x="-15.621" y="-23.368" smashed="yes"/>
 <element name="C3" library="clock" package="0805" value="1uF" x="30.861" y="-22.86" smashed="yes" rot="R270">
 <attribute name="NAME" x="29.0195" y="-22.352" size="0.8128" layer="25" rot="R270"/>
 </element>
@@ -1160,8 +1159,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="-5.89" y1="-18.875" x2="-5.842" y2="-18.923" width="0.508" layer="1"/>
 <wire x1="-3.6" y1="-18.875" x2="-5.794" y2="-18.875" width="0.508" layer="1"/>
 <wire x1="-5.794" y1="-18.875" x2="-5.842" y2="-18.923" width="0.508" layer="1"/>
-<wire x1="-28.829" y1="-20.066" x2="-28.829" y2="-10.795" width="0.508" layer="16"/>
-<wire x1="-28.829" y1="-10.795" x2="-30.48" y2="-9.144" width="0.508" layer="16"/>
 <contactref element="JP1" pad="2"/>
 <contactref element="C2" pad="2"/>
 <wire x1="0.1524" y1="-21.8694" x2="4.8036" y2="-21.8694" width="0.508" layer="16"/>
@@ -1192,6 +1189,9 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="28.25" y1="-17.343" x2="27.9654" y2="-17.6276" width="0.1524" layer="1"/>
 <wire x1="28.25" y1="-9.088" x2="28.967" y2="-8.371" width="0.2032" layer="1"/>
 <wire x1="28.967" y1="-8.371" x2="28.967" y2="-7.874" width="0.2032" layer="1"/>
+<wire x1="-30.48" y1="-9.144" x2="-27.813" y2="-9.144" width="0.508" layer="16"/>
+<wire x1="-26.797" y1="-10.16" x2="-26.797" y2="-20.066" width="0.508" layer="16"/>
+<wire x1="-27.813" y1="-9.144" x2="-26.797" y2="-10.16" width="0.508" layer="16"/>
 </signal>
 <signal name="USB_DP">
 <contactref element="U2" pad="A6"/>
@@ -1291,11 +1291,11 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="0.211" y1="-21.125" x2="-3.6" y2="-21.125" width="0.1524" layer="1"/>
 <wire x1="24.765" y1="-20.066" x2="11.557" y2="-20.066" width="0.1524" layer="1"/>
 <wire x1="10.287" y1="-18.796" x2="8.255" y2="-18.796" width="0.1524" layer="1"/>
-<wire x1="1.057" y1="-21.971" x2="0.211" y2="-21.125" width="0.1524" layer="1"/>
-<wire x1="1.057" y1="-21.971" x2="6.985" y2="-21.971" width="0.1524" layer="1"/>
-<wire x1="8.255" y1="-18.796" x2="7.7724" y2="-19.2786" width="0.1524" layer="1"/>
-<wire x1="7.7724" y1="-21.1836" x2="6.985" y2="-21.971" width="0.1524" layer="1"/>
-<wire x1="7.7724" y1="-19.2786" x2="7.7724" y2="-21.1836" width="0.1524" layer="1"/>
+<wire x1="1.1332" y1="-22.0472" x2="0.211" y2="-21.125" width="0.1524" layer="1"/>
+<wire x1="1.1332" y1="-22.0472" x2="7.2898" y2="-22.0472" width="0.1524" layer="1"/>
+<wire x1="8.255" y1="-18.796" x2="7.747" y2="-19.304" width="0.1524" layer="1"/>
+<wire x1="7.747" y1="-21.59" x2="7.2898" y2="-22.0472" width="0.1524" layer="1"/>
+<wire x1="7.747" y1="-19.304" x2="7.747" y2="-21.59" width="0.1524" layer="1"/>
 </signal>
 <signal name="N$5">
 <contactref element="LED1" pad="C"/>
@@ -1450,21 +1450,22 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="J2" pad="3"/>
 <contactref element="U$9" pad="1"/>
 <wire x1="-27.813" y1="-18.251" x2="-27.813" y2="-21.844" width="0.2032" layer="1"/>
-<wire x1="-26.289" y1="-23.368" x2="-19.431" y2="-23.368" width="0.2032" layer="1"/>
+<wire x1="-26.289" y1="-23.368" x2="-16.891" y2="-23.368" width="0.2032" layer="1"/>
 <wire x1="-27.813" y1="-21.844" x2="-26.289" y2="-23.368" width="0.2032" layer="1"/>
-<wire x1="-19.431" y1="-23.368" x2="-13.589" y2="-17.526" width="0.1524" layer="1"/>
-<wire x1="-13.589" y1="-17.526" x2="-1.143" y2="-17.526" width="0.1524" layer="1"/>
-<wire x1="-1.143" y1="-17.526" x2="2.794" y2="-21.463" width="0.1524" layer="1"/>
-<wire x1="2.794" y1="-21.463" x2="6.858" y2="-21.463" width="0.1524" layer="1"/>
+<wire x1="-16.891" y1="-23.368" x2="-16.891" y2="-21.336" width="0.1524" layer="1"/>
+<wire x1="-13.208" y1="-17.653" x2="-16.891" y2="-21.336" width="0.1524" layer="1"/>
+<wire x1="-13.208" y1="-17.653" x2="-1.016" y2="-17.653" width="0.1524" layer="1"/>
+<wire x1="-1.016" y1="-17.653" x2="2.9972" y2="-21.6662" width="0.1524" layer="1"/>
+<wire x1="2.9972" y1="-21.6662" x2="7.0358" y2="-21.6662" width="0.1524" layer="1"/>
 <wire x1="10.668" y1="-14.986" x2="26.162" y2="-14.986" width="0.1524" layer="1"/>
-<wire x1="6.858" y1="-21.463" x2="7.3914" y2="-20.9296" width="0.1524" layer="1"/>
-<wire x1="7.3914" y1="-20.9296" x2="7.3914" y2="-18.2626" width="0.1524" layer="1"/>
+<wire x1="7.0358" y1="-21.6662" x2="7.3914" y2="-21.3106" width="0.1524" layer="1"/>
+<wire x1="7.3914" y1="-21.3106" x2="7.3914" y2="-18.2626" width="0.1524" layer="1"/>
 <wire x1="7.3914" y1="-18.2626" x2="10.668" y2="-14.986" width="0.1524" layer="1"/>
 <contactref element="IC3" pad="2"/>
 <wire x1="26.162" y1="-14.986" x2="26.3" y2="-15.124" width="0.1524" layer="1"/>
 <wire x1="26.3" y1="-15.124" x2="26.3" y2="-15.8718" width="0.1524" layer="1"/>
 </signal>
-<signal name="N$1">
+<signal name="VBAT">
 <contactref element="BT1" pad="+"/>
 <contactref element="JP1" pad="1"/>
 <wire x1="-3.1" y1="-13.5" x2="3.76" y2="-20.36" width="0.508" layer="16"/>
@@ -1525,6 +1526,12 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <approved hash="4,16,fd4db1e003d7e8df"/>
 <approved hash="4,16,e5d7027a5d65ceec"/>
 <approved hash="4,16,bed7ee47d2ae8dc0"/>
+<approved hash="19,16,1963f6c94da2364c"/>
+<approved hash="19,16,cc89deffd117a17f"/>
+<approved hash="4,1,5c8852c50b71923b"/>
+<approved hash="4,1,469f14368434419a"/>
+<approved hash="4,16,5c8852c50b71923b"/>
+<approved hash="4,16,469f14368434419a"/>
 </errors>
 </board>
 </drawing>
