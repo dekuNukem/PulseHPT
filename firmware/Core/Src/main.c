@@ -22,7 +22,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ssd1306.h"
+#include "ssd1306_tests.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -105,12 +106,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	printf("hello world\r\n");
   while (1)
   {
     /* USER CODE END WHILE */
-		
-		printf("hello world\r\n");
 		HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
+		ssd1306_TestAll();
 		HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */

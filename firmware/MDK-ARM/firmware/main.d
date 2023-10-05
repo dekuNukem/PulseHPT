@@ -33,3 +33,7 @@ firmware\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_spi_ex.h
 firmware\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h
 firmware\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h
 firmware\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+firmware\main.o: ../Core/Inc/ssd1306.h
+firmware\main.o: ../Core/Inc/ssd1306_conf.h
+firmware\main.o: ../Core/Inc/ssd1306_fonts.h
+firmware\main.o: ../Core/Inc/ssd1306_tests.h

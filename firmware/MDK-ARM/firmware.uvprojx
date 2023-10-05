@@ -410,6 +410,41 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f0xx_hal_msp.c</FilePath>
             </File>
+            <File>
+              <FileName>ssd1306.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ssd1306.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306_fonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ssd1306_fonts.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306_tests.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ssd1306_tests.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ssd1306.h</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306_fonts.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ssd1306_fonts.h</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306_tests.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ssd1306_tests.h</FilePath>
+            </File>
+            <File>
+              <FileName>ssd1306_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ssd1306_conf.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
