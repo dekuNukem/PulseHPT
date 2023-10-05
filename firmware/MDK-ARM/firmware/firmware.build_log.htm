@@ -34,7 +34,7 @@ compiling main.c...
   void ssd1306_TestRectangleFill();
 ../Core/Src/main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=16072 RO-data=7256 RW-data=40 ZI-data=2384  
+Program Size: Code=18668 RO-data=7276 RW-data=52 ZI-data=2636  
 FromELF: creating hex file...
 "firmware\firmware.axf" - 0 Error(s), 2 Warning(s).
 
@@ -45,6 +45,15 @@ Package Vendor: ARM
                 ARM.CMSIS.5.6.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
    * Component: CORE Version: 5.3.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.ARM_Compiler.1.6.2.pack
+                Keil.ARM_Compiler.1.6.2
+                Keil ARM Compiler extensions for ARM Compiler 5 and ARM Compiler 6
+   * Component: STDERR Variant: Breakpoint Version: 1.2.0
+   * Component: STDIN Variant: User Version: 1.2.0
+   * Component: STDOUT Variant: User Version: 1.2.0
+   * Component: TTY Variant: User Version: 1.2.0
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F0xx_DFP.2.1.1.pack
@@ -59,7 +68,26 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.3.0
-Build Time Elapsed:  00:00:03
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDERR:Breakpoint:1.2.0
+      Source file:   Source\retarget_io.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDIN:User:1.2.0
+      Source file:   Template\stdin_USART.c
+      Source file:   Template\stdin_user.c
+      Source file:   Template\stdin_keyboard.c
+      Source file:   Source\retarget_io.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
+      Source file:   Source\retarget_io.c
+      Source file:   Template\stdout_user.c
+      Source file:   Template\stdout_display.c
+      Source file:   Template\stdout_USART.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:TTY:User:1.2.0
+      Source file:   Source\retarget_io.c
+      Source file:   Template\tty_user.c
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

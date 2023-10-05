@@ -18,17 +18,16 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include "ssd1306.h"
 #include "ssd1306_tests.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -52,6 +51,18 @@ int fputc(int ch, FILE *f)
 {
     HAL_UART_Transmit(&huart2, (unsigned char *)&ch, 1, 100);
     return ch;
+}
+
+int stdin_getchar (void)
+{
+  return 0;
+}
+
+int stdout_putchar (int ch) {
+  return 0;
+}
+void ttywrch (int ch) {
+  return;
 }
 
 /* USER CODE END PV */
@@ -110,11 +121,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-		HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
-		ssd1306_TestAll();
-		HAL_Delay(1000);
 
     /* USER CODE BEGIN 3 */
+    HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
+    ssd1306_TestAll();
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }

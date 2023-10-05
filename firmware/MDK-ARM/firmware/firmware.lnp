@@ -1,11 +1,11 @@
 --cpu Cortex-M0
 "firmware\startup_stm32f042x6.o"
-"firmware\main.o"
-"firmware\stm32f0xx_it.o"
-"firmware\stm32f0xx_hal_msp.o"
 "firmware\ssd1306.o"
 "firmware\ssd1306_fonts.o"
 "firmware\ssd1306_tests.o"
+"firmware\main.o"
+"firmware\stm32f0xx_it.o"
+"firmware\stm32f0xx_hal_msp.o"
 "firmware\stm32f0xx_hal_spi.o"
 "firmware\stm32f0xx_hal_spi_ex.o"
 "firmware\stm32f0xx_hal_rcc.o"
@@ -26,6 +26,7 @@
 "firmware\stm32f0xx_hal_uart.o"
 "firmware\stm32f0xx_hal_uart_ex.o"
 "firmware\system_stm32f0xx.o"
+"firmware\retarget_io.o"
 --strict --scatter "firmware\firmware.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
