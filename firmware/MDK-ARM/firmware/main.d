@@ -36,4 +36,3 @@ firmware\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 firmware\main.o: ../Core/Inc/ssd1306.h
 firmware\main.o: ../Core/Inc/ssd1306_conf.h
 firmware\main.o: ../Core/Inc/ssd1306_fonts.h
-firmware\main.o: ../Core/Inc/ssd1306_tests.h

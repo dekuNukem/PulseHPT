@@ -23,7 +23,6 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "ssd1306.h"
-#include "ssd1306_tests.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -124,7 +123,6 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
-    ssd1306_TestAll();
     HAL_Delay(1000);
   }
   /* USER CODE END 3 */
