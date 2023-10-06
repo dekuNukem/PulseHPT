@@ -100,13 +100,22 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-
-  if(GPIO_Pin == GPIO_PIN_1)
-    printf("HOTSHOE: %d\n", micros());
-  else if(GPIO_Pin == GPIO_PIN_0)
-    printf("LIGHT SENSOR: %d\n", micros());
-  else if(GPIO_Pin == GPIO_PIN_4)
-    printf("PC SOCKET: %d\n", micros());
+  uint16_t pin_state;
+  if(GPIO_Pin == HOTSHOE_Pin)
+  {
+    pin_state = HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin;
+    printf("HOTSHOE: %x %d\n", pin_state, micros());
+  }
+  else if(GPIO_Pin == LIGHT_SENSOR_Pin)
+  {
+    pin_state = LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin;
+    printf("LIGHT SENSOR: %x %d\n", pin_state, micros());
+  }
+  else if(GPIO_Pin == PC_SYNC_Pin)
+  {
+    pin_state = PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin;
+    printf("PC SOCKET: %x %d\n", pin_state, micros());
+  }
 }
 /* USER CODE END 0 */
 
