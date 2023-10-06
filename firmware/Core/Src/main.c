@@ -77,7 +77,10 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  printf("EXTI %d\n", GPIO_Pin);
+}
 /* USER CODE END 0 */
 
 /**
@@ -116,7 +119,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	printf("hello world\r\n");
+	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
   while (1)
   {
     /* USER CODE END WHILE */
