@@ -23,12 +23,13 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "ssd1306.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
-#define TRIGGER_HISTORY_SIZE 16
+#define TRIGGER_HISTORY_SIZE 8
 
 typedef struct
 {
@@ -98,24 +99,57 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+uint8_t fill_trigger_log(trigger_history_buf* thb, uint16_t pinstate)
+{
+  uint32_t* target_buf = thb->down_edge;
+  if(pinstate)
+    target_buf = thb->up_edge;
+  uint16_t i;
+  for (i = 0; i < TRIGGER_HISTORY_SIZE; i++)
+  {
+    if(target_buf[i] == 0)
+    {
+      target_buf[i] = micros();
+      break;
+    }
+  }
+  return i == (TRIGGER_HISTORY_SIZE-1);
+}
+
+void trigger_log_reset(trigger_history_buf* thb)
+{
+  memset(thb->down_edge, 0, TRIGGER_HISTORY_SIZE);
+  memset(thb->up_edge, 0, TRIGGER_HISTORY_SIZE);
+}
+
+void print_thb(trigger_history_buf* thb)
+{
+  printf("vvvvvvvvvvv\n");
+  for (uint16_t i = 0; i < TRIGGER_HISTORY_SIZE; ++i)
+    printf("%02d  %010ld  %010ld\n", i, thb->down_edge[i], thb->up_edge[i]);
+  printf("^^^^^^^^^^^\n");
+}
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   uint16_t pin_state;
   if(GPIO_Pin == HOTSHOE_Pin)
   {
     pin_state = HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin;
-    printf("HOTSHOE: %x %d\n", pin_state, micros());
+    // printf("HOTSHOE: %x %d\n", pin_state, micros());
+    fill_trigger_log(&hotshoe_thb, pin_state);
   }
-  else if(GPIO_Pin == LIGHT_SENSOR_Pin)
-  {
-    pin_state = LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin;
-    printf("LIGHT SENSOR: %x %d\n", pin_state, micros());
-  }
-  else if(GPIO_Pin == PC_SYNC_Pin)
-  {
-    pin_state = PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin;
-    printf("PC SOCKET: %x %d\n", pin_state, micros());
-  }
+  // else if(GPIO_Pin == LIGHT_SENSOR_Pin)
+  // {
+  //   pin_state = LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin;
+  //   printf("LIGHT SENSOR: %x %d\n", pin_state, micros());
+  // }
+  // else if(GPIO_Pin == PC_SYNC_Pin)
+  // {
+  //   pin_state = PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin;
+  //   printf("PC SOCKET: %x %d\n", pin_state, micros());
+  // }
 }
 /* USER CODE END 0 */
 
@@ -151,9 +185,11 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start(&htim2);
+  trigger_log_reset(&hotshoe_thb);
 
   /* USER CODE END 2 */
-  HAL_TIM_Base_Start(&htim2);
+  
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -165,6 +201,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
     HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
     HAL_Delay(1000);
+    print_thb(&hotshoe_thb);
   }
   /* USER CODE END 3 */
 }
