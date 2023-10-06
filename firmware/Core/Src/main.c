@@ -27,10 +27,24 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
+#define TRIGGER_HISTORY_SIZE 16
+
+typedef struct
+{
+  uint32_t down_edge[TRIGGER_HISTORY_SIZE];
+  uint32_t up_edge[TRIGGER_HISTORY_SIZE];
+} trigger_history_buf;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+#define STATE_IDLE 0
+#define STATE_IN_PROGRESS 1
+
+uint8_t current_state;
 
 /* USER CODE END PD */
 
@@ -68,6 +82,8 @@ void ttywrch (int ch) {
   return;
 }
 
+trigger_history_buf hotshoe_thb;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -84,7 +100,13 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN 0 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  printf("EXTI %d: %d\n", GPIO_Pin, micros());
+
+  if(GPIO_Pin == GPIO_PIN_1)
+    printf("HOTSHOE: %d\n", micros());
+  else if(GPIO_Pin == GPIO_PIN_0)
+    printf("LIGHT SENSOR: %d\n", micros());
+  else if(GPIO_Pin == GPIO_PIN_4)
+    printf("PC SOCKET: %d\n", micros());
 }
 /* USER CODE END 0 */
 
