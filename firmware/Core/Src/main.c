@@ -108,8 +108,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
-
-void sss_update(shutter_state_machine* sss, uint16_t pin_state)
+uint8_t sss_update(shutter_state_machine* sss, uint16_t pin_state)
 {
   if(sss->current_state == SHUTTER_STATE_IDLE && pin_state == PIN_STATE_ACTIVATE)
   {
@@ -131,15 +130,14 @@ void sss_update(shutter_state_machine* sss, uint16_t pin_state)
   }
   else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->trigger_ts > 10 * 1000 * 1000)
   {
-    printf("TIMEOUT!\n");
-    reset_sss(sss);
+    sss->current_state = SHUTTER_STATE_TIMEOUT;
   }
   else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->release_ts > 500*1000)
   {
-    printf("Duration: %ldms Bounce: %d\n", sss->release_ts - sss->trigger_ts/1000, sss->bounce_count);
-    reset_sss(sss);
+    sss->duration = sss->release_ts - sss->trigger_ts;
+    sss->current_state = SHUTTER_STATE_RESULT_AVAILABLE;
   }
-
+  return sss->current_state;
 }
 
 uint8_t pinstate_translate(uint16_t idr_value)
@@ -203,14 +201,28 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  uint8_t hotshoe_result;
+
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_Delay(20);
-    sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
+    // HAL_Delay(20);
+    hotshoe_result = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
+
+    if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
+    {
+      printf("Duration: %ldms\nBounce: %d\n---\n", hotshoe_sss.duration/1000, hotshoe_sss.bounce_count);
+      reset_sss(&hotshoe_sss);
+    }
+    else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
+    {
+      printf("TIMEOUT!\n");
+      reset_sss(&hotshoe_sss);
+    }
   }
   /* USER CODE END 3 */
 }
