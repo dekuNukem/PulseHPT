@@ -30,11 +30,13 @@ Build target 'firmware'
 compiling main.c...
 ../Core/Inc/ssd1306.h(181): warning:  #1295-D: Deprecated declaration ssd1306_GetDisplayOn - give arg types
   uint8_t ssd1306_GetDisplayOn();
-../Core/Src/main.c: 1 warning, 0 errors
+../Core/Src/main.c(165): warning:  #188-D: enumerated type mixed with another type
+      HAL_GPIO_WritePin(USER_LED_GPIO_Port, USER_LED_Pin, !hotshoe_level);
+../Core/Src/main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=9722 RO-data=306 RW-data=28 ZI-data=2212  
+Program Size: Code=16568 RO-data=5928 RW-data=52 ZI-data=2756  
 FromELF: creating hex file...
-"firmware\firmware.axf" - 0 Error(s), 1 Warning(s).
+"firmware\firmware.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 

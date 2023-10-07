@@ -1,3 +1,22 @@
+HSHOE
+PC
+LIGHT
+
+void print_hotshoe(void) //shutter_state_machine* sss
+{
+  ssd1306_Fill(Black);
+  ssd1306_SetCursor(0, 0);
+  ssd1306_WriteString("Hotshoe", Font_7x10, White);
+  ssd1306_SetCursor(0, 11);
+  ssd1306_WriteString("13.54ms", Font_7x10, White);
+  ssd1306_SetCursor(0, 22);
+  ssd1306_WriteString("1/44S", Font_7x10, White);
+
+  ssd1306_Line(64,0,64,32,White);
+
+  ssd1306_UpdateScreen();
+}
+
 // bounce:
 
 // vvvvvvvvvvv

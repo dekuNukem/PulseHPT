@@ -108,31 +108,34 @@ static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
+#define SHUTTER_TIMEOUT_SEC 10
+#define SHUTTER_BOUNCE_TIMEOUT_MS 250
+
 uint8_t sss_update(shutter_state_machine* sss, uint16_t pin_state)
 {
   if(sss->current_state == SHUTTER_STATE_IDLE && pin_state == PIN_STATE_ACTIVATE)
   {
-    printf("1\n");
+    // printf("1\n");
     sss->current_state = SHUTTER_STATE_TRIGGERED;
     sss->trigger_ts = micros();
   }
   else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_RELEASE)
   {
-    printf("2\n");
+    // printf("2\n");
     sss->current_state = SHUTTER_STATE_BOUNCE_DETECT;
     sss->release_ts = micros();
   }
   else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_ACTIVATE)
   {
-    printf("3\n");
+    // printf("3\n");
     sss->current_state = SHUTTER_STATE_TRIGGERED;
     sss->bounce_count++;
   }
-  else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->trigger_ts > 10 * 1000 * 1000)
+  else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->trigger_ts > SHUTTER_TIMEOUT_SEC * 1000 * 1000)
   {
     sss->current_state = SHUTTER_STATE_TIMEOUT;
   }
-  else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->release_ts > 500*1000)
+  else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->release_ts > SHUTTER_BOUNCE_TIMEOUT_MS*1000)
   {
     sss->duration = sss->release_ts - sss->trigger_ts;
     sss->current_state = SHUTTER_STATE_RESULT_AVAILABLE;
@@ -157,9 +160,91 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == HOTSHOE_Pin)
   {
-    sss_update(&hotshoe_sss, pinstate_translate(HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin));
+    uint16_t hotshoe_level = HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin;
+    sss_update(&hotshoe_sss, pinstate_translate(hotshoe_level));
+    HAL_GPIO_WritePin(USER_LED_GPIO_Port, USER_LED_Pin, !hotshoe_level);
   }
 }
+
+uint8_t fw_version_major = 0;
+uint8_t fw_version_minor = 1;
+uint8_t fw_version_patch = 0;
+
+#define TEMP_BUF_SIZE 32
+char temp_str_buf[TEMP_BUF_SIZE];
+
+void print_bootscreen(void)
+{
+  sprintf(temp_str_buf, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
+  ssd1306_Fill(Black);
+  ssd1306_SetCursor(20, 0);
+  ssd1306_WriteString("PulseHPT", Font_11x18, White);
+  ssd1306_SetCursor(2, 20);
+  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
+  ssd1306_UpdateScreen();
+}
+
+void print_ready(void)
+{
+  ssd1306_Fill(Black);
+  ssd1306_SetCursor(40, 0);
+  ssd1306_WriteString("READY", Font_11x18, White);
+  ssd1306_SetCursor(2, 20);
+  ssd1306_WriteString("Info: PulseHPT.com", Font_7x10, White);
+  ssd1306_UpdateScreen();
+}
+
+void format_usec(char* buf, uint32_t time_micros) 
+{
+  if (time_micros >= 1000000) // More than 1 second
+    sprintf(buf, "%.2fs", time_micros / 1000000.0);
+  else if (time_micros >= 10000) // More than 10 milliseconds
+    sprintf(buf, "%ums", time_micros / 1000);
+  else if (time_micros >= 1000) // Between 1 and 10 milliseconds
+    sprintf(buf, "%.2fms", time_micros / 1000.0);
+  else // Less than 1 millisecond
+    sprintf(buf, "%uus", time_micros);
+}
+
+float usec_to_fraction(uint32_t usec) 
+{
+  if(usec == 0)
+    return 0;
+  return 1000000.0 / usec;
+}
+
+void format_fraction(char* buf, uint32_t time_micros) 
+{
+  float fraction = 0;
+  if(time_micros != 0)
+    fraction = 1000000.0 / time_micros;
+
+  if (fraction >= 10)
+    sprintf(buf, "1/%.0f", fraction);
+  else
+    sprintf(buf, "1/%.1f", fraction);
+}
+
+
+void print_hotshoe(shutter_state_machine* sss)
+{
+  ssd1306_Fill(Black);
+  ssd1306_SetCursor(0, 7);
+  ssd1306_WriteString("HSHOE", Font_11x18, White);
+  ssd1306_Line(62,0,62,32,White);
+
+  format_usec(temp_str_buf, sss->duration);
+  ssd1306_SetCursor(70, 4);
+  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
+
+  memset(temp_str_buf, 0, TEMP_BUF_SIZE);
+  format_fraction(temp_str_buf, sss->duration);
+  ssd1306_SetCursor(70, 18);
+  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
+
+  ssd1306_UpdateScreen();
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -194,6 +279,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  ssd1306_Init();
   HAL_TIM_Base_Start(&htim2);
   reset_sss(&hotshoe_sss);
   /* USER CODE END 2 */
@@ -203,8 +289,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   uint8_t hotshoe_result;
-
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
+  // print_bootscreen();
+  // HAL_Delay(2000);
+  // print_ready();
+  // print_hotshoe();
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -215,7 +305,8 @@ int main(void)
 
     if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
     {
-      printf("Duration: %ldms\nBounce: %d\n---\n", hotshoe_sss.duration/1000, hotshoe_sss.bounce_count);
+      printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_sss.duration, hotshoe_sss.bounce_count);
+      print_hotshoe(&hotshoe_sss);
       reset_sss(&hotshoe_sss);
     }
     else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
