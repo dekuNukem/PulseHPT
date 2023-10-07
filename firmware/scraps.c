@@ -11,10 +11,30 @@
 // 07  0000000000  0000000000
 // ^^^^^^^^^^^
 
+    // HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
+    // HAL_Delay(1000);
 
 
-
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  uint16_t pin_state;
+  if(GPIO_Pin == HOTSHOE_Pin)
+  {
+    pin_state = HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin;
+    // printf("HOTSHOE: %x %d\n", pin_state, micros());
+    fill_trigger_log(&hotshoe_thb, pin_state);
+  }
+  // else if(GPIO_Pin == LIGHT_SENSOR_Pin)
+  // {
+  //   pin_state = LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin;
+  //   printf("LIGHT SENSOR: %x %d\n", pin_state, micros());
+  // }
+  // else if(GPIO_Pin == PC_SYNC_Pin)
+  // {
+  //   pin_state = PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin;
+  //   printf("PC SOCKET: %x %d\n", pin_state, micros());
+  // }
+}
 
 
 

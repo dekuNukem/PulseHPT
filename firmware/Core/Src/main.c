@@ -28,24 +28,49 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
-#define TRIGGER_HISTORY_SIZE 8
-
-typedef struct
+int stdin_getchar (void)
 {
-  uint32_t down_edge[TRIGGER_HISTORY_SIZE];
-  uint32_t up_edge[TRIGGER_HISTORY_SIZE];
-} trigger_history_buf;
+  return 0;
+}
 
+int stdout_putchar (int ch) {
+  return 0;
+}
+void ttywrch (int ch) {
+  return;
+}
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define STATE_IDLE 0
-#define STATE_IN_PROGRESS 1
+#define SHUTTER_STATE_IDLE 0
+#define SHUTTER_STATE_TRIGGERED 1
+#define SHUTTER_STATE_BOUNCE_DETECT 2
+#define SHUTTER_STATE_TIMEOUT 3
+#define SHUTTER_STATE_RESULT_AVAILABLE 4
 
-uint8_t current_state;
+#define PIN_STATE_NO_CHANGE 0
+#define PIN_STATE_ACTIVATE 1
+#define PIN_STATE_RELEASE 2
+
+typedef struct
+{
+  uint32_t current_state;
+  uint32_t trigger_ts;
+  uint32_t release_ts;
+  uint32_t duration;
+  uint32_t bounce_count;
+} shutter_state_machine;
+
+void reset_sss(shutter_state_machine* sss)
+{
+  sss->current_state = SHUTTER_STATE_IDLE;
+  sss->trigger_ts = 0;
+  sss->release_ts = 0;
+  sss->duration = 0;
+  sss->bounce_count = 0;
+}
 
 /* USER CODE END PD */
 
@@ -71,19 +96,7 @@ int fputc(int ch, FILE *f)
     return ch;
 }
 
-int stdin_getchar (void)
-{
-  return 0;
-}
-
-int stdout_putchar (int ch) {
-  return 0;
-}
-void ttywrch (int ch) {
-  return;
-}
-
-trigger_history_buf hotshoe_thb;
+shutter_state_machine hotshoe_sss;
 
 /* USER CODE END PV */
 
@@ -95,61 +108,59 @@ static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
+
+void sss_update(shutter_state_machine* sss, uint16_t pin_state)
+{
+  if(sss->current_state == SHUTTER_STATE_IDLE && pin_state == PIN_STATE_ACTIVATE)
+  {
+    printf("1\n");
+    sss->current_state = SHUTTER_STATE_TRIGGERED;
+    sss->trigger_ts = micros();
+  }
+  else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_RELEASE)
+  {
+    printf("2\n");
+    sss->current_state = SHUTTER_STATE_BOUNCE_DETECT;
+    sss->release_ts = micros();
+  }
+  else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_ACTIVATE)
+  {
+    printf("3\n");
+    sss->current_state = SHUTTER_STATE_TRIGGERED;
+    sss->bounce_count++;
+  }
+  else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->trigger_ts > 10 * 1000 * 1000)
+  {
+    printf("TIMEOUT!\n");
+    reset_sss(sss);
+  }
+  else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->release_ts > 500*1000)
+  {
+    printf("Duration: %ldms Bounce: %d\n", sss->release_ts - sss->trigger_ts/1000, sss->bounce_count);
+    reset_sss(sss);
+  }
+
+}
+
+uint8_t pinstate_translate(uint16_t idr_value)
+{
+  if(idr_value == 0)
+    return PIN_STATE_ACTIVATE;
+  else
+    return PIN_STATE_RELEASE;
+}
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint8_t fill_trigger_log(trigger_history_buf* thb, uint16_t pinstate)
-{
-  uint32_t* target_buf = thb->down_edge;
-  if(pinstate)
-    target_buf = thb->up_edge;
-  uint16_t i;
-  for (i = 0; i < TRIGGER_HISTORY_SIZE; i++)
-  {
-    if(target_buf[i] == 0)
-    {
-      target_buf[i] = micros();
-      break;
-    }
-  }
-  return i == (TRIGGER_HISTORY_SIZE-1);
-}
-
-void trigger_log_reset(trigger_history_buf* thb)
-{
-  memset(thb->down_edge, 0, TRIGGER_HISTORY_SIZE);
-  memset(thb->up_edge, 0, TRIGGER_HISTORY_SIZE);
-}
-
-void print_thb(trigger_history_buf* thb)
-{
-  printf("vvvvvvvvvvv\n");
-  for (uint16_t i = 0; i < TRIGGER_HISTORY_SIZE; ++i)
-    printf("%02d  %010ld  %010ld\n", i, thb->down_edge[i], thb->up_edge[i]);
-  printf("^^^^^^^^^^^\n");
-}
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  uint16_t pin_state;
   if(GPIO_Pin == HOTSHOE_Pin)
   {
-    pin_state = HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin;
-    // printf("HOTSHOE: %x %d\n", pin_state, micros());
-    fill_trigger_log(&hotshoe_thb, pin_state);
+    sss_update(&hotshoe_sss, pinstate_translate(HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin));
   }
-  // else if(GPIO_Pin == LIGHT_SENSOR_Pin)
-  // {
-  //   pin_state = LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin;
-  //   printf("LIGHT SENSOR: %x %d\n", pin_state, micros());
-  // }
-  // else if(GPIO_Pin == PC_SYNC_Pin)
-  // {
-  //   pin_state = PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin;
-  //   printf("PC SOCKET: %x %d\n", pin_state, micros());
-  // }
 }
 /* USER CODE END 0 */
 
@@ -186,8 +197,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start(&htim2);
-  trigger_log_reset(&hotshoe_thb);
-
+  reset_sss(&hotshoe_sss);
   /* USER CODE END 2 */
   
 
@@ -199,9 +209,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
-    HAL_Delay(1000);
-    print_thb(&hotshoe_thb);
+    HAL_Delay(20);
+    sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
   }
   /* USER CODE END 3 */
 }
