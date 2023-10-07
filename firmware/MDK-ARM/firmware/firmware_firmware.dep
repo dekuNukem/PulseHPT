@@ -49,7 +49,7 @@ I (../Core/Inc/ssd1306_conf.h)(0x6520B2DB)
 F (..\Core\Inc\ssd1306.h)(0x651EB3A9)()
 F (..\Core\Inc\ssd1306_fonts.h)(0x651EB188)()
 F (..\Core\Inc\ssd1306_conf.h)(0x6520B2DB)()
-F (../Core/Src/main.c)(0x6520BFBC)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_firmware-IC:\Users\allen\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\allen\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.1\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F042x6 -DUSE_HAL_DRIVER -DSTM32F042x6-o firmware\main.o --omf_browse firmware\main.crf --depend firmware\main.d)
+F (../Core/Src/main.c)(0x6520C844)(--c99 -c --cpu Cortex-M0 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc -I ../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_firmware-IC:\Users\allen\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include-IC:\Users\allen\AppData\Local\Arm\Packs\Keil\STM32F0xx_DFP\2.1.1\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F042x6 -DUSE_HAL_DRIVER -DSTM32F042x6-o firmware\main.o --omf_browse firmware\main.crf --depend firmware\main.d)
 I (../Core/Inc/main.h)(0x651EAEB2)
 I (../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h)(0x651EAEAB)
 I (../Core/Inc/stm32f0xx_hal_conf.h)(0x65208E96)

@@ -109,7 +109,7 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 #define SHUTTER_TIMEOUT_SEC 10
-#define SHUTTER_BOUNCE_TIMEOUT_MS 250
+#define SHUTTER_BOUNCE_TIMEOUT_MS 333
 
 uint8_t sss_update(shutter_state_machine* sss, uint16_t pin_state)
 {
@@ -160,9 +160,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == HOTSHOE_Pin)
   {
-    uint16_t hotshoe_level = HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin;
-    sss_update(&hotshoe_sss, pinstate_translate(hotshoe_level));
-    HAL_GPIO_WritePin(USER_LED_GPIO_Port, USER_LED_Pin, !hotshoe_level);
+    sss_update(&hotshoe_sss, pinstate_translate(HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin));
+    // HAL_GPIO_WritePin(USER_LED_GPIO_Port, USER_LED_Pin, !hotshoe_level);
   }
 }
 
@@ -224,7 +223,6 @@ void format_fraction(char* buf, uint32_t time_micros)
   else
     sprintf(buf, "1/%.1f", fraction);
 }
-
 
 void print_hotshoe(shutter_state_machine* sss)
 {
@@ -300,19 +298,22 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    // HAL_Delay(20);
+    HAL_Delay(10);
     hotshoe_result = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
-
     if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
     {
+      __disable_irq();
       printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_sss.duration, hotshoe_sss.bounce_count);
       print_hotshoe(&hotshoe_sss);
       reset_sss(&hotshoe_sss);
+      __enable_irq();
     }
     else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
     {
+      __disable_irq();
       printf("TIMEOUT!\n");
       reset_sss(&hotshoe_sss);
+      __enable_irq();
     }
   }
   /* USER CODE END 3 */

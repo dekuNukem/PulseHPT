@@ -2,6 +2,15 @@ HSHOE
 PC
 LIGHT
 
+---
+Duration: 37us
+Bounce: 2
+---
+Duration: 324us
+Bounce: 6
+---
+
+
 void print_hotshoe(void) //shutter_state_machine* sss
 {
   ssd1306_Fill(Black);
