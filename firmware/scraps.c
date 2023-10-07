@@ -14,6 +14,15 @@ void delay_us(uint32_t delay)
   uint32_t end_time = micros() + delay;
   while(micros() < end_time);
 }
+  while(1)
+  {
+    // HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
+    USER_LED_GPIO_Port -> BSRR = USER_LED_Pin; // on?
+    HAL_Delay(100);
+    USER_LED_GPIO_Port -> BRR = USER_LED_Pin;
+    HAL_Delay(100);
+  }
+
 
 void print_hotshoe(void) //shutter_state_machine* sss
 {

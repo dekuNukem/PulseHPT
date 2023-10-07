@@ -146,9 +146,15 @@ uint8_t sss_update(shutter_state_machine* sss, uint16_t pin_state)
 uint8_t pinstate_translate(uint16_t idr_value)
 {
   if(idr_value == 0)
+  {
+    USER_LED_GPIO_Port -> BSRR = USER_LED_Pin;
     return PIN_STATE_ACTIVATE;
+  }
   else
+  {
+    USER_LED_GPIO_Port -> BRR = USER_LED_Pin;
     return PIN_STATE_RELEASE;
+  }
 }
 
 /* USER CODE END PFP */
@@ -290,8 +296,7 @@ int main(void)
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
   // print_bootscreen();
   // HAL_Delay(2000);
-  // print_ready();
-  // print_hotshoe();
+  print_ready();
 
   while (1)
   {
