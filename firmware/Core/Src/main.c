@@ -178,27 +178,6 @@ uint8_t fw_version_patch = 0;
 #define TEMP_BUF_SIZE 32
 char temp_str_buf[TEMP_BUF_SIZE];
 
-void print_bootscreen(void)
-{
-  sprintf(temp_str_buf, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
-  ssd1306_Fill(Black);
-  ssd1306_SetCursor(20, 0);
-  ssd1306_WriteString("PulseHPT", Font_11x18, White);
-  ssd1306_SetCursor(2, 20);
-  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
-  ssd1306_UpdateScreen();
-}
-
-void print_ready(void)
-{
-  ssd1306_Fill(Black);
-  ssd1306_SetCursor(40, 0);
-  ssd1306_WriteString("READY", Font_11x18, White);
-  ssd1306_SetCursor(2, 20);
-  ssd1306_WriteString("Info: PulseHPT.com", Font_7x10, White);
-  ssd1306_UpdateScreen();
-}
-
 void format_usec(char* buf, uint32_t time_micros) 
 {
   if (time_micros >= 1000000) // More than 1 second
@@ -206,7 +185,7 @@ void format_usec(char* buf, uint32_t time_micros)
   else if (time_micros >= 10000) // More than 10 milliseconds
     sprintf(buf, "%ums", time_micros / 1000);
   else if (time_micros >= 1000) // Between 1 and 10 milliseconds
-    sprintf(buf, "%.2fms", time_micros / 1000.0);
+    sprintf(buf, "%.1fms", time_micros / 1000.0);
   else // Less than 1 millisecond
     sprintf(buf, "%uus", time_micros);
 }
@@ -225,27 +204,61 @@ void format_fraction(char* buf, uint32_t time_micros)
     fraction = 1000000.0 / time_micros;
 
   if (fraction >= 10)
-    sprintf(buf, "1/%.0f", fraction);
+    sprintf(buf, "%.0f", fraction);
   else
-    sprintf(buf, "1/%.1f", fraction);
+    sprintf(buf, "%.1f", fraction);
 }
+
+uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels)
+{
+  int16_t start_pixel = (128 - line_len * char_width_pixels) / 2;
+  if(start_pixel < 0)
+    start_pixel = 0;
+  return start_pixel;
+}
+
+char* oled_str_hotshoe = "Hot shoe";
+char* oled_str_ready = "READY";
+char* oled_str_info = "Info: PulseHPT.com";
 
 void print_hotshoe(shutter_state_machine* sss)
 {
   ssd1306_Fill(Black);
-  ssd1306_SetCursor(0, 7);
-  ssd1306_WriteString("HSHOE", Font_11x18, White);
-  ssd1306_Line(62,0,62,32,White);
+  ssd1306_SetCursor(center_line(strlen(oled_str_hotshoe), 7), 0);
+  ssd1306_WriteString(oled_str_hotshoe, Font_7x10, White);
 
   format_usec(temp_str_buf, sss->duration);
-  ssd1306_SetCursor(70, 4);
-  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
+  ssd1306_SetCursor(0, 11);
+  ssd1306_WriteString(temp_str_buf, Font_11x18, White);
 
   memset(temp_str_buf, 0, TEMP_BUF_SIZE);
   format_fraction(temp_str_buf, sss->duration);
-  ssd1306_SetCursor(70, 18);
-  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
+  ssd1306_WriteString(" 1/", Font_7x10, White);
+  ssd1306_WriteString(temp_str_buf, Font_11x18, White);
 
+  ssd1306_UpdateScreen();
+}
+
+void print_ready(void)
+{
+  ssd1306_Fill(Black);
+  ssd1306_SetCursor(center_line(strlen(oled_str_ready), 11), 0);
+  ssd1306_WriteString(oled_str_ready, Font_11x18, White);
+  ssd1306_SetCursor(center_line(strlen(oled_str_info), 7), 20);
+  ssd1306_WriteString(oled_str_info, Font_7x10, White);
+  ssd1306_UpdateScreen();
+}
+
+char* oled_str_device_name = "PulseHPT";
+
+void print_bootscreen(void)
+{
+  sprintf(temp_str_buf, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
+  ssd1306_Fill(Black);
+  ssd1306_SetCursor(center_line(strlen(oled_str_device_name), 11), 0);
+  ssd1306_WriteString(oled_str_device_name, Font_11x18, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf), 7), 20);
+  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
   ssd1306_UpdateScreen();
 }
 
@@ -294,8 +307,8 @@ int main(void)
 
   uint8_t hotshoe_result;
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
-  // print_bootscreen();
-  // HAL_Delay(2000);
+  print_bootscreen();
+  HAL_Delay(2000);
   print_ready();
 
   while (1)
