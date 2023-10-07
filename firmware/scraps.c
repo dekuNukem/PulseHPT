@@ -9,7 +9,11 @@ Bounce: 2
 Duration: 324us
 Bounce: 6
 ---
-
+void delay_us(uint32_t delay)
+{
+  uint32_t end_time = micros() + delay;
+  while(micros() < end_time);
+}
 
 void print_hotshoe(void) //shutter_state_machine* sss
 {
