@@ -321,6 +321,7 @@ int main(void)
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
   // print_bootscreen();
   // HAL_Delay(2000);
+  // ssd1306_SetContrast(8);
   print_ready();
 
   while (1)
@@ -331,6 +332,10 @@ int main(void)
     HAL_Delay(10);
 
     pc_result = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
+    hotshoe_result = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
+
+
+
     if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
     {
       __disable_irq();
@@ -349,8 +354,6 @@ int main(void)
       __enable_irq();
     }
 
-
-    // hotshoe_result = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
     // if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
     // {
     //   __disable_irq();
