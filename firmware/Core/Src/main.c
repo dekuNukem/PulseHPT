@@ -77,6 +77,7 @@ void reset_sss(shutter_state_machine* sss)
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
+
 #define micros() (htim2.Instance->CNT)
 
 /* USER CODE END PM */
@@ -98,6 +99,7 @@ int fputc(int ch, FILE *f)
 
 shutter_state_machine hotshoe_sss;
 shutter_state_machine pc_sss;
+shutter_state_machine light_sensor_sss;
 
 
 /* USER CODE END PV */
@@ -111,7 +113,7 @@ static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
 #define SHUTTER_TIMEOUT_SEC 10
-#define SHUTTER_BOUNCE_TIMEOUT_MS 333
+#define SHUTTER_BOUNCE_TIMEOUT_MS 250
 
 uint8_t sss_update(shutter_state_machine* sss, uint16_t pin_state)
 {
@@ -170,6 +172,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     sss_update(&hotshoe_sss, pinstate_translate(HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin));
   if(GPIO_Pin == PC_SYNC_Pin)
     sss_update(&pc_sss, pinstate_translate(PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin));
+  if(GPIO_Pin == LIGHT_SENSOR_Pin)
+    sss_update(&light_sensor_sss, pinstate_translate(LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin));
 }
 
 uint8_t fw_version_major = 0;
@@ -221,6 +225,7 @@ uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels)
 
 char* oled_str_hotshoe = "Hot Shoe";
 char* oled_str_pc_socket = "PC Socket";
+char* oled_str_light_sensor = "Light Sensor";
 char* oled_str_ready = "READY";
 char* oled_str_info = "Info: PulseHPT.com";
 
@@ -273,6 +278,23 @@ void delay_us(uint32_t delay)
   while(micros() < end_time);
 }
 
+#define SSS_SOURCE_SIZE 3
+
+#define SSS_SOURCE_HOTSHOE 0
+#define SSS_SOURCE_PC 1
+#define SSS_SOURCE_LIGHT_SENSOR 2
+
+uint8_t sss_results[SSS_SOURCE_SIZE];
+
+uint8_t count_element(uint8_t* array, uint8_t arr_size, uint8_t value)
+{
+  uint8_t count = 0;
+  for (uint8_t i = 0; i < arr_size; i++)
+    if(array[i] == value)
+      count++;
+  return count;
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -311,13 +333,12 @@ int main(void)
   HAL_TIM_Base_Start(&htim2);
   reset_sss(&hotshoe_sss);
   reset_sss(&pc_sss);
+  reset_sss(&light_sensor_sss);
   /* USER CODE END 2 */
   
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  uint8_t hotshoe_result, pc_result;
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
   // print_bootscreen();
   // HAL_Delay(2000);
@@ -329,30 +350,32 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_Delay(10);
+    HAL_Delay(25);
 
-    pc_result = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
-    hotshoe_result = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
+    sss_results[SSS_SOURCE_HOTSHOE] = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
+    sss_results[SSS_SOURCE_PC] = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
+    sss_results[SSS_SOURCE_LIGHT_SENSOR] = sss_update(&light_sensor_sss, PIN_STATE_NO_CHANGE);
 
+    printf("%d %d %d\n", sss_results[SSS_SOURCE_HOTSHOE], sss_results[SSS_SOURCE_PC], sss_results[SSS_SOURCE_LIGHT_SENSOR]);
+    printf("%d\n---\n", count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE));
 
-
-    if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
-    {
-      __disable_irq();
-      printf("Duration: %ldus\nBounce: %d\n---\n", pc_sss.duration, pc_sss.bounce_count);
-      print_single_result(oled_str_pc_socket, &pc_sss);
-      delay_us(200*1000);
-      reset_sss(&pc_sss);
-      __enable_irq();
-    }
-    else if(pc_result == SHUTTER_STATE_TIMEOUT)
-    {
-      __disable_irq();
-      printf("PC TIMEOUT!\n");
-      delay_us(200*1000);
-      reset_sss(&pc_sss);
-      __enable_irq();
-    }
+    // if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
+    // {
+    //   __disable_irq();
+    //   printf("Duration: %ldus\nBounce: %d\n---\n", pc_sss.duration, pc_sss.bounce_count);
+    //   print_single_result(oled_str_pc_socket, &pc_sss);
+    //   delay_us(200*1000);
+    //   reset_sss(&pc_sss);
+    //   __enable_irq();
+    // }
+    // else if(pc_result == SHUTTER_STATE_TIMEOUT)
+    // {
+    //   __disable_irq();
+    //   printf("PC TIMEOUT!\n");
+    //   delay_us(200*1000);
+    //   reset_sss(&pc_sss);
+    //   __enable_irq();
+    // }
 
     // if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
     // {

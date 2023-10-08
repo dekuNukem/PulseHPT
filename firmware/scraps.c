@@ -1,7 +1,5 @@
-HSHOE
-PC
-LIGHT
-
+    printf("%d %d %d\n", sss_results[SSS_SOURCE_HOTSHOE], sss_results[SSS_SOURCE_PC], sss_results[SSS_SOURCE_LIGHT_SENSOR]);
+    printf("%d\n---\n", count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE));
 ---
 Duration: 37us
 Bounce: 2
@@ -9,6 +7,14 @@ Bounce: 2
 Duration: 324us
 Bounce: 6
 ---
+    if(micros() - last_screen_update > 1000*1000)
+    {
+      ssd1306_SetContrast(8);
+    }
+uint32_t last_screen_update;
+last_screen_update = micros();
+last_screen_update = micros();
+last_screen_update = micros();
 
 shutter_state_machine test_sss;
 
