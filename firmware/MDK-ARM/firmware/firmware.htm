@@ -3,7 +3,7 @@
 <title>Static Call Graph - [firmware\firmware.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image firmware\firmware.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Oct 08 22:58:20 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Oct 08 23:10:19 2023
 <BR><P>
 <H3>Maximum Stack Usage =        368 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -249,7 +249,7 @@ Global Symbols
 
 <P><STRONG><a name="[50]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; print_hotshoe &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; print_single_result &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -373,8 +373,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_file
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
-<LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[59]"></a>__2sprintf</STRONG> (Thumb, 36 bytes, Stack size 32 bytes, noretval__2sprintf.o(.text))
@@ -413,8 +412,8 @@ Global Symbols
 <P><STRONG><a name="[e1]"></a>strlen</STRONG> (Thumb, 62 bytes, Stack size 12 bytes, strlen.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
 </UL>
 
 <P><STRONG><a name="[63]"></a>_memset_w</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
@@ -947,7 +946,7 @@ Global Symbols
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Init
 </UL>
 
-<P><STRONG><a name="[a3]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, main.o(i.HAL_GPIO_EXTI_Callback))
+<P><STRONG><a name="[a3]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 54 bytes, Stack size 4 bytes, main.o(i.HAL_GPIO_EXTI_Callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_GPIO_EXTI_Callback &rArr; sss_update
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sss_update
@@ -1310,11 +1309,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e2]"></a>center_line</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, main.o(i.center_line))
-<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
 </UL>
 
-<P><STRONG><a name="[df]"></a>delay_us</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(i.delay_us))
+<P><STRONG><a name="[de]"></a>delay_us</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, main.o(i.delay_us))
 <BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1328,7 +1327,7 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
 </UL>
 
 <P><STRONG><a name="[d9]"></a>format_usec</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, main.o(i.format_usec))
@@ -1340,7 +1339,7 @@ Global Symbols
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
 </UL>
 
 <P><STRONG><a name="[35]"></a>fputc</STRONG> (Thumb, 18 bytes, Stack size 16 bytes, main.o(i.fputc))
@@ -1350,17 +1349,17 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> _printf_char_file.o(.text)
 </UL>
-<P><STRONG><a name="[51]"></a>main</STRONG> (Thumb, 140 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[51]"></a>main</STRONG> (Thumb, 142 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
-<LI>Call Chain = main &rArr; print_hotshoe &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<LI>Call Chain = main &rArr; print_single_result &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sss_update
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reset_sss
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
@@ -1377,27 +1376,26 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
 
-<P><STRONG><a name="[de]"></a>print_hotshoe</STRONG> (Thumb, 164 bytes, Stack size 16 bytes, main.o(i.print_hotshoe))
-<BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
-<LI>Call Chain = print_hotshoe &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<P><STRONG><a name="[dd]"></a>print_ready</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, main.o(i.print_ready))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = print_ready &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;format_usec
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;format_fraction
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;center_line
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;center_line
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteString
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_SetCursor
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Fill
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[dd]"></a>print_ready</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, main.o(i.print_ready))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = print_ready &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
+<P><STRONG><a name="[df]"></a>print_single_result</STRONG> (Thumb, 152 bytes, Stack size 16 bytes, main.o(i.print_single_result))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168 + Unknown Stack Size
+<LI>Call Chain = print_single_result &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteData &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFifoStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;center_line
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;format_usec
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;format_fraction
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;center_line
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteString
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_SetCursor
@@ -1420,8 +1418,8 @@ Global Symbols
 <P><STRONG><a name="[e0]"></a>ssd1306_Fill</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, ssd1306.o(i.ssd1306_Fill))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ssd1306_Fill
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Init
 </UL>
 
@@ -1457,8 +1455,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[e3]"></a>ssd1306_SetCursor</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, ssd1306.o(i.ssd1306_SetCursor))
-<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR><BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
 </UL>
 
 <P><STRONG><a name="[e7]"></a>ssd1306_SetDisplayOn</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, ssd1306.o(i.ssd1306_SetDisplayOn))
@@ -1475,8 +1473,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteData
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteCommand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_Init
 </UL>
 
@@ -1514,8 +1512,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_hotshoe
+<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_single_result
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ready
 </UL>
 
 <P><STRONG><a name="[a5]"></a>sss_update</STRONG> (Thumb, 132 bytes, Stack size 12 bytes, main.o(i.sss_update))

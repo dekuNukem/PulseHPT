@@ -97,6 +97,8 @@ int fputc(int ch, FILE *f)
 }
 
 shutter_state_machine hotshoe_sss;
+shutter_state_machine pc_sss;
+
 
 /* USER CODE END PV */
 
@@ -165,10 +167,9 @@ uint8_t pinstate_translate(uint16_t idr_value)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == HOTSHOE_Pin)
-  {
     sss_update(&hotshoe_sss, pinstate_translate(HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin));
-    // HAL_GPIO_WritePin(USER_LED_GPIO_Port, USER_LED_Pin, !hotshoe_level);
-  }
+  if(GPIO_Pin == PC_SYNC_Pin)
+    sss_update(&pc_sss, pinstate_translate(PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin));
 }
 
 uint8_t fw_version_major = 0;
@@ -218,25 +219,24 @@ uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels)
   return start_pixel;
 }
 
-char* oled_str_hotshoe = "Hot shoe";
+char* oled_str_hotshoe = "Hot Shoe";
+char* oled_str_pc_socket = "PC Socket";
 char* oled_str_ready = "READY";
 char* oled_str_info = "Info: PulseHPT.com";
 
-void print_hotshoe(shutter_state_machine* sss)
+void print_single_result(char* title, shutter_state_machine* sss)
 {
   ssd1306_Fill(Black);
-  ssd1306_SetCursor(center_line(strlen(oled_str_hotshoe), 7), 0);
-  ssd1306_WriteString(oled_str_hotshoe, Font_7x10, White);
+  ssd1306_SetCursor(center_line(strlen(title), 7), 0);
+  ssd1306_WriteString(title, Font_7x10, White);
 
   format_usec(temp_str_buf1, sss->duration);
   format_fraction(temp_str_buf2, sss->duration);
 
   uint8_t line_start = center_line(strlen(temp_str_buf1)+strlen(temp_str_buf2)+3, 11);
-  printf("%d\n", line_start);
   ssd1306_SetCursor(line_start, 11);
 
   ssd1306_WriteString(temp_str_buf1, Font_11x18, White);
-
   ssd1306_WriteString(" ", Font_7x10, White);
   ssd1306_WriteString("1/", Font_11x18, White);
   ssd1306_WriteString(temp_str_buf2, Font_11x18, White);
@@ -272,8 +272,6 @@ void delay_us(uint32_t delay)
   uint32_t end_time = micros() + delay;
   while(micros() < end_time);
 }
-
-shutter_state_machine test_sss;
 
 /* USER CODE END 0 */
 
@@ -312,19 +310,18 @@ int main(void)
   ssd1306_Init();
   HAL_TIM_Base_Start(&htim2);
   reset_sss(&hotshoe_sss);
+  reset_sss(&pc_sss);
   /* USER CODE END 2 */
   
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  uint8_t hotshoe_result;
+  uint8_t hotshoe_result, pc_result;
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
   // print_bootscreen();
   // HAL_Delay(2000);
   print_ready();
-  test_sss.duration = 5;
-  print_hotshoe(&test_sss);
 
   while (1)
   {
@@ -332,24 +329,45 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     HAL_Delay(10);
-    hotshoe_result = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
-    if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
+
+    pc_result = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
+    if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
     {
       __disable_irq();
-      printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_sss.duration, hotshoe_sss.bounce_count);
-      print_hotshoe(&hotshoe_sss);
-      delay_us(200);
-      reset_sss(&hotshoe_sss);
+      printf("Duration: %ldus\nBounce: %d\n---\n", pc_sss.duration, pc_sss.bounce_count);
+      print_single_result(oled_str_pc_socket, &pc_sss);
+      delay_us(200*1000);
+      reset_sss(&pc_sss);
       __enable_irq();
     }
-    else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
+    else if(pc_result == SHUTTER_STATE_TIMEOUT)
     {
       __disable_irq();
-      printf("TIMEOUT!\n");
-      delay_us(200);
-      reset_sss(&hotshoe_sss);
+      printf("PC TIMEOUT!\n");
+      delay_us(200*1000);
+      reset_sss(&pc_sss);
       __enable_irq();
     }
+
+
+    // hotshoe_result = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
+    // if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
+    // {
+    //   __disable_irq();
+    //   printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_sss.duration, hotshoe_sss.bounce_count);
+    //   print_hotshoe(&hotshoe_sss);
+    //   delay_us(200*1000);
+    //   reset_sss(&hotshoe_sss);
+    //   __enable_irq();
+    // }
+    // else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
+    // {
+    //   __disable_irq();
+    //   printf("TIMEOUT!\n");
+    //   delay_us(200*1000);
+    //   reset_sss(&hotshoe_sss);
+    //   __enable_irq();
+    // }
   }
   /* USER CODE END 3 */
 }

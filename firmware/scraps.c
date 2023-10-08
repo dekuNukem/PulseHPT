@@ -9,6 +9,11 @@ Bounce: 2
 Duration: 324us
 Bounce: 6
 ---
+
+shutter_state_machine test_sss;
+
+  // test_sss.duration = 5;
+  // print_hotshoe(&test_sss);
 void delay_us(uint32_t delay)
 {
   uint32_t end_time = micros() + delay;
