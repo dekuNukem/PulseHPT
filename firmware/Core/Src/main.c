@@ -350,14 +350,39 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_Delay(25);
-
+    HAL_Delay(10);
     sss_results[SSS_SOURCE_HOTSHOE] = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
     sss_results[SSS_SOURCE_PC] = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
     sss_results[SSS_SOURCE_LIGHT_SENSOR] = sss_update(&light_sensor_sss, PIN_STATE_NO_CHANGE);
 
-    printf("%d %d %d\n", sss_results[SSS_SOURCE_HOTSHOE], sss_results[SSS_SOURCE_PC], sss_results[SSS_SOURCE_LIGHT_SENSOR]);
-    printf("%d\n---\n", count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE));
+    uint8_t active_sources = count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE);
+    if(active_sources == 0)
+      continue;
+
+    // at least one source has result
+    // wait a bit more and see if other sources has results too
+
+    uint32_t entry_time = micros();
+    while(micros() - entry_time < 500*1000)
+    {
+      HAL_Delay(10);
+      sss_results[SSS_SOURCE_HOTSHOE] = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
+      sss_results[SSS_SOURCE_PC] = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
+      sss_results[SSS_SOURCE_LIGHT_SENSOR] = sss_update(&light_sensor_sss, PIN_STATE_NO_CHANGE);
+    }
+
+    active_sources = count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE);
+
+    printf("final active sources: %d\n", active_sources);
+
+    
+
+    while(1)
+    {
+      printf("bye");
+      HAL_Delay(2000);
+    }
+
 
     // if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
     // {
