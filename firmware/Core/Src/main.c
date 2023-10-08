@@ -176,7 +176,8 @@ uint8_t fw_version_minor = 1;
 uint8_t fw_version_patch = 0;
 
 #define TEMP_BUF_SIZE 32
-char temp_str_buf[TEMP_BUF_SIZE];
+char temp_str_buf1[TEMP_BUF_SIZE];
+char temp_str_buf2[TEMP_BUF_SIZE];
 
 void format_usec(char* buf, uint32_t time_micros) 
 {
@@ -227,14 +228,18 @@ void print_hotshoe(shutter_state_machine* sss)
   ssd1306_SetCursor(center_line(strlen(oled_str_hotshoe), 7), 0);
   ssd1306_WriteString(oled_str_hotshoe, Font_7x10, White);
 
-  format_usec(temp_str_buf, sss->duration);
-  ssd1306_SetCursor(0, 11);
-  ssd1306_WriteString(temp_str_buf, Font_11x18, White);
+  format_usec(temp_str_buf1, sss->duration);
+  format_fraction(temp_str_buf2, sss->duration);
 
-  memset(temp_str_buf, 0, TEMP_BUF_SIZE);
-  format_fraction(temp_str_buf, sss->duration);
-  ssd1306_WriteString(" 1/", Font_7x10, White);
-  ssd1306_WriteString(temp_str_buf, Font_11x18, White);
+  uint8_t line_start = center_line(strlen(temp_str_buf1)+strlen(temp_str_buf2)+3, 11);
+  printf("%d\n", line_start);
+  ssd1306_SetCursor(line_start, 11);
+
+  ssd1306_WriteString(temp_str_buf1, Font_11x18, White);
+
+  ssd1306_WriteString(" ", Font_7x10, White);
+  ssd1306_WriteString("1/", Font_11x18, White);
+  ssd1306_WriteString(temp_str_buf2, Font_11x18, White);
 
   ssd1306_UpdateScreen();
 }
@@ -253,14 +258,22 @@ char* oled_str_device_name = "PulseHPT";
 
 void print_bootscreen(void)
 {
-  sprintf(temp_str_buf, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
+  sprintf(temp_str_buf1, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
   ssd1306_Fill(Black);
   ssd1306_SetCursor(center_line(strlen(oled_str_device_name), 11), 0);
   ssd1306_WriteString(oled_str_device_name, Font_11x18, White);
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf), 7), 20);
-  ssd1306_WriteString(temp_str_buf, Font_7x10, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7), 20);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
   ssd1306_UpdateScreen();
 }
+
+void delay_us(uint32_t delay)
+{
+  uint32_t end_time = micros() + delay;
+  while(micros() < end_time);
+}
+
+shutter_state_machine test_sss;
 
 /* USER CODE END 0 */
 
@@ -307,9 +320,11 @@ int main(void)
 
   uint8_t hotshoe_result;
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
-  print_bootscreen();
-  HAL_Delay(2000);
+  // print_bootscreen();
+  // HAL_Delay(2000);
   print_ready();
+  test_sss.duration = 5;
+  print_hotshoe(&test_sss);
 
   while (1)
   {
@@ -323,6 +338,7 @@ int main(void)
       __disable_irq();
       printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_sss.duration, hotshoe_sss.bounce_count);
       print_hotshoe(&hotshoe_sss);
+      delay_us(200);
       reset_sss(&hotshoe_sss);
       __enable_irq();
     }
@@ -330,6 +346,7 @@ int main(void)
     {
       __disable_irq();
       printf("TIMEOUT!\n");
+      delay_us(200);
       reset_sss(&hotshoe_sss);
       __enable_irq();
     }
