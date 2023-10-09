@@ -1,5 +1,33 @@
+  // all_ssms[SSM_SOURCE_HOTSHOE].duration = 12345678;
+  // all_ssms[SSM_SOURCE_PC].duration = 12345678;
+  // all_ssms[SSM_SOURCE_LIGHT_SENSOR].duration = 12345678;
+  // print_triple_result();
+  all_ssms[0].duration = 16000;
+  all_ssms[1].duration = 25000;
+  print_double_result("HotShoe", &all_ssms[0], "PC", &all_ssms[1]);
+
+Hot Shoe
+L Sensor
+
+reset_ssm(&all_ssms[SSM_SOURCE_HOTSHOE]);
+  reset_ssm(&all_ssms[SSM_SOURCE_PC]);
+  reset_ssm(&all_ssms[SSM_SOURCE_LIGHT_SENSOR]);
+    printf("%d %d %d\n", all_ssms[0].current_state, all_ssms[1].current_state, all_ssms[2].current_state);
+
+    uint8_t active_sources = count_active();
+    printf("%d\n---\n", active_sources);
     printf("%d %d %d\n", sss_results[SSS_SOURCE_HOTSHOE], sss_results[SSS_SOURCE_PC], sss_results[SSS_SOURCE_LIGHT_SENSOR]);
     printf("%d\n---\n", count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE));
+
+
+    while(1)
+    {
+      printf("bye");
+      HAL_Delay(2000);
+    }
+
+uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels, uint8_t oled_width_pixels)
+
 ---
 Duration: 37us
 Bounce: 2

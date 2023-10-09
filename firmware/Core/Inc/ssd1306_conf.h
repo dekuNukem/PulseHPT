@@ -51,7 +51,7 @@
 
 // The width of the screen can be set using this
 // define. The default value is 128.
-// #define SSD1306_WIDTH           64
+#define SSD1306_WIDTH 128
 
 // If your screen horizontal axis does not start
 // in column 0 you can use this define to

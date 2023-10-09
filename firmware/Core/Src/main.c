@@ -63,13 +63,13 @@ typedef struct
   uint32_t bounce_count;
 } shutter_state_machine;
 
-void reset_sss(shutter_state_machine* sss)
+void reset_ssm(shutter_state_machine* ssm)
 {
-  sss->current_state = SHUTTER_STATE_IDLE;
-  sss->trigger_ts = 0;
-  sss->release_ts = 0;
-  sss->duration = 0;
-  sss->bounce_count = 0;
+  ssm->current_state = SHUTTER_STATE_IDLE;
+  ssm->trigger_ts = 0;
+  ssm->release_ts = 0;
+  ssm->duration = 0;
+  ssm->bounce_count = 0;
 }
 
 /* USER CODE END PD */
@@ -97,10 +97,13 @@ int fputc(int ch, FILE *f)
     return ch;
 }
 
-shutter_state_machine hotshoe_sss;
-shutter_state_machine pc_sss;
-shutter_state_machine light_sensor_sss;
+#define SSM_SOURCE_SIZE 3
 
+#define SSM_SOURCE_HOTSHOE 0
+#define SSM_SOURCE_PC 1
+#define SSM_SOURCE_LIGHT_SENSOR 2
+
+shutter_state_machine all_ssms[SSM_SOURCE_SIZE];
 
 /* USER CODE END PV */
 
@@ -115,36 +118,36 @@ static void MX_TIM2_Init(void);
 #define SHUTTER_TIMEOUT_SEC 10
 #define SHUTTER_BOUNCE_TIMEOUT_MS 250
 
-uint8_t sss_update(shutter_state_machine* sss, uint16_t pin_state)
+uint8_t ssm_update(shutter_state_machine* ssm, uint16_t pin_state)
 {
-  if(sss->current_state == SHUTTER_STATE_IDLE && pin_state == PIN_STATE_ACTIVATE)
+  if(ssm->current_state == SHUTTER_STATE_IDLE && pin_state == PIN_STATE_ACTIVATE)
   {
     // printf("1\n");
-    sss->current_state = SHUTTER_STATE_TRIGGERED;
-    sss->trigger_ts = micros();
+    ssm->current_state = SHUTTER_STATE_TRIGGERED;
+    ssm->trigger_ts = micros();
   }
-  else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_RELEASE)
+  else if(ssm->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_RELEASE)
   {
     // printf("2\n");
-    sss->current_state = SHUTTER_STATE_BOUNCE_DETECT;
-    sss->release_ts = micros();
+    ssm->current_state = SHUTTER_STATE_BOUNCE_DETECT;
+    ssm->release_ts = micros();
   }
-  else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_ACTIVATE)
+  else if(ssm->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_ACTIVATE)
   {
     // printf("3\n");
-    sss->current_state = SHUTTER_STATE_TRIGGERED;
-    sss->bounce_count++;
+    ssm->current_state = SHUTTER_STATE_TRIGGERED;
+    ssm->bounce_count++;
   }
-  else if(sss->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->trigger_ts > SHUTTER_TIMEOUT_SEC * 1000 * 1000)
+  else if(ssm->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_NO_CHANGE && micros() - ssm->trigger_ts > SHUTTER_TIMEOUT_SEC * 1000 * 1000)
   {
-    sss->current_state = SHUTTER_STATE_TIMEOUT;
+    ssm->current_state = SHUTTER_STATE_TIMEOUT;
   }
-  else if(sss->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_NO_CHANGE && micros() - sss->release_ts > SHUTTER_BOUNCE_TIMEOUT_MS*1000)
+  else if(ssm->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_NO_CHANGE && micros() - ssm->release_ts > SHUTTER_BOUNCE_TIMEOUT_MS*1000)
   {
-    sss->duration = sss->release_ts - sss->trigger_ts;
-    sss->current_state = SHUTTER_STATE_RESULT_AVAILABLE;
+    ssm->duration = ssm->release_ts - ssm->trigger_ts;
+    ssm->current_state = SHUTTER_STATE_RESULT_AVAILABLE;
   }
-  return sss->current_state;
+  return ssm->current_state;
 }
 
 uint8_t pinstate_translate(uint16_t idr_value)
@@ -169,11 +172,11 @@ uint8_t pinstate_translate(uint16_t idr_value)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == HOTSHOE_Pin)
-    sss_update(&hotshoe_sss, pinstate_translate(HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin));
+    ssm_update(&all_ssms[SSM_SOURCE_HOTSHOE], pinstate_translate(HOTSHOE_GPIO_Port->IDR & HOTSHOE_Pin));
   if(GPIO_Pin == PC_SYNC_Pin)
-    sss_update(&pc_sss, pinstate_translate(PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin));
+    ssm_update(&all_ssms[SSM_SOURCE_PC], pinstate_translate(PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin));
   if(GPIO_Pin == LIGHT_SENSOR_Pin)
-    sss_update(&light_sensor_sss, pinstate_translate(LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin));
+    ssm_update(&all_ssms[SSM_SOURCE_LIGHT_SENSOR], pinstate_translate(LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin));
 }
 
 uint8_t fw_version_major = 0;
@@ -186,7 +189,9 @@ char temp_str_buf2[TEMP_BUF_SIZE];
 
 void format_usec(char* buf, uint32_t time_micros) 
 {
-  if (time_micros >= 1000000) // More than 1 second
+  if (time_micros >= 10000000) // More than 10 seconds
+    sprintf(buf, "%.1fs", time_micros / 1000000.0);
+  else if (time_micros >= 1000000) // More than 1 second
     sprintf(buf, "%.2fs", time_micros / 1000000.0);
   else if (time_micros >= 10000) // More than 10 milliseconds
     sprintf(buf, "%ums", time_micros / 1000);
@@ -209,15 +214,17 @@ void format_fraction(char* buf, uint32_t time_micros)
   if(time_micros != 0)
     fraction = 1000000.0 / time_micros;
 
-  if (fraction >= 10)
+  if(time_micros < 100)
+    sprintf(buf, "---");
+  else if (fraction >= 10)
     sprintf(buf, "%.0f", fraction);
   else
     sprintf(buf, "%.1f", fraction);
 }
 
-uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels)
+uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels, uint8_t oled_width_pixels)
 {
-  int16_t start_pixel = (128 - line_len * char_width_pixels) / 2;
+  int16_t start_pixel = (oled_width_pixels - line_len * char_width_pixels) / 2;
   if(start_pixel < 0)
     start_pixel = 0;
   return start_pixel;
@@ -229,16 +236,16 @@ char* oled_str_light_sensor = "Light Sensor";
 char* oled_str_ready = "READY";
 char* oled_str_info = "Info: PulseHPT.com";
 
-void print_single_result(char* title, shutter_state_machine* sss)
+void print_single_result(char* title, shutter_state_machine* ssm)
 {
   ssd1306_Fill(Black);
-  ssd1306_SetCursor(center_line(strlen(title), 7), 0);
+  ssd1306_SetCursor(center_line(strlen(title), 7, SSD1306_WIDTH), 0);
   ssd1306_WriteString(title, Font_7x10, White);
 
-  format_usec(temp_str_buf1, sss->duration);
-  format_fraction(temp_str_buf2, sss->duration);
+  format_usec(temp_str_buf1, ssm->duration);
+  format_fraction(temp_str_buf2, ssm->duration);
 
-  uint8_t line_start = center_line(strlen(temp_str_buf1)+strlen(temp_str_buf2)+3, 11);
+  uint8_t line_start = center_line(strlen(temp_str_buf1)+strlen(temp_str_buf2)+3, 11, SSD1306_WIDTH);
   ssd1306_SetCursor(line_start, 11);
 
   ssd1306_WriteString(temp_str_buf1, Font_11x18, White);
@@ -249,12 +256,99 @@ void print_single_result(char* title, shutter_state_machine* sss)
   ssd1306_UpdateScreen();
 }
 
+void print_double_result(char* title1, shutter_state_machine* ssm1, char* title2, shutter_state_machine* ssm2)
+{
+  ssd1306_Fill(Black);
+
+  ssd1306_Line(63,0,63,32,White);
+
+  ssd1306_SetCursor(center_line(strlen(title1), 7, SSD1306_WIDTH/2), 0);
+  ssd1306_WriteString(title1, Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen(title2), 7, SSD1306_WIDTH/2) + 64, 0);
+  ssd1306_WriteString(title2, Font_7x10, White);
+
+  format_usec(temp_str_buf1, ssm1->duration);
+  format_fraction(temp_str_buf2, ssm1->duration);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/2), 11);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/2), 22);
+  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
+
+  format_usec(temp_str_buf1, ssm2->duration);
+  format_fraction(temp_str_buf2, ssm2->duration);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/2) + 64, 11);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/2) + 64, 22);
+  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
+
+  ssd1306_UpdateScreen();
+}
+
+void print_triple_result(void)
+{
+  ssd1306_Fill(Black);
+
+  ssd1306_SetCursor(center_line(strlen("HS"), 7, SSD1306_WIDTH/3), 0);
+  ssd1306_WriteString("HS", Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen("PC"), 7, SSD1306_WIDTH/3) + 42, 0);
+  ssd1306_WriteString("PC", Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen("LS"), 7, SSD1306_WIDTH/3) + 84, 0);
+  ssd1306_WriteString("LS", Font_7x10, White);
+
+  //-------------HOT SHOE-----------------
+  format_usec(temp_str_buf1, all_ssms[SSM_SOURCE_HOTSHOE].duration);
+  format_fraction(temp_str_buf2, all_ssms[SSM_SOURCE_HOTSHOE].duration);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/3), 11);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/3), 22);
+  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
+
+  //-------------PC SOCKET-----------------
+  format_usec(temp_str_buf1, all_ssms[SSM_SOURCE_PC].duration);
+  format_fraction(temp_str_buf2, all_ssms[SSM_SOURCE_PC].duration);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/3) + 42, 11);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/3) + 42 , 22);
+  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
+
+  //-------------LIGHT SENSOR-----------------
+  format_usec(temp_str_buf1, all_ssms[SSM_SOURCE_LIGHT_SENSOR].duration);
+  format_fraction(temp_str_buf2, all_ssms[SSM_SOURCE_LIGHT_SENSOR].duration);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/3) + 84, 11);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
+
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/3) + 84 , 22);
+  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
+
+  ssd1306_Line(42,0,42,32,White);
+  ssd1306_Line(85,0,85,32,White);
+
+  ssd1306_UpdateScreen();
+}
+
 void print_ready(void)
 {
   ssd1306_Fill(Black);
-  ssd1306_SetCursor(center_line(strlen(oled_str_ready), 11), 0);
+  ssd1306_SetCursor(center_line(strlen(oled_str_ready), 11, SSD1306_WIDTH), 0);
   ssd1306_WriteString(oled_str_ready, Font_11x18, White);
-  ssd1306_SetCursor(center_line(strlen(oled_str_info), 7), 20);
+  ssd1306_SetCursor(center_line(strlen(oled_str_info), 7, SSD1306_WIDTH), 20);
   ssd1306_WriteString(oled_str_info, Font_7x10, White);
   ssd1306_UpdateScreen();
 }
@@ -265,9 +359,9 @@ void print_bootscreen(void)
 {
   sprintf(temp_str_buf1, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
   ssd1306_Fill(Black);
-  ssd1306_SetCursor(center_line(strlen(oled_str_device_name), 11), 0);
+  ssd1306_SetCursor(center_line(strlen(oled_str_device_name), 11, SSD1306_WIDTH), 0);
   ssd1306_WriteString(oled_str_device_name, Font_11x18, White);
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7), 20);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH), 20);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
   ssd1306_UpdateScreen();
 }
@@ -278,21 +372,58 @@ void delay_us(uint32_t delay)
   while(micros() < end_time);
 }
 
-#define SSS_SOURCE_SIZE 3
-
-#define SSS_SOURCE_HOTSHOE 0
-#define SSS_SOURCE_PC 1
-#define SSS_SOURCE_LIGHT_SENSOR 2
-
-uint8_t sss_results[SSS_SOURCE_SIZE];
-
-uint8_t count_element(uint8_t* array, uint8_t arr_size, uint8_t value)
+uint8_t count_active(void)
 {
-  uint8_t count = 0;
-  for (uint8_t i = 0; i < arr_size; i++)
-    if(array[i] == value)
-      count++;
-  return count;
+  uint8_t bitfield = 0;
+  for (uint8_t i = 0; i < SSM_SOURCE_SIZE; i++)
+    if(all_ssms[i].current_state == SHUTTER_STATE_RESULT_AVAILABLE)
+      bitfield |= 1 << i;
+  return bitfield;
+}
+
+void ssm_reset_all(void)
+{
+  reset_ssm(&all_ssms[SSM_SOURCE_HOTSHOE]);
+  reset_ssm(&all_ssms[SSM_SOURCE_PC]);
+  reset_ssm(&all_ssms[SSM_SOURCE_LIGHT_SENSOR]);
+}
+
+void ssm_update_all(void)
+{
+  ssm_update(&all_ssms[SSM_SOURCE_HOTSHOE], PIN_STATE_NO_CHANGE);
+  ssm_update(&all_ssms[SSM_SOURCE_PC], PIN_STATE_NO_CHANGE);
+  ssm_update(&all_ssms[SSM_SOURCE_LIGHT_SENSOR], PIN_STATE_NO_CHANGE);
+}
+
+void print_results_all_sources(void)
+{
+  uint8_t active_sources = count_active();
+  printf("final active sources: 0x%x\n", active_sources);
+
+  /*
+  4  3  2  1
+  X  LS PC HS
+  */
+  if(active_sources == 1) // 0001 hot shoe only
+    print_single_result(oled_str_hotshoe, &all_ssms[SSM_SOURCE_HOTSHOE]);
+
+  else if(active_sources == 2) // 0010 pc only
+    print_single_result(oled_str_pc_socket, &all_ssms[SSM_SOURCE_PC]);
+
+  else if(active_sources == 4) // 0100 light sensor only
+    print_single_result(oled_str_light_sensor, &all_ssms[SSM_SOURCE_LIGHT_SENSOR]);
+
+  else if(active_sources == 3) // 0011 hot shoe AND pc
+    print_double_result("HotShoe", &all_ssms[SSM_SOURCE_HOTSHOE], "PC", &all_ssms[SSM_SOURCE_PC]);
+
+  else if(active_sources == 5) // 0101 hot shoe AND light sensor
+    print_double_result("HotShoe", &all_ssms[SSM_SOURCE_HOTSHOE], "L Sensor", &all_ssms[SSM_SOURCE_LIGHT_SENSOR]);
+
+  else if(active_sources == 6) // 0110 pc AND light sensor
+    print_double_result("PC", &all_ssms[SSM_SOURCE_PC], "L Sensor", &all_ssms[SSM_SOURCE_LIGHT_SENSOR]);
+
+  else if(active_sources == 7) // 0111 all of them
+    print_triple_result();
 }
 
 /* USER CODE END 0 */
@@ -331,66 +462,49 @@ int main(void)
   /* USER CODE BEGIN 2 */
   ssd1306_Init();
   HAL_TIM_Base_Start(&htim2);
-  reset_sss(&hotshoe_sss);
-  reset_sss(&pc_sss);
-  reset_sss(&light_sensor_sss);
+  ssm_reset_all();
+
   /* USER CODE END 2 */
   
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
 	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
   // print_bootscreen();
   // HAL_Delay(2000);
   // ssd1306_SetContrast(8);
   print_ready();
-
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
     HAL_Delay(10);
-    sss_results[SSS_SOURCE_HOTSHOE] = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
-    sss_results[SSS_SOURCE_PC] = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
-    sss_results[SSS_SOURCE_LIGHT_SENSOR] = sss_update(&light_sensor_sss, PIN_STATE_NO_CHANGE);
-
-    uint8_t active_sources = count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE);
-    if(active_sources == 0)
+    ssm_update_all();
+    if(count_active() == 0)
       continue;
 
-    // at least one source has result
+    // at least one source has result 
     // wait a bit more and see if other sources has results too
-
     uint32_t entry_time = micros();
-    while(micros() - entry_time < 500*1000)
+    while(micros() - entry_time < 250*1000)
     {
       HAL_Delay(10);
-      sss_results[SSS_SOURCE_HOTSHOE] = sss_update(&hotshoe_sss, PIN_STATE_NO_CHANGE);
-      sss_results[SSS_SOURCE_PC] = sss_update(&pc_sss, PIN_STATE_NO_CHANGE);
-      sss_results[SSS_SOURCE_LIGHT_SENSOR] = sss_update(&light_sensor_sss, PIN_STATE_NO_CHANGE);
+      ssm_update_all();
     }
 
-    active_sources = count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE);
-
-    printf("final active sources: %d\n", active_sources);
-
-    
-
-    while(1)
-    {
-      printf("bye");
-      HAL_Delay(2000);
-    }
-
+    __disable_irq();
+    print_results_all_sources();
+    delay_us(200*1000);
+    ssm_reset_all();
+    __enable_irq();
 
     // if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
     // {
     //   __disable_irq();
-    //   printf("Duration: %ldus\nBounce: %d\n---\n", pc_sss.duration, pc_sss.bounce_count);
-    //   print_single_result(oled_str_pc_socket, &pc_sss);
+    //   printf("Duration: %ldus\nBounce: %d\n---\n", pc_ssm.duration, pc_ssm.bounce_count);
+    //   print_single_result(oled_str_pc_socket, &pc_ssm);
     //   delay_us(200*1000);
-    //   reset_sss(&pc_sss);
+    //   reset_ssm(&pc_ssm);
     //   __enable_irq();
     // }
     // else if(pc_result == SHUTTER_STATE_TIMEOUT)
@@ -398,17 +512,17 @@ int main(void)
     //   __disable_irq();
     //   printf("PC TIMEOUT!\n");
     //   delay_us(200*1000);
-    //   reset_sss(&pc_sss);
+    //   reset_ssm(&pc_ssm);
     //   __enable_irq();
     // }
 
     // if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
     // {
     //   __disable_irq();
-    //   printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_sss.duration, hotshoe_sss.bounce_count);
-    //   print_hotshoe(&hotshoe_sss);
+    //   printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_ssm.duration, hotshoe_ssm.bounce_count);
+    //   print_hotshoe(&hotshoe_ssm);
     //   delay_us(200*1000);
-    //   reset_sss(&hotshoe_sss);
+    //   reset_ssm(&hotshoe_ssm);
     //   __enable_irq();
     // }
     // else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
@@ -416,7 +530,7 @@ int main(void)
     //   __disable_irq();
     //   printf("TIMEOUT!\n");
     //   delay_us(200*1000);
-    //   reset_sss(&hotshoe_sss);
+    //   reset_ssm(&hotshoe_ssm);
     //   __enable_irq();
     // }
   }
