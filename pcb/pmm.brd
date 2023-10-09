@@ -995,7 +995,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="U$5" library="apricot" package="POGO_1.8" value="POGO_TH001" x="10.55" y="14" locked="yes" smashed="yes"/>
 <element name="U1" library="lul" package="LUL_UG-2864HSWEG01_1.3_WRAPAROUND" value="" x="-21.384" y="-9.525" smashed="yes" rot="R90"/>
 <element name="R7" library="SparkFun-Passives" package="0805" value="390K" x="-24.559" y="-11.049" smashed="yes">
-<attribute name="NAME" x="-26.464" y="-10.795" size="0.8128" layer="25" rot="R180"/>
+<attribute name="NAME" x="-26.464" y="-10.668" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="C20" library="clock" package="0805" value="1uF" x="-22.781" y="-4.064" smashed="yes">
 <attribute name="NAME" x="-23.543" y="-3.1115" size="0.8128" layer="25"/>
@@ -1004,10 +1004,10 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="NAME" x="-22.908" y="-8.3185" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="C22" library="clock" package="0805" value="2.2uF" x="-24.559" y="-12.7" smashed="yes">
-<attribute name="NAME" x="-26.464" y="-12.192" size="0.8128" layer="25" rot="R180"/>
+<attribute name="NAME" x="-26.464" y="-12.319" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="C23" library="clock" package="0805" value="2.2uF" x="-24.559" y="-14.478" smashed="yes">
-<attribute name="NAME" x="-26.464" y="-13.97" size="0.8128" layer="25" rot="R180"/>
+<attribute name="NAME" x="-26.464" y="-14.097" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="R8" library="joyAnalog" package="0805" value="10K" x="-29.083" y="-9.144" smashed="yes" rot="R90">
 <attribute name="NAME" x="-28.7655" y="-7.62" size="0.8128" layer="25" rot="R90"/>
