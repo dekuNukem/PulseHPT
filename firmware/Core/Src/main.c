@@ -460,7 +460,7 @@ int main(void)
   ssm_reset_all();
 
   /* USER CODE END 2 */
-  
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	printf("PulseHPT dekuNukem 2023\r\n");
@@ -684,7 +684,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : LIGHT_SENSOR_Pin */
   GPIO_InitStruct.Pin = LIGHT_SENSOR_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(LIGHT_SENSOR_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : OLED_CS_Pin */
