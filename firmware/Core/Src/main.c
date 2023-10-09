@@ -217,9 +217,9 @@ void format_fraction(char* buf, uint32_t time_micros)
   if(time_micros < 100)
     sprintf(buf, "---");
   else if (fraction >= 10)
-    sprintf(buf, "%.0f", fraction);
+    sprintf(buf, "1/%.0f", fraction);
   else
-    sprintf(buf, "%.1f", fraction);
+    sprintf(buf, "1/%.1f", fraction);
 }
 
 uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels, uint8_t oled_width_pixels)
@@ -245,12 +245,11 @@ void print_single_result(char* title, shutter_state_machine* ssm)
   format_usec(temp_str_buf1, ssm->duration);
   format_fraction(temp_str_buf2, ssm->duration);
 
-  uint8_t line_start = center_line(strlen(temp_str_buf1)+strlen(temp_str_buf2)+3, 11, SSD1306_WIDTH);
+  uint8_t line_start = center_line(strlen(temp_str_buf1)+strlen(temp_str_buf2)+1, 11, SSD1306_WIDTH);
   ssd1306_SetCursor(line_start, 11);
 
   ssd1306_WriteString(temp_str_buf1, Font_11x18, White);
   ssd1306_WriteString(" ", Font_7x10, White);
-  ssd1306_WriteString("1/", Font_11x18, White);
   ssd1306_WriteString(temp_str_buf2, Font_11x18, White);
 
   ssd1306_UpdateScreen();
@@ -274,8 +273,7 @@ void print_double_result(char* title1, shutter_state_machine* ssm1, char* title2
   ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/2), 11);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
 
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/2), 22);
-  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2), 7, SSD1306_WIDTH/2), 22);
   ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
 
   format_usec(temp_str_buf1, ssm2->duration);
@@ -284,8 +282,7 @@ void print_double_result(char* title1, shutter_state_machine* ssm1, char* title2
   ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/2) + 64, 11);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
 
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/2) + 64, 22);
-  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2), 7, SSD1306_WIDTH/2) + 64, 22);
   ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
 
   ssd1306_UpdateScreen();
@@ -311,8 +308,7 @@ void print_triple_result(void)
   ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/3), 11);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
 
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/3), 22);
-  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2), 7, SSD1306_WIDTH/3), 22);
   ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
 
   //-------------PC SOCKET-----------------
@@ -322,8 +318,7 @@ void print_triple_result(void)
   ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/3) + 42, 11);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
 
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/3) + 42 , 22);
-  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2), 7, SSD1306_WIDTH/3) + 42 , 22);
   ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
 
   //-------------LIGHT SENSOR-----------------
@@ -333,8 +328,7 @@ void print_triple_result(void)
   ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH/3) + 84, 11);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
 
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf2)+2, 7, SSD1306_WIDTH/3) + 84 , 22);
-  ssd1306_WriteString("1/", Font_7x10, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf2), 7, SSD1306_WIDTH/3) + 84 , 22);
   ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
 
   ssd1306_Line(42,0,42,32,White);

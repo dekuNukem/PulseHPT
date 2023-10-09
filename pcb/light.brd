@@ -197,9 +197,9 @@
 <wire x1="11.73" y1="13" x2="13" y2="11.73" width="0" layer="20" curve="-90"/>
 <wire x1="13" y1="11.73" x2="13" y2="1.27" width="0" layer="20"/>
 <wire x1="13" y1="1.27" x2="11.73" y2="0" width="0" layer="20" curve="-90"/>
-<text x="6.731" y="2.794" size="1.4224" layer="25" rot="R180" align="center">S</text>
+<text x="6.731" y="2.794" size="1.4224" layer="25" rot="R180" align="center">V</text>
 <text x="9.271" y="2.794" size="1.4224" layer="25" rot="R180" align="center">G</text>
-<text x="11.811" y="2.794" size="1.4224" layer="25" rot="R180" align="center">V</text>
+<text x="11.811" y="2.794" size="1.4224" layer="25" rot="R180" align="center">S</text>
 <text x="6.604" y="6.731" size="1.27" layer="26" rot="MR0" align="center">PulseHPT.com
 dekuNukem
 2023</text>
@@ -522,6 +522,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="R5" pad="1"/>
 <contactref element="C1" pad="1"/>
 <contactref element="JP1" pad="2"/>
+<via x="1.143" y="6.731" extent="1-16" drill="0.6"/>
+<via x="11.557" y="11.684" extent="1-16" drill="0.6"/>
 </signal>
 <signal name="S">
 <contactref element="U1" pad="EMITTER"/>
