@@ -176,7 +176,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if(GPIO_Pin == PC_SYNC_Pin)
     ssm_update(&all_ssms[SSM_SOURCE_PC], pinstate_translate(PC_SYNC_GPIO_Port->IDR & PC_SYNC_Pin));
   if(GPIO_Pin == LIGHT_SENSOR_Pin)
-    ssm_update(&all_ssms[SSM_SOURCE_LIGHT_SENSOR], pinstate_translate(LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin));
+    ssm_update(&all_ssms[SSM_SOURCE_LIGHT_SENSOR], pinstate_translate(!(LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin)));
 }
 
 uint8_t fw_version_major = 0;
@@ -238,6 +238,9 @@ char* oled_str_info = "Info: PulseHPT.com";
 
 void print_single_result(char* title, shutter_state_machine* ssm)
 {
+  if(ssm->duration < 500)
+    return;
+
   ssd1306_Fill(Black);
   ssd1306_SetCursor(center_line(strlen(title), 7, SSD1306_WIDTH), 0);
   ssd1306_WriteString(title, Font_7x10, White);
@@ -392,8 +395,6 @@ void ssm_update_all(void)
 void print_results_all_sources(void)
 {
   uint8_t active_sources = count_active();
-  printf("final active sources: 0x%x\n", active_sources);
-
   /*
   4  3  2  1
   X  LS PC HS
@@ -462,7 +463,7 @@ int main(void)
   
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	printf("Untitled Shutter Speed Tester dekuNukem 2023\r\n");
+	printf("PulseHPT dekuNukem 2023\r\n");
   // print_bootscreen();
   // HAL_Delay(2000);
   // ssd1306_SetContrast(8);
@@ -491,42 +492,6 @@ int main(void)
     delay_us(200*1000);
     ssm_reset_all();
     __enable_irq();
-
-    // if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
-    // {
-    //   __disable_irq();
-    //   printf("Duration: %ldus\nBounce: %d\n---\n", pc_ssm.duration, pc_ssm.bounce_count);
-    //   print_single_result(oled_str_pc_socket, &pc_ssm);
-    //   delay_us(200*1000);
-    //   reset_ssm(&pc_ssm);
-    //   __enable_irq();
-    // }
-    // else if(pc_result == SHUTTER_STATE_TIMEOUT)
-    // {
-    //   __disable_irq();
-    //   printf("PC TIMEOUT!\n");
-    //   delay_us(200*1000);
-    //   reset_ssm(&pc_ssm);
-    //   __enable_irq();
-    // }
-
-    // if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
-    // {
-    //   __disable_irq();
-    //   printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_ssm.duration, hotshoe_ssm.bounce_count);
-    //   print_hotshoe(&hotshoe_ssm);
-    //   delay_us(200*1000);
-    //   reset_ssm(&hotshoe_ssm);
-    //   __enable_irq();
-    // }
-    // else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
-    // {
-    //   __disable_irq();
-    //   printf("TIMEOUT!\n");
-    //   delay_us(200*1000);
-    //   reset_ssm(&hotshoe_ssm);
-    //   __enable_irq();
-    // }
   }
   /* USER CODE END 3 */
 }

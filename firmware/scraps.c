@@ -19,7 +19,41 @@ reset_ssm(&all_ssms[SSM_SOURCE_HOTSHOE]);
     printf("%d %d %d\n", sss_results[SSS_SOURCE_HOTSHOE], sss_results[SSS_SOURCE_PC], sss_results[SSS_SOURCE_LIGHT_SENSOR]);
     printf("%d\n---\n", count_element(sss_results, SSS_SOURCE_SIZE, SHUTTER_STATE_RESULT_AVAILABLE));
 
+    // if(pc_result == SHUTTER_STATE_RESULT_AVAILABLE)
+    // {
+    //   __disable_irq();
+    //   printf("Duration: %ldus\nBounce: %d\n---\n", pc_ssm.duration, pc_ssm.bounce_count);
+    //   print_single_result(oled_str_pc_socket, &pc_ssm);
+    //   delay_us(200*1000);
+    //   reset_ssm(&pc_ssm);
+    //   __enable_irq();
+    // }
+    // else if(pc_result == SHUTTER_STATE_TIMEOUT)
+    // {
+    //   __disable_irq();
+    //   printf("PC TIMEOUT!\n");
+    //   delay_us(200*1000);
+    //   reset_ssm(&pc_ssm);
+    //   __enable_irq();
+    // }
 
+    // if(hotshoe_result == SHUTTER_STATE_RESULT_AVAILABLE)
+    // {
+    //   __disable_irq();
+    //   printf("Duration: %ldus\nBounce: %d\n---\n", hotshoe_ssm.duration, hotshoe_ssm.bounce_count);
+    //   print_hotshoe(&hotshoe_ssm);
+    //   delay_us(200*1000);
+    //   reset_ssm(&hotshoe_ssm);
+    //   __enable_irq();
+    // }
+    // else if(hotshoe_result == SHUTTER_STATE_TIMEOUT)
+    // {
+    //   __disable_irq();
+    //   printf("TIMEOUT!\n");
+    //   delay_us(200*1000);
+    //   reset_ssm(&hotshoe_ssm);
+    //   __enable_irq();
+    // }
     while(1)
     {
       printf("bye");

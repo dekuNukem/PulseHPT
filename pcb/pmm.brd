@@ -223,8 +223,8 @@
 <rectangle x1="3.231" y1="-22.468" x2="6.731" y2="-18.968" layer="51"/>
 <text x="-5.7908" y="-23.3866" size="1.9304" layer="25" align="center">DFU</text>
 <text x="18.5932" y="-23.3866" size="1.9304" layer="25" align="center">RESET</text>
-<text x="2.4642" y="-17.4176" size="2.1844" layer="25" align="center">ON</text>
-<text x="9.3222" y="-17.4176" size="2.1844" layer="25" align="center">OFF</text>
+<text x="1.3212" y="-17.4176" size="2.1844" layer="25" align="center">BATT</text>
+<text x="10.8462" y="-17.5446" size="2.1844" layer="25" align="center">USB</text>
 <rectangle x1="-4.064" y1="-16.891" x2="4.318" y2="-9.525" layer="16"/>
 <text x="32.893" y="-13.335" size="1.27" layer="25" align="center">PC</text>
 <text x="32.893" y="-15.875" size="1.27" layer="25" rot="R180" align="center">G</text>
