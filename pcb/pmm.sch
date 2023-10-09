@@ -3095,26 +3095,52 @@ INFINEON, www.infineon.com/cmc_upload/0/000/010/257/eh_db_5b.pdf</description>
 <description>Generated from &lt;b&gt;apricot.sch&lt;/b&gt;&lt;p&gt;
 by exp-lbrs.ulp</description>
 <packages>
-<package name="POGO_1.8">
-<pad name="P$1" x="0" y="0" drill="1.9" diameter="2.1844" shape="long" rot="R90"/>
+<package name="SPRING_CONTACT">
+<smd name="P$1" x="0" y="0" dx="4.5" dy="2" layer="1" rot="R90"/>
+</package>
+<package name="HOTSHOE_RAIL">
+<smd name="P$1" x="0" y="0" dx="17" dy="3" layer="1" rot="R90" thermals="no"/>
 </package>
 </packages>
 <symbols>
-<symbol name="POGO">
-<wire x1="-7.62" y1="5.08" x2="10.16" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="10.16" y1="5.08" x2="10.16" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="10.16" y1="-5.08" x2="-7.62" y2="-5.08" width="0.1524" layer="94"/>
-<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="5.08" width="0.1524" layer="94"/>
-<pin name="P$1" x="-12.7" y="0" length="middle"/>
+<symbol name="SPRING_CONTACT">
+<pin name="P$1" x="-10.16" y="0" length="middle"/>
+<wire x1="-5.08" y1="5.08" x2="5.08" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="-5.08" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.1524" layer="94"/>
+</symbol>
+<symbol name="HOTSHOE">
+<pin name="P$1" x="-10.16" y="0" length="middle"/>
+<wire x1="-5.08" y1="5.08" x2="20.32" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="20.32" y1="5.08" x2="20.32" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="20.32" y1="-5.08" x2="-5.08" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.1524" layer="94"/>
+<text x="7.62" y="0" size="1.778" layer="94">hot shoe</text>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="POGO_TH001">
+<deviceset name="SPRING_CONTACT">
 <gates>
-<gate name="G$1" symbol="POGO" x="0" y="0"/>
+<gate name="G$1" symbol="SPRING_CONTACT" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="POGO_1.8">
+<device name="" package="SPRING_CONTACT">
+<connects>
+<connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="HOTSHOE">
+<gates>
+<gate name="G$1" symbol="HOTSHOE" x="-5.08" y="0"/>
+</gates>
+<devices>
+<device name="" package="HOTSHOE_RAIL">
 <connects>
 <connect gate="G$1" pin="P$1" pad="P$1"/>
 </connects>
@@ -3938,10 +3964,6 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="U$12" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
 <part name="U$1" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
-<part name="U$2" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
-<part name="U$3" library="apricot" deviceset="POGO_TH001" device=""/>
-<part name="U$4" library="apricot" deviceset="POGO_TH001" device=""/>
-<part name="U$5" library="apricot" deviceset="POGO_TH001" device=""/>
 <part name="U1" library="lul" deviceset="LUL_DISP_OLED_UG-2864HSWEG01" device=""/>
 <part name="GND26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -3987,6 +4009,18 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="+3V9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="R9" library="joyAnalog" deviceset="RESISTOR" device="0805-RES" value="10K"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
+<part name="U$11" library="apricot" deviceset="SPRING_CONTACT" device=""/>
+<part name="U$13" library="apricot" deviceset="SPRING_CONTACT" device=""/>
+<part name="U$14" library="apricot" deviceset="SPRING_CONTACT" device=""/>
+<part name="U$4" library="apricot" deviceset="SPRING_CONTACT" device=""/>
+<part name="U$5" library="apricot" deviceset="SPRING_CONTACT" device=""/>
+<part name="U$9" library="apricot" deviceset="SPRING_CONTACT" device=""/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
+<part name="U$10" library="apricot" deviceset="HOTSHOE" device=""/>
+<part name="U$15" library="apricot" deviceset="HOTSHOE" device=""/>
+<part name="GND23" library="supply1" deviceset="GND" device=""/>
+<part name="GND24" library="supply1" deviceset="GND" device=""/>
+<part name="U$2" library="apricot" deviceset="SPRING_CONTACT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4076,10 +4110,6 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 </instance>
 <instance part="U$12" gate="G$1" x="-144.78" y="78.74" smashed="yes"/>
 <instance part="U$1" gate="G$1" x="-144.78" y="66.04" smashed="yes"/>
-<instance part="U$2" gate="G$1" x="-144.78" y="53.34" smashed="yes"/>
-<instance part="U$3" gate="G$1" x="-81.28" y="7.62" smashed="yes" rot="R180"/>
-<instance part="U$4" gate="G$1" x="-88.9" y="-10.16" smashed="yes"/>
-<instance part="U$5" gate="G$1" x="-88.9" y="-25.4" smashed="yes"/>
 <instance part="U1" gate="G$1" x="60.96" y="137.16" smashed="yes">
 <attribute name="NAME" x="40.64" y="162.56" size="1.27" layer="95" font="vector"/>
 <attribute name="VALUE" x="40.64" y="111.76" size="1.27" layer="96" font="vector"/>
@@ -4134,8 +4164,8 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <attribute name="NAME" x="-5.08" y="76.962" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-5.08" y="53.34" size="1.778" layer="96"/>
 </instance>
-<instance part="GND2" gate="1" x="-106.68" y="-12.7" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="-104.14" y="-15.24" size="1.778" layer="96" rot="MR0"/>
+<instance part="GND2" gate="1" x="-190.5" y="114.3" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-187.96" y="111.76" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="GND3" gate="1" x="-106.68" y="-27.94" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="-104.14" y="-30.48" size="1.778" layer="96" rot="MR0"/>
@@ -4232,6 +4262,24 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <instance part="GND21" gate="1" x="-27.94" y="55.88" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="-25.4" y="53.34" size="1.778" layer="96" rot="MR0"/>
 </instance>
+<instance part="U$11" gate="G$1" x="-175.26" y="142.24" smashed="yes"/>
+<instance part="U$13" gate="G$1" x="-175.26" y="121.92" smashed="yes"/>
+<instance part="U$14" gate="G$1" x="-175.26" y="162.56" smashed="yes"/>
+<instance part="U$4" gate="G$1" x="-144.78" y="142.24" smashed="yes"/>
+<instance part="U$5" gate="G$1" x="-144.78" y="121.92" smashed="yes"/>
+<instance part="U$9" gate="G$1" x="-144.78" y="162.56" smashed="yes"/>
+<instance part="GND22" gate="1" x="-157.48" y="114.3" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-154.94" y="111.76" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="U$10" gate="G$1" x="-101.6" y="124.46" smashed="yes"/>
+<instance part="U$15" gate="G$1" x="-101.6" y="104.14" smashed="yes"/>
+<instance part="GND23" gate="1" x="-116.84" y="101.6" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-114.3" y="99.06" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="GND24" gate="1" x="-116.84" y="121.92" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-114.3" y="119.38" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="U$2" gate="G$1" x="-78.74" y="7.62" smashed="yes" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -4308,16 +4356,6 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <pinref part="GND30" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="GND2" gate="1" pin="GND"/>
-<pinref part="U$4" gate="G$1" pin="P$1"/>
-<wire x1="-106.68" y1="-10.16" x2="-101.6" y2="-10.16" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND3" gate="1" pin="GND"/>
-<pinref part="U$5" gate="G$1" pin="P$1"/>
-<wire x1="-106.68" y1="-25.4" x2="-101.6" y2="-25.4" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="-96.52" y1="27.94" x2="-83.82" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="U$6" gate="G$1" pin="5"/>
@@ -4377,6 +4415,44 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
 <pinref part="GND21" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GND2" gate="1" pin="GND"/>
+<pinref part="U$13" gate="G$1" pin="P$1"/>
+<wire x1="-190.5" y1="116.84" x2="-190.5" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-190.5" y1="121.92" x2="-185.42" y2="121.92" width="0.1524" layer="91"/>
+<pinref part="U$11" gate="G$1" pin="P$1"/>
+<wire x1="-185.42" y1="142.24" x2="-190.5" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="-190.5" y1="142.24" x2="-190.5" y2="139.7" width="0.1524" layer="91"/>
+<junction x="-190.5" y="121.92"/>
+<pinref part="U$14" gate="G$1" pin="P$1"/>
+<wire x1="-190.5" y1="139.7" x2="-190.5" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-185.42" y1="162.56" x2="-190.5" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-190.5" y1="162.56" x2="-190.5" y2="142.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="P$1"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="-154.94" y1="121.92" x2="-157.48" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-157.48" y1="121.92" x2="-157.48" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="U$9" gate="G$1" pin="P$1"/>
+<wire x1="-154.94" y1="162.56" x2="-157.48" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="-157.48" y1="162.56" x2="-157.48" y2="142.24" width="0.1524" layer="91"/>
+<junction x="-157.48" y="121.92"/>
+<pinref part="U$4" gate="G$1" pin="P$1"/>
+<wire x1="-157.48" y1="142.24" x2="-157.48" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="-154.94" y1="142.24" x2="-157.48" y2="142.24" width="0.1524" layer="91"/>
+<junction x="-157.48" y="142.24"/>
+</segment>
+<segment>
+<pinref part="GND24" gate="1" pin="GND"/>
+<pinref part="U$10" gate="G$1" pin="P$1"/>
+<wire x1="-116.84" y1="124.46" x2="-111.76" y2="124.46" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$15" gate="G$1" pin="P$1"/>
+<pinref part="GND23" gate="1" pin="GND"/>
+<wire x1="-111.76" y1="104.14" x2="-116.84" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -4703,7 +4779,6 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <net name="N$2" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="PB1"/>
-<pinref part="U$3" gate="G$1" pin="P$1"/>
 <wire x1="-17.78" y1="7.62" x2="-33.02" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="1" pin="3"/>
 <wire x1="-33.02" y1="7.62" x2="-35.56" y2="7.62" width="0.1524" layer="91"/>
@@ -4717,6 +4792,7 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="-60.96" y1="10.16" x2="-60.96" y2="7.62" width="0.1524" layer="91"/>
 <junction x="-60.96" y="7.62"/>
+<pinref part="U$2" gate="G$1" pin="P$1"/>
 </segment>
 </net>
 <net name="LIGHT_SENSE" class="0">
