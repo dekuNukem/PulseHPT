@@ -105,6 +105,9 @@ int fputc(int ch, FILE *f)
 
 shutter_state_machine all_ssms[SSM_SOURCE_SIZE];
 
+uint32_t last_oled_update;
+uint8_t is_oled_dim;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -255,7 +258,7 @@ void print_single_result(char* title, shutter_state_machine* ssm)
   ssd1306_WriteString(" ", Font_7x10, White);
   ssd1306_WriteString(temp_str_buf2, Font_11x18, White);
 
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 void print_double_result(char* title1, shutter_state_machine* ssm1, char* title2, shutter_state_machine* ssm2)
@@ -288,7 +291,7 @@ void print_double_result(char* title1, shutter_state_machine* ssm1, char* title2
   ssd1306_SetCursor(center_line(strlen(temp_str_buf2), 7, SSD1306_WIDTH/2) + 64, 22);
   ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
 
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 void print_triple_result(void)
@@ -337,7 +340,7 @@ void print_triple_result(void)
   ssd1306_Line(42,0,42,32,White);
   ssd1306_Line(85,0,85,32,White);
 
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 void print_ready(void)
@@ -347,7 +350,7 @@ void print_ready(void)
   ssd1306_WriteString(oled_str_ready, Font_11x18, White);
   ssd1306_SetCursor(center_line(strlen(oled_str_info), 7, SSD1306_WIDTH), 20);
   ssd1306_WriteString(oled_str_info, Font_7x10, White);
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 char* oled_str_device_name = "PulseHPT";
@@ -360,7 +363,7 @@ void print_bootscreen(void)
   ssd1306_WriteString(oled_str_device_name, Font_11x18, White);
   ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH), 20);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 void delay_us(uint32_t delay)
@@ -369,11 +372,11 @@ void delay_us(uint32_t delay)
   while(micros() < end_time);
 }
 
-uint8_t count_active(void)
+uint8_t count_state(uint8_t state)
 {
   uint8_t bitfield = 0;
   for (uint8_t i = 0; i < SSM_SOURCE_SIZE; i++)
-    if(all_ssms[i].current_state == SHUTTER_STATE_RESULT_AVAILABLE)
+    if(all_ssms[i].current_state == state)
       bitfield |= 1 << i;
   return bitfield;
 }
@@ -394,7 +397,7 @@ void ssm_update_all(void)
 
 void print_results_all_sources(void)
 {
-  uint8_t active_sources = count_active();
+  uint8_t active_sources = count_state(SHUTTER_STATE_RESULT_AVAILABLE);
   /*
   4  3  2  1
   X  LS PC HS
@@ -470,12 +473,28 @@ int main(void)
   print_ready();
   while (1)
   {
+    if(is_oled_dim == 0 && micros() - last_oled_update > 10000*1000)
+    {
+      // __disable_irq();
+      ssd1306_SetContrast(8);
+      is_oled_dim = 1;
+      // __enable_irq();
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
     HAL_Delay(10);
     ssm_update_all();
-    if(count_active() == 0)
+
+    if(is_oled_dim && (count_state(SHUTTER_STATE_TRIGGERED) || count_state(SHUTTER_STATE_BOUNCE_DETECT)))
+    {
+      // __disable_irq();
+      last_oled_update = micros();
+      ssd1306_SetContrast(255);
+      is_oled_dim = 0;
+      // __enable_irq();
+    }
+    if(count_state(SHUTTER_STATE_RESULT_AVAILABLE) == 0)
       continue;
 
     // at least one source has result 

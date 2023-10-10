@@ -5,7 +5,7 @@
   all_ssms[0].duration = 16000;
   all_ssms[1].duration = 25000;
   print_double_result("HotShoe", &all_ssms[0], "PC", &all_ssms[1]);
-
+ssd1306_SetContrast(255); is_oled_dim = 0;
 Hot Shoe
 L Sensor
 
