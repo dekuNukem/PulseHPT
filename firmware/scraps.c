@@ -9,6 +9,19 @@ ssd1306_SetContrast(255); is_oled_dim = 0;
 Hot Shoe
 L Sensor
 
+char* oled_str_device_name = "PulseHPT";
+
+void print_bootscreen(void)
+{
+  sprintf(temp_str_buf1, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
+  ssd1306_Fill(Black);
+  ssd1306_SetCursor(center_line(strlen(oled_str_device_name), 11, SSD1306_WIDTH), 0);
+  ssd1306_WriteString(oled_str_device_name, Font_11x18, White);
+  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH), 20);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
+  ssd1306_UpdateScreen(); last_oled_update = micros();
+}
+
 reset_ssm(&all_ssms[SSM_SOURCE_HOTSHOE]);
   reset_ssm(&all_ssms[SSM_SOURCE_PC]);
   reset_ssm(&all_ssms[SSM_SOURCE_LIGHT_SENSOR]);

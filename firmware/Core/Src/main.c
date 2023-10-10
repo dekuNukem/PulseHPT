@@ -125,19 +125,16 @@ uint8_t ssm_update(shutter_state_machine* ssm, uint16_t pin_state)
 {
   if(ssm->current_state == SHUTTER_STATE_IDLE && pin_state == PIN_STATE_ACTIVATE)
   {
-    // printf("1\n");
     ssm->current_state = SHUTTER_STATE_TRIGGERED;
     ssm->trigger_ts = micros();
   }
   else if(ssm->current_state == SHUTTER_STATE_TRIGGERED && pin_state == PIN_STATE_RELEASE)
   {
-    // printf("2\n");
     ssm->current_state = SHUTTER_STATE_BOUNCE_DETECT;
     ssm->release_ts = micros();
   }
   else if(ssm->current_state == SHUTTER_STATE_BOUNCE_DETECT && pin_state == PIN_STATE_ACTIVATE)
   {
-    // printf("3\n");
     ssm->current_state = SHUTTER_STATE_TRIGGERED;
     ssm->bounce_count++;
   }
@@ -236,8 +233,6 @@ uint8_t center_line(uint8_t line_len, uint8_t char_width_pixels, uint8_t oled_wi
 char* oled_str_hotshoe = "Hot Shoe";
 char* oled_str_pc_socket = "PC Socket";
 char* oled_str_light_sensor = "Light Sensor";
-char* oled_str_ready = "READY";
-char* oled_str_info = "Info: PulseHPT.com";
 
 void print_single_result(char* title, shutter_state_machine* ssm)
 {
@@ -343,25 +338,17 @@ void print_triple_result(void)
   ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
+char* oled_str_ready = "READY";
+
 void print_ready(void)
 {
   ssd1306_Fill(Black);
   ssd1306_SetCursor(center_line(strlen(oled_str_ready), 11, SSD1306_WIDTH), 0);
   ssd1306_WriteString(oled_str_ready, Font_11x18, White);
-  ssd1306_SetCursor(center_line(strlen(oled_str_info), 7, SSD1306_WIDTH), 20);
-  ssd1306_WriteString(oled_str_info, Font_7x10, White);
-  ssd1306_UpdateScreen(); last_oled_update = micros();
-}
 
-char* oled_str_device_name = "PulseHPT";
-
-void print_bootscreen(void)
-{
-  sprintf(temp_str_buf1, "dekuNukem V%d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
-  ssd1306_Fill(Black);
-  ssd1306_SetCursor(center_line(strlen(oled_str_device_name), 11, SSD1306_WIDTH), 0);
-  ssd1306_WriteString(oled_str_device_name, Font_11x18, White);
-  ssd1306_SetCursor(center_line(strlen(temp_str_buf1), 7, SSD1306_WIDTH), 20);
+  memset(temp_str_buf1, 0, TEMP_BUF_SIZE);
+  sprintf(temp_str_buf1, "PulseHPT.com %d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
+  ssd1306_SetCursor(0, 20);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
   ssd1306_UpdateScreen(); last_oled_update = micros();
 }
@@ -424,6 +411,18 @@ void print_results_all_sources(void)
     print_triple_result();
 }
 
+void print_timeout(void)
+{
+  ssd1306_Fill(Black);
+  memset(temp_str_buf1, 0, TEMP_BUF_SIZE);
+  sprintf(temp_str_buf1, " >%ds", SHUTTER_TIMEOUT_SEC);
+  ssd1306_SetCursor(0, 7);
+  ssd1306_WriteString("TIMEOUT", Font_11x18, White);
+  ssd1306_SetCursor(80, 11);
+  ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
+  ssd1306_UpdateScreen(); last_oled_update = micros();
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -466,14 +465,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	printf("PulseHPT dekuNukem 2023\r\n");
-  // print_bootscreen();
-  // HAL_Delay(2000);
-  // ssd1306_SetContrast(8);
+  printf("PulseHPT dekuNukem 2023 %d.%d.%d\n", fw_version_major, fw_version_minor, fw_version_patch);
   print_ready();
   while (1)
   {
-    if(is_oled_dim == 0 && micros() - last_oled_update > 10000*1000)
+    /*
+      only dim screen if:
+      not already dim
+      after at least 5 seconds of last screen update
+      NO active measurement is ongoing
+    */
+    if(is_oled_dim == 0 && (micros() - last_oled_update > 5000*1000) && count_state(SHUTTER_STATE_IDLE) == 0x7)
     {
       // __disable_irq();
       ssd1306_SetContrast(8);
@@ -494,6 +496,17 @@ int main(void)
       is_oled_dim = 0;
       // __enable_irq();
     }
+
+    if(count_state(SHUTTER_STATE_TIMEOUT))
+    {
+      __disable_irq();
+      print_timeout();
+      delay_us(250*1000);
+      ssm_reset_all();
+      __enable_irq();
+      continue;
+    }
+
     if(count_state(SHUTTER_STATE_RESULT_AVAILABLE) == 0)
       continue;
 
