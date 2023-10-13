@@ -3967,7 +3967,7 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="U1" library="lul" deviceset="LUL_DISP_OLED_UG-2864HSWEG01" device=""/>
 <part name="GND26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="390K"/>
+<part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="270K"/>
 <part name="C20" library="clock" deviceset="CAP" device="0805" value="1uF"/>
 <part name="C21" library="clock" deviceset="CAP" device="0805" value="1uF"/>
 <part name="GND27" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -4007,7 +4007,7 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="JP2" library="adafruit_changed" deviceset="PINHD-1X3" device="CB"/>
 <part name="+3V9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="R9" library="joyAnalog" deviceset="RESISTOR" device="0805-RES" value="10K"/>
+<part name="R9" library="joyAnalog" deviceset="RESISTOR" device="0805-RES" value="270K"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="U$11" library="apricot" deviceset="SPRING_CONTACT" device=""/>
 <part name="U$13" library="apricot" deviceset="SPRING_CONTACT" device=""/>

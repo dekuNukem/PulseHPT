@@ -995,7 +995,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="U$12" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="-29.5" y="-4" smashed="yes"/>
 <element name="U$1" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="25" y="-23" smashed="yes"/>
 <element name="U1" library="lul" package="LUL_UG-2864HSWEG01_1.3_WRAPAROUND" value="" x="-21.384" y="-9.525" smashed="yes" rot="R90"/>
-<element name="R7" library="SparkFun-Passives" package="0805" value="390K" x="-24.559" y="-11.049" smashed="yes">
+<element name="R7" library="SparkFun-Passives" package="0805" value="270K" x="-24.559" y="-11.049" smashed="yes">
 <attribute name="NAME" x="-26.464" y="-10.668" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="C20" library="clock" package="0805" value="1uF" x="-22.781" y="-4.064" smashed="yes">
@@ -1056,7 +1056,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="JP2" library="adafruit_changed" package="1X03-CLEANBIG" value="" x="-12.192" y="-23.749" smashed="yes" rot="R180">
 <attribute name="VALUE" x="-8.382" y="-20.574" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R9" library="joyAnalog" package="0805" value="10K" x="-13.843" y="-18.542" smashed="yes" rot="R180">
+<element name="R9" library="joyAnalog" package="0805" value="270K" x="-13.843" y="-18.542" smashed="yes" rot="R180">
 <attribute name="NAME" x="-13.208" y="-16.7005" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="U$11" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="-1.524" y="3.556" smashed="yes"/>
