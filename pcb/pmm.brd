@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -224,17 +224,20 @@
 <text x="18.5932" y="-23.3866" size="1.9304" layer="25" align="center">RESET</text>
 <text x="1.8292" y="-17.7986" size="2.1844" layer="25" align="center">ON</text>
 <text x="10.4652" y="-17.7986" size="2.1844" layer="25" align="center">OFF</text>
-<rectangle x1="-4.064" y1="-16.891" x2="4.318" y2="-9.525" layer="16"/>
+<rectangle x1="-4.064" y1="-17.907" x2="4.318" y2="-10.541" layer="16"/>
 <text x="32.639" y="-13.208" size="1.27" layer="25" rot="R90" align="center">PC</text>
 <text x="32.639" y="-15.875" size="1.27" layer="25" align="center">G</text>
 <text x="-9.652" y="-22.019" size="1.27" layer="25" rot="R180" align="center">S</text>
 <text x="-12.1408" y="-22.0376" size="1.27" layer="25" align="center">G</text>
 <text x="-14.6808" y="-22.0376" size="1.27" layer="25" align="center">V</text>
-<text x="-8.2038" y="-3.7016" size="2.1082" layer="25" align="center">PulseHPT.com</text>
+<text x="-6.9338" y="-3.4476" size="1.9304" layer="25" align="center">PulseHPT.com</text>
 <text x="14.6562" y="-13.6076" size="2.1082" layer="26" rot="MR0" align="center">PulseHPT.com
 dekuNukem 2023</text>
 <wire x1="0" y1="20" x2="0" y2="-1" width="0.1016" layer="51"/>
 <wire x1="12.6" y1="19" x2="12.6" y2="-1" width="0.1016" layer="51"/>
+<text x="-20.6498" y="12.3004" size="1.9304" layer="25" align="center">1.2mm Thick
+ENIG gold finish
+FDX0039B2 Spring contact</text>
 </plain>
 <libraries>
 <library name="clock">
@@ -477,7 +480,7 @@ by exp-lbrs.ulp</description>
 <smd name="P$1" x="0" y="0" dx="4.5" dy="2" layer="1" rot="R90"/>
 </package>
 <package name="HOTSHOE_RAIL">
-<smd name="P$1" x="0" y="0" dx="17" dy="3" layer="1" rot="R90" thermals="no"/>
+<smd name="P$1" x="0" y="0" dx="17" dy="6" layer="1" rot="R90" thermals="no"/>
 </package>
 </packages>
 </library>
@@ -1013,16 +1016,16 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="R8" library="joyAnalog" package="0805" value="10K" x="-29.083" y="-9.144" smashed="yes" rot="R90">
 <attribute name="NAME" x="-28.7655" y="-7.62" size="0.8128" layer="25" rot="R90"/>
 </element>
-<element name="BT1" library="BU2032SM-G" package="BAT_BU2032SM-G" value="BU2032SM-G" x="-14.6" y="-13.5" smashed="yes" rot="MR0">
-<attribute name="AVAILABILITY" value="In Stock" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=eda" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="DESCRIPTION" value=" BATTERY HOLDER COIN 20MM SMD " x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MF" value="MPD" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MP" value="BU2032SM-G" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PACKAGE" value="None" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PRICE" value="None" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=4219599&amp;manufacturer=MPD&amp;part_name=BU2032SM-G&amp;search_term=battery holder" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=snap" x="-14.6" y="-13.5" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="BT1" library="BU2032SM-G" package="BAT_BU2032SM-G" value="BU2032SM-G" x="-14.6" y="-14.77" smashed="yes" rot="MR0">
+<attribute name="AVAILABILITY" value="In Stock" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=eda" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="DESCRIPTION" value=" BATTERY HOLDER COIN 20MM SMD " x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MF" value="MPD" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MP" value="BU2032SM-G" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PACKAGE" value="None" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PRICE" value="None" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=4219599&amp;manufacturer=MPD&amp;part_name=BU2032SM-G&amp;search_term=battery holder" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=snap" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="J1" library="SparkFun-Connectors" package="AUDIO-JACK" value="AUDIO_JACK_3.5MM_PTH" x="43.688" y="-18.669" smashed="yes" rot="R180">
 <attribute name="PROD_ID" value="CONN-08774" x="43.688" y="-18.669" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1059,15 +1062,11 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="R9" library="joyAnalog" package="0805" value="270K" x="-13.843" y="-18.542" smashed="yes" rot="R180">
 <attribute name="NAME" x="-13.208" y="-16.7005" size="0.8128" layer="25" rot="R180"/>
 </element>
-<element name="U$11" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="-1.524" y="3.556" smashed="yes"/>
-<element name="U$13" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="-1.524" y="9.398" smashed="yes"/>
-<element name="U$14" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="-1.524" y="15.24" smashed="yes"/>
-<element name="U$4" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="14.097" y="15.24" smashed="yes"/>
-<element name="U$5" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="14.097" y="9.398" smashed="yes"/>
-<element name="U$9" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="14.097" y="3.556" smashed="yes"/>
-<element name="U$10" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="13.975" y="9.354" smashed="yes" rot="MR0"/>
-<element name="U$15" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="-1.455" y="9.354" smashed="yes" rot="MR0"/>
+<element name="U$10" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="12.451" y="9.608" smashed="yes" rot="MR0"/>
+<element name="U$15" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="0.069" y="9.608" smashed="yes" rot="MR0"/>
 <element name="U$2" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="6.3" y="10.3" smashed="yes" rot="MR0"/>
+<element name="U$3" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="0" y="9.652" smashed="yes"/>
+<element name="U$4" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="12.446" y="9.652" smashed="yes"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -1134,15 +1133,11 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="JP2" pad="2"/>
 <contactref element="R9" pad="2"/>
 <via x="-0.381" y="-23.495" extent="1-16" drill="0.5"/>
-<contactref element="U$13" pad="P$1"/>
-<contactref element="U$11" pad="P$1"/>
-<contactref element="U$14" pad="P$1"/>
-<contactref element="U$5" pad="P$1"/>
-<contactref element="U$9" pad="P$1"/>
-<contactref element="U$4" pad="P$1"/>
 <contactref element="U$10" pad="P$1"/>
 <contactref element="U$15" pad="P$1"/>
 <via x="18.415" y="-17.272" extent="1-16" drill="0.5"/>
+<contactref element="U$3" pad="P$1"/>
+<contactref element="U$4" pad="P$1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="IC3" pad="16"/>
@@ -1515,8 +1510,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <signal name="VBAT">
 <contactref element="BT1" pad="+"/>
 <contactref element="JP1" pad="1"/>
-<wire x1="-0.1" y1="-13.5" x2="3.76" y2="-17.36" width="0.508" layer="16"/>
-<wire x1="3.76" y1="-17.36" x2="3.76" y2="-20.373" width="0.508" layer="16"/>
+<wire x1="-0.1" y1="-14.77" x2="3.76" y2="-18.63" width="0.508" layer="16"/>
+<wire x1="3.76" y1="-18.63" x2="3.76" y2="-20.373" width="0.508" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="U4" pad="2"/>
