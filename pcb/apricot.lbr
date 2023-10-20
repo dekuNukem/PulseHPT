@@ -251,7 +251,7 @@ by exp-lbrs.ulp</description>
 <smd name="P$1" x="0" y="0" dx="4.5" dy="2" layer="1" rot="R90"/>
 </package>
 <package name="HOTSHOE_RAIL">
-<smd name="P$1" x="0" y="0" dx="17" dy="6" layer="1" rot="R90" thermals="no"/>
+<smd name="P$1" x="0" y="0" dx="17" dy="5" layer="1" rot="R90" thermals="no"/>
 </package>
 </packages>
 <symbols>

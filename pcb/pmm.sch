@@ -3099,7 +3099,7 @@ by exp-lbrs.ulp</description>
 <smd name="P$1" x="0" y="0" dx="4.5" dy="2" layer="1" rot="R90"/>
 </package>
 <package name="HOTSHOE_RAIL">
-<smd name="P$1" x="0" y="0" dx="17" dy="6" layer="1" rot="R90" thermals="no"/>
+<smd name="P$1" x="0" y="0" dx="17" dy="5" layer="1" rot="R90" thermals="no"/>
 </package>
 </packages>
 <symbols>
@@ -3955,12 +3955,12 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="SW3" library="3pos_slide_switch_centered" deviceset="324_SW" device="" value="324_SW"/>
 <part name="SW4" library="3pos_slide_switch_centered" deviceset="324_SW" device="" value="324_SW"/>
 <part name="LED1" library="adafruit" deviceset="LED" device="CHIP-LED0805"/>
-<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="5K1"/>
+<part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="2K"/>
 <part name="+3V2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="R5" library="joyAnalog" deviceset="RESISTOR" device="0805-RES" value="10K"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="U4" library="3pos_slide_switch" deviceset="XC6206_DEV" device=""/>
-<part name="C2" library="clock" deviceset="CAP" device="0805" value="100nF"/>
+<part name="C2" library="clock" deviceset="CAP" device="0805" value="2.2uF"/>
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="U$12" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>
 <part name="U$1" library="3pos_slide_switch_centered" deviceset="M2_SCREW_DEV" device=""/>

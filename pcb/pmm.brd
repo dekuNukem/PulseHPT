@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="10" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="20" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -480,7 +480,7 @@ by exp-lbrs.ulp</description>
 <smd name="P$1" x="0" y="0" dx="4.5" dy="2" layer="1" rot="R90"/>
 </package>
 <package name="HOTSHOE_RAIL">
-<smd name="P$1" x="0" y="0" dx="17" dy="6" layer="1" rot="R90" thermals="no"/>
+<smd name="P$1" x="0" y="0" dx="17" dy="5" layer="1" rot="R90" thermals="no"/>
 </package>
 </packages>
 </library>
@@ -985,14 +985,14 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="LED1" library="adafruit" package="CHIP-LED0805" value="" x="35.331" y="-9.688" smashed="yes" rot="R270">
 <attribute name="VALUE" x="34.061" y="-12.228" size="1.27" layer="27"/>
 </element>
-<element name="R4" library="SparkFun-Passives" package="0805" value="5K1" x="35.331" y="-11.434" smashed="yes">
+<element name="R4" library="SparkFun-Passives" package="0805" value="2K" x="35.331" y="-11.434" smashed="yes">
 <attribute name="NAME" x="37.0074" y="-11.7769" size="0.8128" layer="25"/>
 </element>
 <element name="R5" library="joyAnalog" package="0805" value="10K" x="-10.1286" y="-19.746" smashed="yes" rot="R270">
 <attribute name="NAME" x="-9.7641" y="-18.2004" size="0.8128" layer="25" rot="R90"/>
 </element>
 <element name="U4" library="3pos_slide_switch" package="SOT23R_INFINEON" value="XC6206_DEV" x="34.036" y="-22.86" smashed="yes" rot="R270"/>
-<element name="C2" library="clock" package="0805" value="100nF" x="28.067" y="-7.874" smashed="yes">
+<element name="C2" library="clock" package="0805" value="2.2uF" x="28.067" y="-7.874" smashed="yes">
 <attribute name="NAME" x="30.7378" y="-7.4765" size="0.8128" layer="25" rot="R180"/>
 </element>
 <element name="U$12" library="3pos_slide_switch_centered" package="M2_SCREW_FOOT" value="M2_SCREW_DEV" x="-29.5" y="-4" smashed="yes"/>
@@ -1016,16 +1016,16 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="R8" library="joyAnalog" package="0805" value="10K" x="-29.083" y="-9.144" smashed="yes" rot="R90">
 <attribute name="NAME" x="-28.7655" y="-7.62" size="0.8128" layer="25" rot="R90"/>
 </element>
-<element name="BT1" library="BU2032SM-G" package="BAT_BU2032SM-G" value="BU2032SM-G" x="-14.6" y="-14.77" smashed="yes" rot="MR0">
-<attribute name="AVAILABILITY" value="In Stock" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=eda" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="DESCRIPTION" value=" BATTERY HOLDER COIN 20MM SMD " x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MF" value="MPD" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="MP" value="BU2032SM-G" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PACKAGE" value="None" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PRICE" value="None" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=4219599&amp;manufacturer=MPD&amp;part_name=BU2032SM-G&amp;search_term=battery holder" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
-<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=snap" x="-14.6" y="-14.77" size="1.778" layer="28" rot="MR0" display="off"/>
+<element name="BT1" library="BU2032SM-G" package="BAT_BU2032SM-G" value="BU2032SM-G" x="-14.6" y="-14.643" smashed="yes" rot="MR0">
+<attribute name="AVAILABILITY" value="In Stock" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=eda" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="DESCRIPTION" value=" BATTERY HOLDER COIN 20MM SMD " x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MF" value="MPD" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="MP" value="BU2032SM-G" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PACKAGE" value="None" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PRICE" value="None" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="PURCHASE-URL" value="https://www.snapeda.com/api/url_track_click_mouser/?unipart_id=4219599&amp;manufacturer=MPD&amp;part_name=BU2032SM-G&amp;search_term=battery holder" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BU2032SM-G/Memory+Protection+Devices/view-part/?ref=snap" x="-14.6" y="-14.643" size="1.778" layer="28" rot="MR0" display="off"/>
 </element>
 <element name="J1" library="SparkFun-Connectors" package="AUDIO-JACK" value="AUDIO_JACK_3.5MM_PTH" x="43.688" y="-18.669" smashed="yes" rot="R180">
 <attribute name="PROD_ID" value="CONN-08774" x="43.688" y="-18.669" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1056,17 +1056,17 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="C3" library="clock" package="0805" value="1uF" x="30.861" y="-22.86" smashed="yes" rot="R270">
 <attribute name="NAME" x="29.0195" y="-21.971" size="0.8128" layer="25" rot="R270"/>
 </element>
-<element name="JP2" library="adafruit_changed" package="1X03-CLEANBIG" value="" x="-12.192" y="-23.749" smashed="yes" rot="R180">
-<attribute name="VALUE" x="-8.382" y="-20.574" size="1.27" layer="27" rot="R180"/>
+<element name="JP2" library="adafruit_changed" package="1X03-CLEANBIG" value="" x="-12.192" y="-23.876" smashed="yes" rot="R180">
+<attribute name="VALUE" x="-8.382" y="-20.701" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="R9" library="joyAnalog" package="0805" value="270K" x="-13.843" y="-18.542" smashed="yes" rot="R180">
 <attribute name="NAME" x="-13.208" y="-16.7005" size="0.8128" layer="25" rot="R180"/>
 </element>
-<element name="U$10" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="12.451" y="9.608" smashed="yes" rot="MR0"/>
-<element name="U$15" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="0.069" y="9.608" smashed="yes" rot="MR0"/>
+<element name="U$10" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="13.467" y="9.608" smashed="yes" rot="MR0"/>
+<element name="U$15" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="-0.947" y="9.608" smashed="yes" rot="MR0"/>
 <element name="U$2" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="6.3" y="10.3" smashed="yes" rot="MR0"/>
-<element name="U$3" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="0" y="9.652" smashed="yes"/>
-<element name="U$4" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="12.446" y="9.652" smashed="yes"/>
+<element name="U$3" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="-1.016" y="9.652" smashed="yes"/>
+<element name="U$4" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="13.462" y="9.652" smashed="yes"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -1212,10 +1212,10 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="18.807" y1="-3.81" x2="21.209" y2="-3.81" width="0.2032" layer="1"/>
 <contactref element="JP2" pad="3"/>
 <wire x1="-5.842" y1="-18.923" x2="-11.303" y2="-18.923" width="0.508" layer="16"/>
-<wire x1="-14.732" y1="-22.352" x2="-14.732" y2="-23.749" width="0.508" layer="16"/>
+<wire x1="-14.732" y1="-22.352" x2="-14.732" y2="-23.876" width="0.508" layer="16"/>
 <wire x1="-11.303" y1="-18.923" x2="-14.732" y2="-22.352" width="0.508" layer="16"/>
-<wire x1="-14.732" y1="-23.749" x2="-20.114" y2="-23.749" width="0.508" layer="16"/>
-<wire x1="-20.114" y1="-23.749" x2="-23.797" y2="-20.066" width="0.508" layer="16"/>
+<wire x1="-14.732" y1="-23.876" x2="-19.987" y2="-23.876" width="0.508" layer="16"/>
+<wire x1="-19.987" y1="-23.876" x2="-23.797" y2="-20.066" width="0.508" layer="16"/>
 </signal>
 <signal name="USB_DP">
 <contactref element="U2" pad="A6"/>
@@ -1483,8 +1483,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 </signal>
 <signal name="LIGHT_SENSE">
 <contactref element="J2" pad="3"/>
-<wire x1="-1.27" y1="-17.399" x2="2.9972" y2="-21.6662" width="0.1524" layer="1"/>
-<wire x1="2.9972" y1="-21.6662" x2="7.0358" y2="-21.6662" width="0.1524" layer="1"/>
+<wire x1="-1.778" y1="-17.399" x2="2.4892" y2="-21.6662" width="0.1524" layer="1"/>
+<wire x1="2.4892" y1="-21.6662" x2="7.0358" y2="-21.6662" width="0.1524" layer="1"/>
 <wire x1="10.795" y1="-14.859" x2="26.162" y2="-14.859" width="0.1524" layer="1"/>
 <wire x1="7.0358" y1="-21.6662" x2="7.3914" y2="-21.3106" width="0.1524" layer="1"/>
 <wire x1="7.3914" y1="-21.3106" x2="7.3914" y2="-18.2626" width="0.1524" layer="1"/>
@@ -1494,24 +1494,22 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="26.3" y1="-14.997" x2="26.3" y2="-15.8718" width="0.1524" layer="1"/>
 <contactref element="JP2" pad="1"/>
 <contactref element="R9" pad="1"/>
-<wire x1="-1.27" y1="-17.399" x2="-12.954" y2="-17.399" width="0.2032" layer="1"/>
-<wire x1="-12.954" y1="-17.399" x2="-14.732" y2="-17.399" width="0.2032" layer="1"/>
-<wire x1="-14.732" y1="-17.399" x2="-21.336" y2="-17.399" width="0.2032" layer="1"/>
+<wire x1="-1.778" y1="-17.399" x2="-12.954" y2="-17.399" width="0.2032" layer="1"/>
+<wire x1="-12.954" y1="-17.399" x2="-21.336" y2="-17.399" width="0.2032" layer="1"/>
 <wire x1="-24.813" y1="-18.251" x2="-24.813" y2="-16.812" width="0.2032" layer="1"/>
 <wire x1="-24.813" y1="-16.812" x2="-24.511" y2="-16.51" width="0.2032" layer="1"/>
 <wire x1="-24.511" y1="-16.51" x2="-22.225" y2="-16.51" width="0.2032" layer="1"/>
 <wire x1="-22.225" y1="-16.51" x2="-21.336" y2="-17.399" width="0.2032" layer="1"/>
-<wire x1="-14.743" y1="-17.41" x2="-14.732" y2="-17.399" width="0.2032" layer="1"/>
-<wire x1="-12.943" y1="-20.458" x2="-12.943" y2="-18.542" width="0.2032" layer="1"/>
-<wire x1="-9.652" y1="-23.749" x2="-12.943" y2="-20.458" width="0.2032" layer="1"/>
+<wire x1="-12.943" y1="-20.585" x2="-12.943" y2="-18.542" width="0.2032" layer="1"/>
+<wire x1="-9.652" y1="-23.876" x2="-12.943" y2="-20.585" width="0.2032" layer="1"/>
 <wire x1="-12.943" y1="-18.542" x2="-12.954" y2="-18.531" width="0.2032" layer="1"/>
 <wire x1="-12.954" y1="-18.531" x2="-12.954" y2="-17.399" width="0.2032" layer="1"/>
 </signal>
 <signal name="VBAT">
 <contactref element="BT1" pad="+"/>
 <contactref element="JP1" pad="1"/>
-<wire x1="-0.1" y1="-14.77" x2="3.76" y2="-18.63" width="0.508" layer="16"/>
-<wire x1="3.76" y1="-18.63" x2="3.76" y2="-20.373" width="0.508" layer="16"/>
+<wire x1="-0.1" y1="-14.643" x2="3.76" y2="-18.503" width="0.508" layer="16"/>
+<wire x1="3.76" y1="-18.503" x2="3.76" y2="-20.373" width="0.508" layer="16"/>
 </signal>
 <signal name="N$3">
 <contactref element="U4" pad="2"/>
@@ -1572,16 +1570,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <approved hash="4,16,fd4db1e003d7e8df"/>
 <approved hash="4,16,e5d7027a5d65ceec"/>
 <approved hash="4,16,bed7ee47d2ae8dc0"/>
-<approved hash="19,16,7368611faef79e9e"/>
-<approved hash="19,16,76b7bd7061b02a9f"/>
-<approved hash="4,1,8e5f2e9d874ae0d2"/>
-<approved hash="4,1,58a6f03ad91e23a7"/>
-<approved hash="4,16,cb6bdf10e466a9f5"/>
-<approved hash="4,16,ee2e8d52510fd8c8"/>
-<approved hash="4,16,25a18c7631c3b843"/>
-<approved hash="4,16,a2bef419b4b25a4b"/>
-<approved hash="4,16,de835362063a1360"/>
-<approved hash="4,16,31c79b71fbb42a36"/>
+<approved hash="19,16,74b7ba566762296b"/>
+<approved hash="19,16,65b47737b8b78852"/>
 </errors>
 </board>
 </drawing>
