@@ -1066,8 +1066,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="R9" library="joyAnalog" package="0805" value="270K" x="-13.843" y="-18.542" smashed="yes" rot="R180">
 <attribute name="NAME" x="-13.335" y="-19.4945" size="0.8128" layer="25" rot="R180"/>
 </element>
-<element name="U$10" library="apricot" package="HOTSHOE_RAIL_NOPASTE" value="HOTSHOE_NOPASTE" x="14.102" y="14.688" smashed="yes" rot="MR0"/>
-<element name="U$15" library="apricot" package="HOTSHOE_RAIL_NOPASTE" value="HOTSHOE_NOPASTE" x="-1.455" y="14.688" smashed="yes" rot="MR0"/>
+<element name="U$10" library="apricot" package="HOTSHOE_RAIL_NOPASTE" value="HOTSHOE_NOPASTE" x="14.102" y="15.577" smashed="yes" rot="MR0"/>
+<element name="U$15" library="apricot" package="HOTSHOE_RAIL_NOPASTE" value="HOTSHOE_NOPASTE" x="-1.328" y="15.577" smashed="yes" rot="MR0"/>
 <element name="U$2" library="apricot" package="SPRING_CONTACT" value="SPRING_CONTACT" x="6.3" y="10.05" smashed="yes" rot="MR0"/>
 <element name="U$3" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="-1.397" y="14.732" smashed="yes"/>
 <element name="U$4" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="14.097" y="14.732" smashed="yes"/>
@@ -1075,6 +1075,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <element name="U$9" library="apricot" package="HOTSHOE_RAIL_NOPASTE" value="HOTSHOE_NOPASTE" x="14.097" y="3.048" smashed="yes" rot="MR0"/>
 <element name="U$14" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="-1.397" y="3.048" smashed="yes"/>
 <element name="U$16" library="apricot" package="HOTSHOE_RAIL" value="HOTSHOE" x="14.097" y="3.048" smashed="yes"/>
+<element name="U$11" library="apricot" package="HOTSHOE_RAIL_NOPASTE" value="HOTSHOE_NOPASTE" x="-1.397" y="9.398" smashed="yes" rot="MR0"/>
+<element name="U$13" library="apricot" package="HOTSHOE_RAIL_NOPASTE" value="HOTSHOE_NOPASTE" x="14.097" y="9.398" smashed="yes" rot="MR0"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -1150,6 +1152,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="U$9" pad="P$1"/>
 <contactref element="U$14" pad="P$1"/>
 <contactref element="U$16" pad="P$1"/>
+<contactref element="U$11" pad="P$1"/>
+<contactref element="U$13" pad="P$1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="IC3" pad="16"/>
@@ -1582,7 +1586,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <approved hash="4,1,f33e1fddcadfe9c3"/>
 <approved hash="4,1,2193a45fb98d1e06"/>
 <approved hash="4,1,fd4db1e003d7e8df"/>
-<approved hash="4,1,e5d7027a5d65ceec"/>
 <approved hash="4,1,bed7ee47d2ae8dc0"/>
 <approved hash="4,1,69459281d272aba3"/>
 <approved hash="4,1,7ac9bb80cdbdb1fa"/>
@@ -1597,12 +1600,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <approved hash="4,1,311d225d213f0eb0"/>
 <approved hash="4,1,e3d4a5325a6cb5f4"/>
 <approved hash="4,1,75e6710b5a90e5bc"/>
-<approved hash="4,16,2464392cef384ab2"/>
-<approved hash="4,16,23868df73003beb3"/>
 <approved hash="4,16,213912e4433b2cdf"/>
-<approved hash="4,16,82c4e51686daa864"/>
 <approved hash="4,16,311d225d213f0eb0"/>
-<approved hash="4,16,3c0a2ad560125966"/>
 <approved hash="19,16,64f574ca3b36090a"/>
 <approved hash="19,16,7873b4d649ab0667"/>
 <approved hash="4,1,998c7bd06ca54081"/>
@@ -1611,6 +1610,15 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <approved hash="4,16,998c7bd06ca54081"/>
 <approved hash="4,16,709fc0d8a2a47495"/>
 <approved hash="4,16,26f812a95ea5d0f2"/>
+<approved hash="4,16,fd9585422bc76f96"/>
+<approved hash="4,16,213912e443352cd7"/>
+<approved hash="4,16,03c5e4a007ada935"/>
+<approved hash="4,16,3118225221330eb4"/>
+<approved hash="4,16,dc716636652e2bb1"/>
+<approved hash="4,16,dc2cf8bb51f7bc31"/>
+<approved hash="4,16,f36d0fa73bf7da57"/>
+<approved hash="4,16,e96621aa939f5e95"/>
+<approved hash="4,1,e5d7027a5d65ceec"/>
 </errors>
 </board>
 </drawing>

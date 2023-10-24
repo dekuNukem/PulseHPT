@@ -4052,6 +4052,10 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <part name="GND34" library="supply1" deviceset="GND" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="+3V11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="U$11" library="apricot" deviceset="HOTSHOE_NOPASTE" device=""/>
+<part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="U$13" library="apricot" deviceset="HOTSHOE_NOPASTE" device=""/>
+<part name="GND32" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4323,6 +4327,14 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <instance part="+3V11" gate="G$1" x="360.68" y="35.56" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="355.6" y="30.48" size="1.778" layer="96" rot="MR90"/>
 </instance>
+<instance part="U$11" gate="G$1" x="-48.26" y="223.52" smashed="yes"/>
+<instance part="GND3" gate="1" x="-63.5" y="220.98" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-60.96" y="218.44" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="U$13" gate="G$1" x="-93.98" y="223.52" smashed="yes"/>
+<instance part="GND32" gate="1" x="-109.22" y="220.98" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="-106.68" y="218.44" size="1.778" layer="96" rot="MR0"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -4498,6 +4510,16 @@ Reduced openings in tStop, pins spread a tiny bit out to hold part on PCB during
 <pinref part="U$16" gate="G$1" pin="P$1"/>
 <pinref part="GND34" gate="1" pin="GND"/>
 <wire x1="-177.8" y1="182.88" x2="-182.88" y2="182.88" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND3" gate="1" pin="GND"/>
+<pinref part="U$11" gate="G$1" pin="P$1"/>
+<wire x1="-63.5" y1="223.52" x2="-58.42" y2="223.52" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND32" gate="1" pin="GND"/>
+<pinref part="U$13" gate="G$1" pin="P$1"/>
+<wire x1="-109.22" y1="223.52" x2="-104.14" y2="223.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
