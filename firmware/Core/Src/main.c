@@ -249,9 +249,9 @@ void print_single_result(char* title, shutter_state_machine* ssm)
   uint8_t line_start = center_line(strlen(temp_str_buf1)+strlen(temp_str_buf2)+1, 11, SSD1306_WIDTH);
   ssd1306_SetCursor(line_start, 11);
 
-  ssd1306_WriteString(temp_str_buf1, Font_11x18, White);
-  ssd1306_WriteString(" ", Font_7x10, White);
   ssd1306_WriteString(temp_str_buf2, Font_11x18, White);
+  ssd1306_WriteString(" ", Font_7x10, White);
+  ssd1306_WriteString(temp_str_buf1, Font_11x18, White);
 
   ssd1306_UpdateScreen(); last_oled_update = micros();
 }
