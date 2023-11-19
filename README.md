@@ -1,49 +1,79 @@
 # PulseHPT Shutter Speed Tester
 
-PulseHPT is a compact and portable shutter speed tester for vintage cameras.
+PulseHPT is a compact 3-in-1 shutter speed tester for vintage cameras.
 
 ![Alt text](resources/photos/title.jpeg)
 
 
 It can measure from three sources:
 
-* Hot Shoe
+* Hot Shoe (easiest)
 
 * PC Socket
 
-* Light Sensor
+* Light Sensor (most accurate)
 
-Features:
+![Alt text](resources/photos/sources.png)
 
-* Portable & Battery Powered
+## Highlights
+
+* Compact & Portable
+
+* Easy to Use
 
 * Microsecond Accuracy
 
-* Easy to use & accurate
+* Multiple Sources
 
-* ????
+## Battery Installation
 
-## Instructions
+Insert a CR2032 coin battery positive side up.
 
-Install battery
+Ensure the positive terminal is **ABOVE** the surface.
 
-Supports multiple sources, start with hot shoe.
+## Hot Shoe
 
-### Hot Shoe
+#### How it works
 
-how hot shoe contact works.
+On a hotshoe, we have the middle trigger pin, and the outer ground plate:
 
-Simply insert into hot shoe
+Normally, those two pins are isolated.
 
-### PC Socket
+However, when taking a photo, those two pins are connected together **when shutter is fully open**.
 
-### Light Sensor
+This triggers the flash, but they also **remain connected until shutter is closed**.
 
-### Advanced Usage
+Thus the approximate shutter speed can be measured.
+
+#### Instructions
+
+Insert the tester into the hot shoe.
+
+Turn it on.
+
+Release the shutter
+
+The screen should display the result.
+
+#### Important Notes
+
+As the hotshoe only becomes active **when shutter is fully open**, result at higher shutter speeds might be shorter than it actually is.
+
+Therefore this way is only recommended for speed slower than 1/30 second.
+
+Also, newer cameras might have different shutter design that does not work at all.
+
+## PC Socket
+
+## Light Sensor
+
+## Advanced Usage
 
 
 
 ---------
+
+The easiest way, although might be incompatible with certain cameras.
 
 
 shutterbug
