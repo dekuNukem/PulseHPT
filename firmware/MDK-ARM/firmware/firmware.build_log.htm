@@ -32,7 +32,7 @@ compiling main.c...
   uint8_t ssd1306_GetDisplayOn();
 ../Core/Src/main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=18156 RO-data=5976 RW-data=76 ZI-data=2828  
+Program Size: Code=18140 RO-data=5976 RW-data=72 ZI-data=2832  
 FromELF: creating hex file...
 "firmware\firmware.axf" - 0 Error(s), 1 Warning(s).
 
@@ -71,20 +71,20 @@ Package Vendor: Keil
       Source file:   Source\retarget_io.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDIN:User:1.2.0
+      Source file:   Template\stdin_USART.c
       Source file:   Source\retarget_io.c
       Source file:   Template\stdin_user.c
       Source file:   Template\stdin_keyboard.c
-      Source file:   Template\stdin_USART.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
-      Source file:   Template\stdout_display.c
       Source file:   Source\retarget_io.c
       Source file:   Template\stdout_user.c
       Source file:   Template\stdout_USART.c
+      Source file:   Template\stdout_display.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:TTY:User:1.2.0
-      Source file:   Source\retarget_io.c
       Source file:   Template\tty_user.c
+      Source file:   Source\retarget_io.c
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

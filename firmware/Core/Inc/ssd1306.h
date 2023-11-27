@@ -167,7 +167,7 @@ void ssd1306_DrawBitmap(uint8_t x, uint8_t y, const unsigned char* bitmap, uint8
  */
 void ssd1306_SetContrast(const uint8_t value);
 
-/**
+/**b
  * @brief Set Display ON/OFF.
  * @param[in] on 0 for OFF, any for ON.
  */

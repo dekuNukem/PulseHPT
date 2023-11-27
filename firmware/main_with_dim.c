@@ -44,18 +44,6 @@ void ttywrch (int ch) {
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-/*
-2023 11 27
-0.2.0
-removed OLED dimming
-no display fraction when > 600ms when single source
-blank out result screen during a new measurement
-*/
-uint8_t fw_version_major = 0;
-uint8_t fw_version_minor = 2;
-uint8_t fw_version_patch = 0;
-
-
 #define SHUTTER_STATE_IDLE 0
 #define SHUTTER_STATE_TRIGGERED 1
 #define SHUTTER_STATE_BOUNCE_DETECT 2
@@ -116,6 +104,9 @@ int fputc(int ch, FILE *f)
 #define SSM_SOURCE_LIGHT_SENSOR 2
 
 shutter_state_machine all_ssms[SSM_SOURCE_SIZE];
+
+uint32_t last_oled_update;
+uint8_t is_oled_dim;
 
 /* USER CODE END PV */
 
@@ -187,6 +178,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if(GPIO_Pin == LIGHT_SENSOR_Pin)
     ssm_update(&all_ssms[SSM_SOURCE_LIGHT_SENSOR], pinstate_translate(!(LIGHT_SENSOR_GPIO_Port->IDR & LIGHT_SENSOR_Pin)));
 }
+
+uint8_t fw_version_major = 0;
+uint8_t fw_version_minor = 1;
+uint8_t fw_version_patch = 0;
 
 #define TEMP_BUF_SIZE 32
 char temp_str_buf1[TEMP_BUF_SIZE];
@@ -262,7 +257,7 @@ void print_single_result(char* title, shutter_state_machine* ssm)
   ssd1306_WriteString(temp_str_buf2, Font_11x18, White);
   ssd1306_WriteString(temp_str_buf1, Font_11x18, White);
 
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 void print_double_result(char* title1, shutter_state_machine* ssm1, char* title2, shutter_state_machine* ssm2)
@@ -295,7 +290,7 @@ void print_double_result(char* title1, shutter_state_machine* ssm1, char* title2
   ssd1306_SetCursor(center_line(strlen(temp_str_buf2), 7, SSD1306_WIDTH/2) + 64, 22);
   ssd1306_WriteString(temp_str_buf2, Font_7x10, White);
 
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 void print_triple_result(void)
@@ -344,7 +339,7 @@ void print_triple_result(void)
   ssd1306_Line(42,0,42,32,White);
   ssd1306_Line(85,0,85,32,White);
 
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 char* oled_str_ready = "READY";
@@ -359,7 +354,7 @@ void print_ready(void)
   sprintf(temp_str_buf1, "PulseHPT.com %d.%d.%d", fw_version_major, fw_version_minor, fw_version_patch);
   ssd1306_SetCursor(0, 20);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 void delay_us(uint32_t delay)
@@ -429,7 +424,7 @@ void print_timeout(void)
   ssd1306_WriteString("TIMEOUT", Font_11x18, White);
   ssd1306_SetCursor(80, 11);
   ssd1306_WriteString(temp_str_buf1, Font_7x10, White);
-  ssd1306_UpdateScreen();
+  ssd1306_UpdateScreen(); last_oled_update = micros();
 }
 
 /* USER CODE END 0 */
@@ -469,7 +464,6 @@ int main(void)
   ssd1306_Init();
   HAL_TIM_Base_Start(&htim2);
   ssm_reset_all();
-  ssd1306_SetContrast(128); // 0 least bright, 255 full brightness
 
   /* USER CODE END 2 */
 
@@ -479,11 +473,33 @@ int main(void)
   print_ready();
   while (1)
   {
+    /*
+      only dim screen if:
+      not already dim
+      after at least 5 seconds of last screen update
+      NO active measurement is ongoing
+    */
+    if(is_oled_dim == 0 && (micros() - last_oled_update > 5000*1000) && count_state(SHUTTER_STATE_IDLE) == 0x7)
+    {
+      // __disable_irq();
+      ssd1306_SetContrast(8);
+      is_oled_dim = 1;
+      // __enable_irq();
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
     HAL_Delay(10);
     ssm_update_all();
+
+    if(is_oled_dim && (count_state(SHUTTER_STATE_TRIGGERED) || count_state(SHUTTER_STATE_BOUNCE_DETECT)))
+    {
+      // __disable_irq();
+      last_oled_update = micros();
+      ssd1306_SetContrast(255);
+      is_oled_dim = 0;
+      // __enable_irq();
+    }
 
     if(count_state(SHUTTER_STATE_TIMEOUT))
     {
@@ -498,8 +514,6 @@ int main(void)
     if(count_state(SHUTTER_STATE_RESULT_AVAILABLE) == 0)
       continue;
 
-    ssd1306_FillRectangle(0,11,127,31,Black);
-    ssd1306_UpdateScreen();
     // at least one source has result 
     // wait a bit more and see if other sources has results too
     uint32_t entry_time = micros();
@@ -511,7 +525,7 @@ int main(void)
 
     __disable_irq();
     print_results_all_sources();
-    delay_us(100*1000);
+    delay_us(200*1000);
     ssm_reset_all();
     __enable_irq();
   }
