@@ -34,11 +34,17 @@ Rest of the world: Tindie Link
 
 ## Battery
 
-Insert a CR2032 coin battery **positive (+) side up**.
+* **CR2032**
 
-Ensure the positive terminal is **ABOVE** the surface.
+* Positive (+) side up
+
+* ⚠️ Slide UNDER the catch!
+
+![Alt text](resources/photos/battery.jpeg)
 
 ## Measurement: Hot Shoe
+
+Ideal for a quick check on an unknown camera
 
 * Insert into hot shoe
 
@@ -64,15 +70,15 @@ Thus the approximate shutter speed can be measured.
 
 #### Caveats
 
+* Flash sync only fires **when shutter is fully open**.
+
+* So at higher shutter speeds, the measured speed can be faster than real speed.
+
 * Works best with earlier mostly-mechanical cameras
-
-* Ideal for a quick check on an unknown camera
-
-* As flash sync only fires **when shutter is fully open**, at higher shutter speeds, the measured speed can be faster than real speed.
 
 * For most accurate result, use the light sensor method.
 
-## PC Socket
+## Measurement: PC Socket
 
 * Use a common **PC Sync to 3.5mm Jack** Cable
 
@@ -94,9 +100,9 @@ Thus the approximate shutter speed can be measured.
 
 ⚠️ Same caveats as hot shoe!
 
-## Light Sensor
+## Measurement: Light Sensor
 
-Most accurate method as it measures light through lens directly.
+Most accurate, as it measures light through lens directly.
 
 * **SLOWLY and GENTLY** push the tab outwards.
 
@@ -104,31 +110,10 @@ Most accurate method as it measures light through lens directly.
 
 * Push the tab back
 
-## Advanced Usage
+## Multiple Sources
+
+## External Measurements
 
 
 
----------
 
-The easiest way, although might be incompatible with certain cameras.
-
-On a hotshoe, we have the middle trigger pin, and the outer ground plate:
-
-Normally, those two pins are isolated.
-
-However, when taking a photo, those two pins are connected together **when shutter is fully open**.
-
-This triggers the flash, but they also **remain connected until shutter is closed**.
-
-Thus the approximate shutter speed can be measured.
-
-
-shutterbug
-
-mention handles bouncing with state machine
-
-include logic capture
-
-clear button and reset button
-
-clear button clears screen, not required to start new measurement
