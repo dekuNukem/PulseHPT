@@ -45,15 +45,17 @@ void ttywrch (int ch) {
 /* USER CODE BEGIN PD */
 
 /*
-2023 11 27
-0.2.0
+2023 11 27 0.2.0
 removed OLED dimming
 no display fraction when > 600ms when single source
 blank out result screen during a new measurement
+
+2023 11 30 0.2.1
+skipped blanking out at first measurement
 */
 uint8_t fw_version_major = 0;
 uint8_t fw_version_minor = 2;
-uint8_t fw_version_patch = 0;
+uint8_t fw_version_patch = 1;
 
 
 #define SHUTTER_STATE_IDLE 0
@@ -477,6 +479,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   printf("PulseHPT dekuNukem 2023 %d.%d.%d\n", fw_version_major, fw_version_minor, fw_version_patch);
   print_ready();
+  uint8_t is_first_measurement = 1;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -498,8 +501,12 @@ int main(void)
     if(count_state(SHUTTER_STATE_RESULT_AVAILABLE) == 0)
       continue;
 
-    ssd1306_FillRectangle(0,11,127,31,Black);
-    ssd1306_UpdateScreen();
+    if(!is_first_measurement)
+    {
+      ssd1306_FillRectangle(0,11,127,31,Black);
+      ssd1306_UpdateScreen();
+    }
+    
     // at least one source has result 
     // wait a bit more and see if other sources has results too
     uint32_t entry_time = micros();
@@ -514,6 +521,7 @@ int main(void)
     delay_us(100*1000);
     ssm_reset_all();
     __enable_irq();
+    is_first_measurement = 0;
   }
   /* USER CODE END 3 */
 }
