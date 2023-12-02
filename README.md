@@ -136,13 +136,13 @@ With light sensor connected, let's do a quick test!
 
 * Result will be shown
 
-* Now you have an idea how bright the light needs to be
+* Now you know how bright the light needs to be
 
 ![Alt text](resources/photos/test.jpeg)
 
-Use double side tape, mount the sensor on a vertical surface, a box or something.
+Use double side tape, mount the sensor on a vertical surface, e.g. a box.
 
-Make sure the sensor is at the **same height as the lens opening**.
+Make sure it is at the **same height as the lens opening**.
 
 ![Alt text](resources/photos/box.jpeg)
 
