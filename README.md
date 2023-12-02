@@ -1,6 +1,6 @@
 # PulseHPT 3-in-1 Shutter Speed Tester
 
-[Purchase]() | [Discord](https://discord.gg/gyGFqD2vfP) | [Instructions](#user-manual)
+[Purchase](https://www.ebay.co.uk/itm/364610922697) | [Discord](https://discord.gg/gyGFqD2vfP) | [Instructions](#user-manual)
 
 ---
 
@@ -11,6 +11,8 @@ PulseHPT is a compact shutter speed tester for vintage cameras.
 Quick and easy measurement via **Hot Shoe** or **PC socket**.
 
 As well as accurate though-the-lens testing with **light sensor**.
+
+Ideal for **in-the-field testing** of unknown cameras
 
 ![Alt text](resources/photos/sources.png)
 
@@ -24,13 +26,11 @@ As well as accurate though-the-lens testing with **light sensor**.
 
 * 20-hour battery / 4000 measurements
 
-* Ideal for inspecting unknown cameras
-
 ## Buy One / Discussions
 
-UK Buyer: Ebay Link
+* eBay: https://www.ebay.co.uk/itm/364610922697
 
-Rest of the world: Tindie Link
+* Tindie: Awaiting approval
 
 [Discord chatroom](https://discord.gg/gyGFqD2vfP) for questions and discussions. Or email `dekuNukem`@`gmail`.`com` .
  
