@@ -20,7 +20,7 @@ Ideal for **in-the-field testing** of unknown cameras
 
 * Compact & Portable
 
-* Multiple sources
+* Multiple Sources
 
 * Microsecond Accuracy
 
