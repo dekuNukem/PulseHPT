@@ -1,6 +1,6 @@
 # PulseHPT 3-in-1 Shutter Speed Tester
 
-[Purchase](https://www.ebay.co.uk/itm/364610922697) | [Discord](https://discord.gg/gyGFqD2vfP) | [Instructions](#user-manual)
+[Purchase](https://www.ebay.co.uk/itm/364611119604) | [Discord](https://discord.gg/gyGFqD2vfP) | [Instructions](#user-manual)
 
 ---
 
@@ -28,7 +28,7 @@ Ideal for **in-the-field testing** of unknown cameras
 
 ## Buy One / Discussions
 
-* eBay: https://www.ebay.co.uk/itm/364610922697
+* eBay: https://www.ebay.co.uk/itm/364611119604
 
 * Tindie: Awaiting approval
 
