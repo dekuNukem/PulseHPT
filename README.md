@@ -10,7 +10,7 @@ PulseHPT is a compact shutter speed tester for vintage cameras.
 
 Quick and easy measurement via **Hot Shoe** or **PC socket**.
 
-As well as accurate though-the-lens **light sensor** testing.
+As well as accurate though-the-lens testing with **light sensor**.
 
 ![Alt text](resources/photos/sources.png)
 
@@ -36,7 +36,7 @@ Rest of the world: Tindie Link
  
 # User Manual
 
-- [Battery](#install-battery)
+- [Battery](#battery)
 
 - [Hot Shoe](#measurement-hot-shoe)
 
@@ -44,7 +44,7 @@ Rest of the world: Tindie Link
 
 - [Light Sensor](#measurement-light-sensor)
 
-## Install Battery
+## Battery
 
 * **CR2032**
 
