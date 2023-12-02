@@ -1,16 +1,16 @@
 # PulseHPT 3-in-1 Shutter Speed Tester
 
+[Purchase]() | [Discord](https://discord.gg/gyGFqD2vfP) | [Instructions](#user-manual)
+
+---
+
 PulseHPT is a compact shutter speed tester for vintage cameras.
 
 ![Alt text](resources/photos/title.jpeg)
 
-It can measure from multiple sources:
+Quick and easy measurement via **Hot Shoe** or **PC socket**.
 
-* Hot Shoe
-
-* PC Socket
-
-* Light Sensor
+As well as accurate though-the-lens **light sensor** testing.
 
 ![Alt text](resources/photos/sources.png)
 
@@ -18,11 +18,13 @@ It can measure from multiple sources:
 
 * Compact & Portable
 
-* Easy to Use
+* Multiple sources
 
 * Microsecond Accuracy
 
-* Battery Life: 20 hours / 4000 measurements.
+* 20-hour battery / 4000 measurements
+
+* Ideal for inspecting unknown cameras
 
 ## Buy One / Discussions
 
@@ -30,7 +32,17 @@ UK Buyer: Ebay Link
 
 Rest of the world: Tindie Link
 
+[Discord chatroom](https://discord.gg/gyGFqD2vfP) for questions and discussions. Or email `dekuNukem`@`gmail`.`com` .
+ 
 # User Manual
+
+- [Battery](#install-battery)
+
+- [Hot Shoe](#measurement-hot-shoe)
+
+- [PC Socket](#measurement-pc-socket)
+
+- [Light Sensor](#measurement-light-sensor)
 
 ## Install Battery
 
@@ -43,8 +55,6 @@ Rest of the world: Tindie Link
 ![Alt text](resources/photos/battery.jpeg)
 
 ## Measurement: Hot Shoe
-
-Ideal for a quick check when inspecting unknown camera
 
 * Insert into hot shoe
 
@@ -136,9 +146,9 @@ Make sure the sensor is at the **same height as the lens opening**.
 
 ![Alt text](resources/photos/box.jpeg)
 
-* Largest aperture
-
 * Shine light though the lens
+
+* Largest aperture
 
 * Sensor behind shutter
 
@@ -154,4 +164,6 @@ PulseHPT can be easily updated for new features and bug fixes.
 
 Instruction will be added when such need arises. 
 
+## Questions or Comments?
 
+[Discord chatroom](https://discord.gg/gyGFqD2vfP) for questions and discussions. Or email `dekuNukem`@`gmail`.`com` .
