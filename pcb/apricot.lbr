@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="2" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -53,7 +53,7 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
@@ -256,6 +256,19 @@ by exp-lbrs.ulp</description>
 <package name="HOTSHOE_RAIL_NOPASTE">
 <smd name="P$1" x="0" y="0" dx="5" dy="3" layer="1" rot="R90" thermals="no" cream="no"/>
 </package>
+<package name="LS">
+<rectangle x1="0" y1="-7.9" x2="1.7" y2="-4.5" layer="46"/>
+<wire x1="0" y1="-4.5" x2="0" y2="4.5" width="0.1524" layer="51"/>
+<rectangle x1="0" y1="4.5" x2="1.7" y2="7.9" layer="46"/>
+<smd name="T2" x="2.2098" y="6.096" dx="1" dy="2" layer="1"/>
+<smd name="T1" x="-0.508" y="6.096" dx="1" dy="2" layer="1"/>
+<smd name="T4" x="2.2098" y="-6.223" dx="1" dy="2" layer="1"/>
+<smd name="T3" x="-0.508" y="-6.223" dx="1" dy="2" layer="1"/>
+<smd name="B2" x="-0.508" y="6.096" dx="1" dy="2" layer="16" rot="R180"/>
+<smd name="B1" x="2.2098" y="6.096" dx="1" dy="2" layer="16" rot="R180"/>
+<smd name="B4" x="-0.508" y="-6.223" dx="1" dy="2" layer="16" rot="R180"/>
+<smd name="B3" x="2.2098" y="-6.223" dx="1" dy="2" layer="16" rot="R180"/>
+</package>
 </packages>
 <symbols>
 <symbol name="M3_MOUNTING_HOLE_SYM">
@@ -331,6 +344,20 @@ by exp-lbrs.ulp</description>
 <wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.1524" layer="94"/>
 <text x="5.08" y="-2.54" size="1.778" layer="94">hot shoe
 NO PASTE</text>
+</symbol>
+<symbol name="LS_HOLE">
+<wire x1="-27.94" y1="25.4" x2="-27.94" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-27.94" y1="-5.08" x2="-7.62" y2="-5.08" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="25.4" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="25.4" x2="-27.94" y2="25.4" width="0.1524" layer="94"/>
+<pin name="T1" x="-33.02" y="17.78" length="middle"/>
+<pin name="T2" x="-33.02" y="12.7" length="middle"/>
+<pin name="T3" x="-33.02" y="7.62" length="middle"/>
+<pin name="T4" x="-33.02" y="2.54" length="middle"/>
+<pin name="B1" x="-2.54" y="17.78" length="middle" rot="R180"/>
+<pin name="B2" x="-2.54" y="12.7" length="middle" rot="R180"/>
+<pin name="B3" x="-2.54" y="7.62" length="middle" rot="R180"/>
+<pin name="B4" x="-2.54" y="2.54" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -461,6 +488,28 @@ NO PASTE</text>
 <device name="" package="HOTSHOE_RAIL_NOPASTE">
 <connects>
 <connect gate="G$1" pin="P$1" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LS_HOLE">
+<gates>
+<gate name="G$1" symbol="LS_HOLE" x="17.78" y="-10.16"/>
+</gates>
+<devices>
+<device name="" package="LS">
+<connects>
+<connect gate="G$1" pin="B1" pad="B2"/>
+<connect gate="G$1" pin="B2" pad="B1"/>
+<connect gate="G$1" pin="B3" pad="B4"/>
+<connect gate="G$1" pin="B4" pad="B3"/>
+<connect gate="G$1" pin="T1" pad="T1"/>
+<connect gate="G$1" pin="T2" pad="T2"/>
+<connect gate="G$1" pin="T3" pad="T3"/>
+<connect gate="G$1" pin="T4" pad="T4"/>
 </connects>
 <technologies>
 <technology name=""/>
