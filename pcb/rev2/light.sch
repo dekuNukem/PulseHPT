@@ -1211,16 +1211,16 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 by exp-lbrs.ulp</description>
 <packages>
 <package name="LS_VERT">
-<rectangle x1="0" y1="-7.85" x2="1.6" y2="-4.55" layer="51"/>
+<rectangle x1="0" y1="-7.85" x2="1.2" y2="-4.55" layer="51"/>
 <wire x1="0" y1="-10" x2="0" y2="10" width="0.05" layer="51"/>
-<rectangle x1="0" y1="4.55" x2="1.6" y2="7.85" layer="51"/>
-<smd name="T2" x="2.159" y="6.096" dx="1.25" dy="2" layer="1"/>
+<rectangle x1="0" y1="4.55" x2="1.2" y2="7.85" layer="51"/>
+<smd name="T2" x="1.759" y="6.096" dx="1.25" dy="2" layer="1"/>
 <smd name="T1" x="-0.5572" y="6.096" dx="1.25" dy="2" layer="1"/>
-<smd name="T4" x="2.159" y="-6.223" dx="1.25" dy="2" layer="1"/>
+<smd name="T4" x="1.759" y="-6.223" dx="1.25" dy="2" layer="1"/>
 <smd name="B1" x="-0.5572" y="6.096" dx="1.25" dy="2" layer="16" rot="R180"/>
-<smd name="B2" x="2.159" y="6.096" dx="1.25" dy="2" layer="16" rot="R180"/>
-<smd name="B4" x="2.159" y="-6.223" dx="1.25" dy="2" layer="16" rot="R180"/>
-<wire x1="1.6" y1="-10" x2="1.6" y2="10" width="0.05" layer="51"/>
+<smd name="B2" x="1.759" y="6.096" dx="1.25" dy="2" layer="16" rot="R180"/>
+<smd name="B4" x="1.759" y="-6.223" dx="1.25" dy="2" layer="16" rot="R180"/>
+<wire x1="1.2" y1="-10" x2="1.2" y2="10" width="0.05" layer="51"/>
 <smd name="T3" x="-0.5572" y="-6.223" dx="1.25" dy="2" layer="1"/>
 <smd name="B3" x="-0.5572" y="-6.223" dx="1.25" dy="2" layer="16" rot="R180"/>
 </package>

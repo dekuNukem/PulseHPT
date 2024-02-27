@@ -3105,17 +3105,17 @@ by exp-lbrs.ulp</description>
 <smd name="P$1" x="0" y="0" dx="5" dy="3" layer="1" rot="R90" thermals="no"/>
 </package>
 <package name="LS">
-<rectangle x1="0" y1="-7.9" x2="1.7" y2="-4.5" layer="46"/>
+<rectangle x1="0" y1="-7.9" x2="1.3" y2="-4.5" layer="46"/>
 <wire x1="0" y1="-4.5" x2="0" y2="4.5" width="0.1524" layer="51"/>
-<rectangle x1="0" y1="4.5" x2="1.7" y2="7.9" layer="46"/>
-<smd name="T2" x="2.2098" y="6.096" dx="1" dy="2" layer="1"/>
+<rectangle x1="0" y1="4.5" x2="1.3" y2="7.9" layer="46"/>
+<smd name="T2" x="1.8098" y="6.096" dx="1" dy="2" layer="1"/>
 <smd name="T1" x="-0.508" y="6.096" dx="1" dy="2" layer="1"/>
-<smd name="T4" x="2.2098" y="-6.223" dx="1" dy="2" layer="1"/>
+<smd name="T4" x="1.8098" y="-6.223" dx="1" dy="2" layer="1"/>
 <smd name="T3" x="-0.508" y="-6.223" dx="1" dy="2" layer="1"/>
 <smd name="B2" x="-0.508" y="6.096" dx="1" dy="2" layer="16" rot="R180"/>
-<smd name="B1" x="2.2098" y="6.096" dx="1" dy="2" layer="16" rot="R180"/>
+<smd name="B1" x="1.8098" y="6.096" dx="1" dy="2" layer="16" rot="R180"/>
 <smd name="B4" x="-0.508" y="-6.223" dx="1" dy="2" layer="16" rot="R180"/>
-<smd name="B3" x="2.2098" y="-6.223" dx="1" dy="2" layer="16" rot="R180"/>
+<smd name="B3" x="1.8098" y="-6.223" dx="1" dy="2" layer="16" rot="R180"/>
 </package>
 </packages>
 <symbols>
