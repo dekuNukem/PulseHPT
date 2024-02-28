@@ -52,7 +52,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
@@ -204,20 +204,20 @@
 <wire x1="3.3048" y1="2.4034" x2="12.381" y2="2.4034" width="0" layer="20"/>
 <wire x1="12.381" y1="2.4034" x2="12.381" y2="0.635" width="0" layer="20"/>
 <wire x1="12.381" y1="0.635" x2="13.016" y2="0" width="0" layer="20" curve="90"/>
-<hole x="15.4178" y="6.985" drill="0.381"/>
+<hole x="15.367" y="6.985" drill="0.381"/>
 <polygon width="0" layer="46">
-<vertex x="0.6476" y="7.365"/>
-<vertex x="0.6476" y="6.565"/>
-<vertex x="6.235" y="6.565"/>
-<vertex x="6.235" y="7.365"/>
+<vertex x="0.5206" y="7.365"/>
+<vertex x="0.5206" y="6.565"/>
+<vertex x="6.2858" y="6.565"/>
+<vertex x="6.2858" y="7.365"/>
 </polygon>
 <polygon width="0" layer="46">
-<vertex x="8.5206" y="7.365"/>
-<vertex x="8.5206" y="6.565"/>
-<vertex x="13.854" y="6.565"/>
-<vertex x="13.854" y="7.365"/>
+<vertex x="8.419" y="7.365"/>
+<vertex x="8.419" y="6.565"/>
+<vertex x="14.0064" y="6.565"/>
+<vertex x="14.0064" y="7.365"/>
 </polygon>
-<hole x="0.3302" y="6.985" drill="0.381"/>
+<hole x="0.254" y="6.985" drill="0.381"/>
 </plain>
 <libraries>
 <library name="FFC3B07-05-T">
@@ -573,7 +573,6 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="11.9588" y1="5.6642" x2="12.181" y2="5.442" width="0.2032" layer="1"/>
 <wire x1="8.5598" y1="5.6642" x2="10.9728" y2="5.6642" width="0.2032" layer="1"/>
 <wire x1="10.9728" y1="5.6642" x2="11.9588" y2="5.6642" width="0.2032" layer="1"/>
-<wire x1="12.181" y1="3.304" x2="12.192" y2="3.293" width="0.2032" layer="1"/>
 <wire x1="10.9728" y1="5.6642" x2="10.9728" y2="3.293" width="0.2032" layer="1"/>
 <wire x1="14.073" y1="0.6168" x2="14.073" y2="0.6168" width="0" layer="19" extent="1-16"/>
 <wire x1="14.073" y1="2.933" x2="14.073" y2="0.6168" width="0" layer="19" extent="16-16"/>
