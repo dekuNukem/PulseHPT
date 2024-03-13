@@ -10,7 +10,7 @@ PulseHPT is a compact shutter speed tester for vintage cameras.
 
 Quick and easy measurement via **Hot Shoe** or **PC socket**.
 
-As well as accurate though-the-lens testing with **light sensor**.
+As well as accurate though-the-lens testing with **light sensor**, suitable for leaf shutter (all speeds) and focal plane shutter (below flash sync).
 
 Ideal for **in-the-field testing** of unknown cameras
 
