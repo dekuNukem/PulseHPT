@@ -217,7 +217,7 @@
 <vertex x="14.0064" y="6.565"/>
 <vertex x="14.0064" y="7.365"/>
 </polygon>
-<hole x="0.254" y="6.985" drill="0.381"/>
+<hole x="0.3302" y="6.985" drill="0.381"/>
 </plain>
 <libraries>
 <library name="FFC3B07-05-T">
