@@ -146,13 +146,12 @@ Make sure it is at the **same height as the lens opening**.
 
 ![Alt text](resources/photos/box.jpeg)
 
-* Shine light though the lens
-
-* Largest aperture
-
+* Test **WITHOUT LENS** if possible
+* Largest aperture otherwise
 * Sensor behind shutter
-
-* Select speed and take a photo
+* Shine light
+* Make sure the **sensor itself** is **IN THE CENTER** of the light circle.
+* Select speed and release shutter
 
 ![Alt text](resources/photos/ttl.jpeg)
 
