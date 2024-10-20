@@ -8,7 +8,7 @@ PulseHPT is a compact shutter speed tester for vintage cameras.
 
 ![Alt text](resources/photos/title.jpeg)
 
-Quick and easy measurement from **multitple sources**:
+Quick and easy measurement from **multiple sources**:
 
 * **Hot Shoe**
 * **PC Socket**
