@@ -8,9 +8,14 @@ PulseHPT is a compact shutter speed tester for vintage cameras.
 
 ![Alt text](resources/photos/title.jpeg)
 
-Quick and easy measurement via **Hot Shoe** or **PC socket**.
+Quick and easy measurement from **multitple sources**:
 
-As well as accurate though-the-lens testing with **light sensor**, suitable for leaf shutter (all speeds) and focal plane shutter (below flash sync).
+* **Hot Shoe**
+* **PC Socket**
+* **Light Sensor**
+	* Most Accurate
+	* Leaf Shutter: All Speeds
+	* Focal Plane Shutter: Within Flash Sync
 
 Ideal for **in-the-field testing** of unknown cameras
 
@@ -42,7 +47,9 @@ Ideal for **in-the-field testing** of unknown cameras
 
 - [PC Socket](#measurement-pc-socket)
 
-- [Light Sensor](#measurement-light-sensor)
+- [Built-in Light Sensor](#measurement-light-sensor)
+
+- [External Light Sensor](#external-light-sensor)
 
 ## Battery
 
@@ -112,7 +119,50 @@ Thus the approximate shutter speed can be measured.
 
 ## Measurement: Light Sensor
 
-Most accurate, but requires some setup.
+* Most accurate
+* Two Sources
+	* Built-in Sensor: Easiest to Use
+	* External Sensor: More Consistent Setup
+
+## Built-in Light Sensor
+
+This feature was added on a recent hardware revision.
+
+Check that your tester has this option.
+
+It should stick out on the left-hand side.
+
+![Alt text](resources/photos/int.jpeg)
+
+Slide light sensor source switch to `INTERAL` position.
+
+![Alt text](resources/photos/swint.jpeg)
+
+Shine a bright light into the sensor.
+
+It should trigger and give a measurement.
+
+Now you know how bright the light needs to be.
+
+![Alt text](resources/photos/intflash.jpeg)
+
+To test:
+
+* Remove lens if possible
+* Largest aperture otherwise
+* Shine light from front
+* Place tester **near the center** of film gate
+* Fire Shutter
+	* Leaf Shutter: All Speeds
+	* Focal Plane Shutter: **Within Flash Sync Speed**
+
+![Alt text](resources/photos/gate.jpeg)
+
+![Alt text](resources/photos/top.jpeg)
+
+## External Light Sensor
+
+Requires more setup, but can be more consistent, and also suitable for hard-to-reach places.
 
 * Locate the connector on **bottom-left corner**.
 
@@ -130,6 +180,10 @@ Most accurate, but requires some setup.
 
 ![Alt text](resources/photos/sensor.jpeg)
 
+* Slide Light Sensor Source Switch to `EXTERNAL`
+
+![Alt text](resources/photos/ext.jpeg)
+
 With light sensor connected, let's do a quick test!
 
 * Briefly shine a bright light on the sensor
@@ -146,22 +200,19 @@ Make sure it is at the **same height as the lens opening**.
 
 ![Alt text](resources/photos/box.jpeg)
 
-* Test **WITHOUT LENS** if possible
+* Test **without lens** if possible
 * Largest aperture otherwise
 * Sensor behind shutter
 * Shine light
-* Make sure the **sensor itself** is **IN THE CENTER** of the light circle.
-* Select speed and release shutter
+* If possible, use Bulb mode to ensure sensor is at the **center of the light circle**.
 
-![Alt text](resources/photos/ttl.jpeg)
+![Alt text](resources/photos/spot.jpeg)
 
-Ensure the light is bright and the sensor is centered for best result.
+* Fire Shutter
+	* Leaf Shutter: All Speeds
+	* Focal Plane Shutter: **Within Flash Sync Speed**
 
-## USB Firmware Update
-
-PulseHPT can be easily updated for new features and bug fixes.
-
-Instruction will be added when such need arises. 
+![Alt text](resources/photos/sqa.jpeg)
 
 ## Questions or Comments?
 
