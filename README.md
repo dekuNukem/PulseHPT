@@ -152,7 +152,7 @@ To test:
 * Largest aperture otherwise
 * Shine light from front
 * Place tester **near the center** of film gate
-* Fire Shutter
+* Fire shutter
 	* Leaf Shutter: All Speeds
 	* Focal Plane Shutter: **Within Flash Sync Speed**
 
@@ -208,7 +208,7 @@ Make sure it is at the **same height as the lens opening**.
 
 ![Alt text](resources/photos/spot.jpeg)
 
-* Fire Shutter
+* Fire shutter
 	* Leaf Shutter: All Speeds
 	* Focal Plane Shutter: **Within Flash Sync Speed**
 
