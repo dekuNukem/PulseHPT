@@ -6,6 +6,6 @@ relative_links:
 include:
   - README.md
   - LICENSE
-theme: jekyll-theme-minimal
-title: [PulseHPT User Manual]
-description: [User Manual for PulseHPT 3-in-1 Shutter Speed Tester]
+theme: minima
+title: [This is title]
+description: [this is description]
