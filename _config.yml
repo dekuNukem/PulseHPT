@@ -6,6 +6,6 @@ relative_links:
 include:
   - README.md
   - LICENSE
-theme: minima
+theme: slate
 title: [This is title]
 description: [this is description]
