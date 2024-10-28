@@ -13,7 +13,7 @@ Quick and easy measurement from **multiple sources**:
 * **Hot Shoe**
 * **PC Socket**
 * **Light Sensor**
-	* Most Accurate
+	* Built-in & External
 	* Leaf Shutter: All Speeds
 	* Focal Plane Shutter: Within Flash Sync
 
@@ -33,9 +33,9 @@ Ideal for **in-the-field testing** of unknown cameras
 
 ## Buy One / Discussions
 
-* United Kingdom: https://www.ebay.co.uk/itm/364611119604
+* United Kingdom: [https://www.ebay.co.uk/itm/364611119604](https://www.ebay.co.uk/itm/364611119604)
 
-* Rest of the world: https://www.tindie.com/products/33002/
+* Rest of the world: [https://www.tindie.com/products/33002/](https://www.tindie.com/products/33002/)
 
 [Discord chatroom](https://discord.gg/yyRq8QtX4r) for questions and discussions. Or email `dekuNukem`@`gmail`.`com` .
  
@@ -180,7 +180,7 @@ Requires more setup, but can be more consistent, and also suitable for hard-to-r
 
 ![Alt text](resources/photos/sensor.jpeg)
 
-* Slide Light Sensor Source Switch to `EXTERNAL`
+* Slide Source Switch to `EXTERNAL`
 
 ![Alt text](resources/photos/ext.jpeg)
 
@@ -195,8 +195,6 @@ With light sensor connected, let's do a quick test!
 ![Alt text](resources/photos/test.jpeg)
 
 Use double side tape, mount the sensor on a vertical surface, e.g. a box.
-
-Make sure it is at the **same height as the lens opening**.
 
 ![Alt text](resources/photos/box.jpeg)
 
