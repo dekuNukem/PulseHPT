@@ -8,9 +8,10 @@ include:
   - README.md
   - LICENSE
 remote_theme: pages-themes/primer@v0.6.0
-#title: hello world
-#description: wahs up
+title: PulseHPT Shutter Speed Tester
+description: 3-in-1 Portable Shutter Speed Tester
 permissions:
   id-token: write
   pages: write
   contents: read
+markdown: kramdown
