@@ -6,7 +6,7 @@
 
 PulseHPT is a compact shutter speed tester for vintage cameras.
 
-![Alt text](resources/photos/title.jpeg){:loading="lazy"}
+![Alt text](resources/photos/title.jpeg)
 
 Quick and easy measurement from **multiple sources**:
 
@@ -19,7 +19,7 @@ Quick and easy measurement from **multiple sources**:
 
 Ideal for **in-the-field testing** of unknown cameras
 
-![Alt text](resources/photos/sources.png){:loading="lazy"}
+![Alt text](resources/photos/sources.png)
 
 ## Highlights
 
@@ -59,7 +59,7 @@ Ideal for **in-the-field testing** of unknown cameras
 
 * ⚠️ Slide UNDER the catch!
 
-![Alt text](resources/photos/battery.jpeg){:loading="lazy"}
+![Alt text](resources/photos/battery.jpeg)
 
 ## Measurement: Hot Shoe
 
@@ -75,7 +75,7 @@ Ideal for **in-the-field testing** of unknown cameras
 
 ⚠️ **Beware of caveats!** Read below.
 
-![Alt text](resources/photos/title.jpeg){:loading="lazy"}
+![Alt text](resources/photos/title.jpeg)
 
 #### How it works
 
@@ -97,13 +97,13 @@ Thus the approximate shutter speed can be measured.
 
 * Use a common **PC socket to 3.5mm Jack** Cable
 
-![Alt text](resources/photos/pc_cable.jpg){:loading="lazy"}
+![Alt text](resources/photos/pc_cable.jpg)
 
 * Plug into PC socket, and the other end in the tester.
 
 * ⚠️ ⚠️ Make sure to use `X Sync` socket / option!
 
-![Alt text](resources/photos/xm.png){:loading="lazy"}
+![Alt text](resources/photos/xm.png)
 
 * Slide switch to ON
 
@@ -111,7 +111,7 @@ Thus the approximate shutter speed can be measured.
 
 * Wind and release the shutter
 
-![Alt text](resources/photos/pc.jpeg){:loading="lazy"}
+![Alt text](resources/photos/pc.jpeg)
 
 💭 If nothing happens, apply **GENTLE** pressure on the PC socket to ensure good contact.
 
@@ -132,11 +132,11 @@ Check that your tester has this option.
 
 It should stick out on the left-hand side.
 
-![Alt text](resources/photos/int.jpeg){:loading="lazy"}
+![Alt text](resources/photos/int.jpeg)
 
 Slide light sensor source switch to `INTERAL` position.
 
-![Alt text](resources/photos/swint.jpeg){:loading="lazy"}
+![Alt text](resources/photos/swint.jpeg)
 
 Shine a bright light into the sensor.
 
@@ -144,7 +144,7 @@ It should trigger and give a measurement.
 
 Now you know how bright the light needs to be.
 
-![Alt text](resources/photos/intflash.jpeg){:loading="lazy"}
+![Alt text](resources/photos/intflash.jpeg)
 
 To test:
 
@@ -156,9 +156,9 @@ To test:
 	* Leaf Shutter: All Speeds
 	* Focal Plane Shutter: **Within Flash Sync Speed**
 
-![Alt text](resources/photos/gate.jpeg){:loading="lazy"}
+![Alt text](resources/photos/gate.jpeg)
 
-![Alt text](resources/photos/top.jpeg){:loading="lazy"}
+![Alt text](resources/photos/top.jpeg)
 
 ## External Light Sensor
 
@@ -168,21 +168,21 @@ Requires more setup, but can be more consistent, and also suitable for hard-to-r
 
 * **SLOWLY and GENTLY** push the black tab outwards to unlock.
 
-![Alt text](resources/photos/tab.png){:loading="lazy"}
+![Alt text](resources/photos/tab.png)
 
 * Insert the ribbon cable **metal contact side up** all the way in
 
 * Push the tab back in to lock
 
-![Alt text](resources/photos/ribbon.png){:loading="lazy"}
+![Alt text](resources/photos/ribbon.png)
 
 * **Do the same** on the sensor side
 
-![Alt text](resources/photos/sensor.jpeg){:loading="lazy"}
+![Alt text](resources/photos/sensor.jpeg)
 
 * Slide Source Switch to `EXTERNAL`
 
-![Alt text](resources/photos/ext.jpeg){:loading="lazy"}
+![Alt text](resources/photos/ext.jpeg)
 
 With light sensor connected, let's do a quick test!
 
@@ -192,11 +192,11 @@ With light sensor connected, let's do a quick test!
 
 * Now you know how bright the light needs to be
 
-![Alt text](resources/photos/test.jpeg){:loading="lazy"}
+![Alt text](resources/photos/test.jpeg)
 
 Use double side tape, mount the sensor on a vertical surface, e.g. a box.
 
-![Alt text](resources/photos/box.jpeg){:loading="lazy"}
+![Alt text](resources/photos/box.jpeg)
 
 * Test **without lens** if possible
 * Largest aperture otherwise
@@ -204,13 +204,13 @@ Use double side tape, mount the sensor on a vertical surface, e.g. a box.
 * Shine light
 * If possible, use Bulb mode to ensure sensor is at the **center of the light circle**.
 
-![Alt text](resources/photos/spot.jpeg){:loading="lazy"}
+![Alt text](resources/photos/spot.jpeg)
 
 * Fire shutter
 	* Leaf Shutter: All Speeds
 	* Focal Plane Shutter: **Within Flash Sync Speed**
 
-![Alt text](resources/photos/sqa.jpeg){:loading="lazy"}
+![Alt text](resources/photos/sqa.jpeg)
 
 ## Questions or Comments?
 
