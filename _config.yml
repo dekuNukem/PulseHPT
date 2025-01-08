@@ -15,3 +15,7 @@ permissions:
   pages: write
   contents: read
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    lazy_load: true
