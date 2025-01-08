@@ -14,3 +14,4 @@ permissions:
   id-token: write
   pages: write
   contents: read
+markdown: kramdown
