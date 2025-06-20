@@ -64,11 +64,10 @@ Ideal for **in-the-field testing** of unknown cameras
 ## Measurement: Hot Shoe
 
 * Insert into hot shoe
-
 * Slide switch to ON
-
-* Select a speed **within flash sync range**
-
+* Select a speed
+	* Leaf Shutter: All Speeds
+	* Focal Plane Shutter: **Within Flash Sync Speed**
 * Wind and release the shutter
 
 💭 If nothing happens, press down to ensure good contact.
@@ -106,9 +105,9 @@ Thus the approximate shutter speed can be measured.
 ![Alt text](resources/photos/xm.png)
 
 * Slide switch to ON
-
-* Select a speed **within flash sync range**
-
+* Select a speed
+	* Leaf Shutter: All Speeds
+	* Focal Plane Shutter: **Within Flash Sync Speed**
 * Wind and release the shutter
 
 ![Alt text](resources/photos/pc.jpeg)
@@ -162,7 +161,7 @@ To test:
 
 ## External Light Sensor
 
-Requires more setup, but can be more consistent, and also suitable for hard-to-reach places.
+Requires more setup, but can be more consistent. Also suitable for hard-to-reach places.
 
 * Locate the connector on **bottom-left corner**.
 
