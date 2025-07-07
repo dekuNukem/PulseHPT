@@ -563,23 +563,23 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="PRICE" value="None" x="7.85" y="12.823" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/FFC3B07-05-T/Global+Connector+Technology/view-part/?ref=snap" x="7.85" y="12.823" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R5" library="joyAnalog" package="0805" value="51K?" x="13.081" y="5.588" smashed="yes" rot="R90">
-<attribute name="NAME" x="12.5094" y="7.2136" size="0.8128" layer="25"/>
+<element name="R5" library="joyAnalog" package="0805" value="51K?" x="13.208" y="5.588" smashed="yes" rot="R90">
+<attribute name="NAME" x="12.6364" y="7.2136" size="0.8128" layer="25"/>
 </element>
-<element name="C1" library="clock" package="0805" value="DNP" x="14.732" y="5.588" smashed="yes" rot="R90">
-<attribute name="NAME" x="14.185" y="7.2565" size="0.8128" layer="25"/>
+<element name="C1" library="clock" package="0805" value="DNP" x="14.8336" y="5.588" smashed="yes" rot="R90">
+<attribute name="NAME" x="14.2866" y="7.2565" size="0.8128" layer="25"/>
 </element>
 <element name="U$1" library="apricot" package="LS_VERT" value="LS_VERT" x="7.85" y="1.174" smashed="yes" rot="R90"/>
 <element name="U$5" library="texas-instruments" package="SOT23-5L" value="TLV2371DBV" x="2.159" y="5.969" smashed="yes" rot="R270"/>
-<element name="D1" library="BPW_34_S-Z" package="DIO_BPW_34_S-Z" value="BPW_34_S-Z" x="8.1788" y="5.715" smashed="yes" rot="R180">
-<attribute name="AVAILABILITY" value="In Stock" x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BPW%2034%20S-Z/OSRAM/view-part/?ref=eda" x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DESCRIPTION" value="                                                      Photodiode 850nm 20ns 120° 2-SMD, Gull Wing                                              " x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MF" value="OSRAM Opto" x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MP" value="BPW 34 S-Z" x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PACKAGE" value="SMD-2 OSRAM Opto Semiconductors" x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="PRICE" value="None" x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BPW%2034%20S-Z/OSRAM/view-part/?ref=snap" x="8.1788" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="D1" library="BPW_34_S-Z" package="DIO_BPW_34_S-Z" value="BPW_34_S-Z" x="8.3058" y="5.715" smashed="yes" rot="R180">
+<attribute name="AVAILABILITY" value="In Stock" x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHECK_PRICES" value="https://www.snapeda.com/parts/BPW%2034%20S-Z/OSRAM/view-part/?ref=eda" x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DESCRIPTION" value="                                                      Photodiode 850nm 20ns 120° 2-SMD, Gull Wing                                              " x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value="OSRAM Opto" x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MP" value="BPW 34 S-Z" x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PACKAGE" value="SMD-2 OSRAM Opto Semiconductors" x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PRICE" value="None" x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/BPW%2034%20S-Z/OSRAM/view-part/?ref=snap" x="8.3058" y="5.715" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 </elements>
 <signals>
@@ -629,9 +629,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="C1" pad="1"/>
 <wire x1="5.703" y1="2.933" x2="14.073" y2="2.933" width="0.2032" layer="1"/>
 <wire x1="4.572" y1="4.064" x2="5.703" y2="2.933" width="0.2032" layer="1"/>
-<wire x1="14.073" y1="2.933" x2="14.732" y2="3.592" width="0.2032" layer="1"/>
-<wire x1="14.732" y1="3.592" x2="14.732" y2="4.688" width="0.2032" layer="1"/>
-<wire x1="14.732" y1="4.688" x2="13.081" y2="4.688" width="0.2032" layer="1"/>
+<wire x1="14.8336" y1="4.688" x2="13.208" y2="4.688" width="0.2032" layer="1"/>
 <wire x1="7.874" y1="8.636" x2="7.874" y2="4.826" width="0.2032" layer="16"/>
 <wire x1="9.767" y1="2.933" x2="14.073" y2="2.933" width="0.2032" layer="16"/>
 <wire x1="7.874" y1="4.826" x2="9.767" y2="2.933" width="0.2032" layer="16"/>
@@ -640,6 +638,8 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <wire x1="1.844" y1="6.919" x2="2.159" y2="6.604" width="0.2032" layer="1"/>
 <wire x1="2.159" y1="6.604" x2="2.159" y2="4.445" width="0.2032" layer="1"/>
 <wire x1="2.159" y1="4.445" x2="2.54" y2="4.064" width="0.2032" layer="1"/>
+<wire x1="14.8336" y1="4.688" x2="14.8336" y2="3.6936" width="0.2032" layer="1"/>
+<wire x1="14.8336" y1="3.6936" x2="14.073" y2="2.933" width="0.2032" layer="1"/>
 <wire x1="14.073" y1="0.6168" x2="14.073" y2="0.6168" width="0" layer="19" extent="1-16"/>
 <wire x1="14.073" y1="2.933" x2="14.073" y2="0.6168" width="0" layer="19" extent="16-16"/>
 </signal>
@@ -671,12 +671,12 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <contactref element="R5" pad="2"/>
 <contactref element="C1" pad="2"/>
 <wire x1="7.9228" y1="7.62" x2="6.0178" y2="5.715" width="0.2032" layer="1"/>
-<wire x1="5.1288" y1="5.715" x2="6.0178" y2="5.715" width="0.2032" layer="1"/>
-<wire x1="11.949" y1="7.62" x2="13.081" y2="6.488" width="0.2032" layer="1"/>
-<wire x1="7.9228" y1="7.62" x2="11.949" y2="7.62" width="0.2032" layer="1"/>
-<wire x1="13.081" y1="6.488" x2="14.732" y2="6.488" width="0.2032" layer="1"/>
+<wire x1="5.2558" y1="5.715" x2="6.0178" y2="5.715" width="0.2032" layer="1"/>
+<wire x1="12.076" y1="7.62" x2="13.208" y2="6.488" width="0.2032" layer="1"/>
+<wire x1="7.9228" y1="7.62" x2="12.076" y2="7.62" width="0.2032" layer="1"/>
+<wire x1="13.208" y1="6.488" x2="14.8336" y2="6.488" width="0.2032" layer="1"/>
 <wire x1="3.459" y1="5.019" x2="4.155" y2="5.715" width="0.2032" layer="1"/>
-<wire x1="4.155" y1="5.715" x2="5.1288" y2="5.715" width="0.2032" layer="1"/>
+<wire x1="4.155" y1="5.715" x2="5.2558" y2="5.715" width="0.2032" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
