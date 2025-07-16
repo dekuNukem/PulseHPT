@@ -563,7 +563,7 @@ These rules have been curated by SparkFuns DFM commitee. After doing much resear
 <attribute name="PRICE" value="None" x="7.85" y="12.823" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="SNAPEDA_LINK" value="https://www.snapeda.com/parts/FFC3B07-05-T/Global+Connector+Technology/view-part/?ref=snap" x="7.85" y="12.823" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R5" library="joyAnalog" package="0805" value="51K?" x="13.208" y="5.588" smashed="yes" rot="R90">
+<element name="R5" library="joyAnalog" package="0805" value="68K" x="13.208" y="5.588" smashed="yes" rot="R90">
 <attribute name="NAME" x="12.6364" y="7.2136" size="0.8128" layer="25"/>
 </element>
 <element name="C1" library="clock" package="0805" value="DNP" x="14.8336" y="5.588" smashed="yes" rot="R90">

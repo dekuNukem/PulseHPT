@@ -1392,7 +1392,7 @@ package type OT</description>
 <part name="GND1" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND2" library="SparkFun" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="R5" library="joyAnalog" deviceset="RESISTOR" device="0805-RES" value="51K?"/>
+<part name="R5" library="joyAnalog" deviceset="RESISTOR" device="0805-RES" value="68K"/>
 <part name="C1" library="clock" deviceset="CAP" device="0805" value="DNP"/>
 <part name="GND4" library="SparkFun" deviceset="GND" device=""/>
 <part name="U$1" library="apricot" deviceset="LS_VERT" device=""/>
