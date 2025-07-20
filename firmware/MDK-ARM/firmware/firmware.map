@@ -186,8 +186,8 @@ Section Cross References
     main.o(i.print_results_all_sources) refers to main.o(i.print_triple_result) for print_triple_result
     main.o(i.print_results_all_sources) refers to main.o(i.print_single_result) for print_single_result
     main.o(i.print_results_all_sources) refers to main.o(i.print_double_result) for print_double_result
-    main.o(i.print_results_all_sources) refers to main.o(.data) for .data
     main.o(i.print_results_all_sources) refers to main.o(.bss) for .bss
+    main.o(i.print_results_all_sources) refers to main.o(.data) for .data
     main.o(i.print_single_result) refers to ssd1306.o(i.ssd1306_Fill) for ssd1306_Fill
     main.o(i.print_single_result) refers to strlen.o(.text) for strlen
     main.o(i.print_single_result) refers to main.o(i.center_line) for center_line
@@ -2397,57 +2397,57 @@ Image Symbol Table
     i.print_double_result                    0x08003d74   Section        0  main.o(i.print_double_result)
     i.print_ready                            0x08003ea8   Section        0  main.o(i.print_ready)
     i.print_results_all_sources              0x08003f30   Section        0  main.o(i.print_results_all_sources)
-    i.print_single_result                    0x08003fb0   Section        0  main.o(i.print_single_result)
-    i.print_timeout                          0x08004070   Section        0  main.o(i.print_timeout)
-    i.print_triple_result                    0x080040d4   Section        0  main.o(i.print_triple_result)
-    i.reset_ssm                              0x080042a4   Section        0  main.o(i.reset_ssm)
-    i.ssd1306_DrawPixel                      0x080042b4   Section        0  ssd1306.o(i.ssd1306_DrawPixel)
-    i.ssd1306_Fill                           0x080042e4   Section        0  ssd1306.o(i.ssd1306_Fill)
-    i.ssd1306_FillRectangle                  0x08004308   Section        0  ssd1306.o(i.ssd1306_FillRectangle)
-    i.ssd1306_Init                           0x0800435c   Section        0  ssd1306.o(i.ssd1306_Init)
-    i.ssd1306_Line                           0x08004428   Section        0  ssd1306.o(i.ssd1306_Line)
-    i.ssd1306_Reset                          0x080044ac   Section        0  ssd1306.o(i.ssd1306_Reset)
-    i.ssd1306_SetContrast                    0x080044e4   Section        0  ssd1306.o(i.ssd1306_SetContrast)
-    i.ssd1306_SetCursor                      0x080044f8   Section        0  ssd1306.o(i.ssd1306_SetCursor)
-    i.ssd1306_SetDisplayOn                   0x08004504   Section        0  ssd1306.o(i.ssd1306_SetDisplayOn)
-    i.ssd1306_UpdateScreen                   0x08004524   Section        0  ssd1306.o(i.ssd1306_UpdateScreen)
-    i.ssd1306_WriteChar                      0x08004558   Section        0  ssd1306.o(i.ssd1306_WriteChar)
-    i.ssd1306_WriteCommand                   0x080045f0   Section        0  ssd1306.o(i.ssd1306_WriteCommand)
-    i.ssd1306_WriteData                      0x0800462c   Section        0  ssd1306.o(i.ssd1306_WriteData)
-    i.ssd1306_WriteString                    0x0800466c   Section        0  ssd1306.o(i.ssd1306_WriteString)
-    i.ssm_reset_all                          0x08004698   Section        0  main.o(i.ssm_reset_all)
-    i.ssm_update                             0x080046b8   Section        0  main.o(i.ssm_update)
-    i.ssm_update_all                         0x08004748   Section        0  main.o(i.ssm_update_all)
-    i.stdout_putchar                         0x0800476c   Section        0  main.o(i.stdout_putchar)
-    i.ttywrch                                0x08004770   Section        0  main.o(i.ttywrch)
-    locale$$code                             0x08004774   Section       44  lc_numeric_c.o(locale$$code)
-    x$fpl$printf1                            0x080047a0   Section       16  printf1.o(x$fpl$printf1)
-    .constdata                               0x080047b0   Section     1900  ssd1306_fonts.o(.constdata)
-    x$fpl$usenofp                            0x080047b0   Section        0  usenofp.o(x$fpl$usenofp)
-    Font7x10                                 0x080047b0   Data        1900  ssd1306_fonts.o(.constdata)
-    .constdata                               0x08004f1c   Section     3420  ssd1306_fonts.o(.constdata)
-    Font11x18                                0x08004f1c   Data        3420  ssd1306_fonts.o(.constdata)
-    .constdata                               0x08005c78   Section       32  stm32f0xx_hal_rcc.o(.constdata)
-    aPLLMULFactorTable                       0x08005c78   Data          16  stm32f0xx_hal_rcc.o(.constdata)
-    aPredivFactorTable                       0x08005c88   Data          16  stm32f0xx_hal_rcc.o(.constdata)
-    .constdata                               0x08005c98   Section       16  system_stm32f0xx.o(.constdata)
-    .constdata                               0x08005ca8   Section        8  system_stm32f0xx.o(.constdata)
-    .constdata                               0x08005cb0   Section        7  retarget_io.o(.constdata)
-    .constdata                               0x08005cb7   Section        8  retarget_io.o(.constdata)
-    .constdata                               0x08005cbf   Section        8  retarget_io.o(.constdata)
-    .constdata                               0x08005cc7   Section      128  ddiv.o(.constdata)
-    ddiv_reciptbl                            0x08005cc7   Data         128  ddiv.o(.constdata)
-    .constdata                               0x08005d48   Section      148  bigflt0.o(.constdata)
-    tenpwrs_x                                0x08005d48   Data          60  bigflt0.o(.constdata)
-    tenpwrs_i                                0x08005d84   Data          64  bigflt0.o(.constdata)
-    .conststring                             0x08005ddc   Section       46  main.o(.conststring)
-    locale$$data                             0x08005e2c   Section       28  lc_numeric_c.o(locale$$data)
-    __lcnum_c_name                           0x08005e30   Data           2  lc_numeric_c.o(locale$$data)
-    __lcnum_c_start                          0x08005e38   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_point                          0x08005e44   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_thousands                      0x08005e46   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_grouping                       0x08005e47   Data           0  lc_numeric_c.o(locale$$data)
-    __lcnum_c_end                            0x08005e48   Data           0  lc_numeric_c.o(locale$$data)
+    i.print_single_result                    0x08003fb4   Section        0  main.o(i.print_single_result)
+    i.print_timeout                          0x08004074   Section        0  main.o(i.print_timeout)
+    i.print_triple_result                    0x080040d8   Section        0  main.o(i.print_triple_result)
+    i.reset_ssm                              0x080042a8   Section        0  main.o(i.reset_ssm)
+    i.ssd1306_DrawPixel                      0x080042b8   Section        0  ssd1306.o(i.ssd1306_DrawPixel)
+    i.ssd1306_Fill                           0x080042e8   Section        0  ssd1306.o(i.ssd1306_Fill)
+    i.ssd1306_FillRectangle                  0x0800430c   Section        0  ssd1306.o(i.ssd1306_FillRectangle)
+    i.ssd1306_Init                           0x08004360   Section        0  ssd1306.o(i.ssd1306_Init)
+    i.ssd1306_Line                           0x0800442c   Section        0  ssd1306.o(i.ssd1306_Line)
+    i.ssd1306_Reset                          0x080044b0   Section        0  ssd1306.o(i.ssd1306_Reset)
+    i.ssd1306_SetContrast                    0x080044e8   Section        0  ssd1306.o(i.ssd1306_SetContrast)
+    i.ssd1306_SetCursor                      0x080044fc   Section        0  ssd1306.o(i.ssd1306_SetCursor)
+    i.ssd1306_SetDisplayOn                   0x08004508   Section        0  ssd1306.o(i.ssd1306_SetDisplayOn)
+    i.ssd1306_UpdateScreen                   0x08004528   Section        0  ssd1306.o(i.ssd1306_UpdateScreen)
+    i.ssd1306_WriteChar                      0x0800455c   Section        0  ssd1306.o(i.ssd1306_WriteChar)
+    i.ssd1306_WriteCommand                   0x080045f4   Section        0  ssd1306.o(i.ssd1306_WriteCommand)
+    i.ssd1306_WriteData                      0x08004630   Section        0  ssd1306.o(i.ssd1306_WriteData)
+    i.ssd1306_WriteString                    0x08004670   Section        0  ssd1306.o(i.ssd1306_WriteString)
+    i.ssm_reset_all                          0x0800469c   Section        0  main.o(i.ssm_reset_all)
+    i.ssm_update                             0x080046bc   Section        0  main.o(i.ssm_update)
+    i.ssm_update_all                         0x0800474c   Section        0  main.o(i.ssm_update_all)
+    i.stdout_putchar                         0x08004770   Section        0  main.o(i.stdout_putchar)
+    i.ttywrch                                0x08004774   Section        0  main.o(i.ttywrch)
+    locale$$code                             0x08004778   Section       44  lc_numeric_c.o(locale$$code)
+    x$fpl$printf1                            0x080047a4   Section       16  printf1.o(x$fpl$printf1)
+    .constdata                               0x080047b4   Section     1900  ssd1306_fonts.o(.constdata)
+    x$fpl$usenofp                            0x080047b4   Section        0  usenofp.o(x$fpl$usenofp)
+    Font7x10                                 0x080047b4   Data        1900  ssd1306_fonts.o(.constdata)
+    .constdata                               0x08004f20   Section     3420  ssd1306_fonts.o(.constdata)
+    Font11x18                                0x08004f20   Data        3420  ssd1306_fonts.o(.constdata)
+    .constdata                               0x08005c7c   Section       32  stm32f0xx_hal_rcc.o(.constdata)
+    aPLLMULFactorTable                       0x08005c7c   Data          16  stm32f0xx_hal_rcc.o(.constdata)
+    aPredivFactorTable                       0x08005c8c   Data          16  stm32f0xx_hal_rcc.o(.constdata)
+    .constdata                               0x08005c9c   Section       16  system_stm32f0xx.o(.constdata)
+    .constdata                               0x08005cac   Section        8  system_stm32f0xx.o(.constdata)
+    .constdata                               0x08005cb4   Section        7  retarget_io.o(.constdata)
+    .constdata                               0x08005cbb   Section        8  retarget_io.o(.constdata)
+    .constdata                               0x08005cc3   Section        8  retarget_io.o(.constdata)
+    .constdata                               0x08005ccb   Section      128  ddiv.o(.constdata)
+    ddiv_reciptbl                            0x08005ccb   Data         128  ddiv.o(.constdata)
+    .constdata                               0x08005d4c   Section      148  bigflt0.o(.constdata)
+    tenpwrs_x                                0x08005d4c   Data          60  bigflt0.o(.constdata)
+    tenpwrs_i                                0x08005d88   Data          64  bigflt0.o(.constdata)
+    .conststring                             0x08005de0   Section       46  main.o(.conststring)
+    locale$$data                             0x08005e30   Section       28  lc_numeric_c.o(locale$$data)
+    __lcnum_c_name                           0x08005e34   Data           2  lc_numeric_c.o(locale$$data)
+    __lcnum_c_start                          0x08005e3c   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_point                          0x08005e48   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_thousands                      0x08005e4a   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_grouping                       0x08005e4b   Data           0  lc_numeric_c.o(locale$$data)
+    __lcnum_c_end                            0x08005e4c   Data           0  lc_numeric_c.o(locale$$data)
     .data                                    0x20000000   Section        6  ssd1306.o(.data)
     SSD1306                                  0x20000000   Data           6  ssd1306.o(.data)
     .data                                    0x20000008   Section        8  ssd1306_fonts.o(.data)
@@ -2759,40 +2759,40 @@ Image Symbol Table
     pinstate_translate                       0x08003d5d   Thumb Code    22  main.o(i.pinstate_translate)
     print_double_result                      0x08003d75   Thumb Code   300  main.o(i.print_double_result)
     print_ready                              0x08003ea9   Thumb Code    94  main.o(i.print_ready)
-    print_results_all_sources                0x08003f31   Thumb Code    94  main.o(i.print_results_all_sources)
-    print_single_result                      0x08003fb1   Thumb Code   170  main.o(i.print_single_result)
-    print_timeout                            0x08004071   Thumb Code    72  main.o(i.print_timeout)
-    print_triple_result                      0x080040d5   Thumb Code   442  main.o(i.print_triple_result)
-    reset_ssm                                0x080042a5   Thumb Code    14  main.o(i.reset_ssm)
-    ssd1306_DrawPixel                        0x080042b5   Thumb Code    42  ssd1306.o(i.ssd1306_DrawPixel)
-    ssd1306_Fill                             0x080042e5   Thumb Code    30  ssd1306.o(i.ssd1306_Fill)
-    ssd1306_FillRectangle                    0x08004309   Thumb Code    82  ssd1306.o(i.ssd1306_FillRectangle)
-    ssd1306_Init                             0x0800435d   Thumb Code   198  ssd1306.o(i.ssd1306_Init)
-    ssd1306_Line                             0x08004429   Thumb Code   130  ssd1306.o(i.ssd1306_Line)
-    ssd1306_Reset                            0x080044ad   Thumb Code    50  ssd1306.o(i.ssd1306_Reset)
-    ssd1306_SetContrast                      0x080044e5   Thumb Code    18  ssd1306.o(i.ssd1306_SetContrast)
-    ssd1306_SetCursor                        0x080044f9   Thumb Code     8  ssd1306.o(i.ssd1306_SetCursor)
-    ssd1306_SetDisplayOn                     0x08004505   Thumb Code    26  ssd1306.o(i.ssd1306_SetDisplayOn)
-    ssd1306_UpdateScreen                     0x08004525   Thumb Code    48  ssd1306.o(i.ssd1306_UpdateScreen)
-    ssd1306_WriteChar                        0x08004559   Thumb Code   146  ssd1306.o(i.ssd1306_WriteChar)
-    ssd1306_WriteCommand                     0x080045f1   Thumb Code    52  ssd1306.o(i.ssd1306_WriteCommand)
-    ssd1306_WriteData                        0x0800462d   Thumb Code    56  ssd1306.o(i.ssd1306_WriteData)
-    ssd1306_WriteString                      0x0800466d   Thumb Code    44  ssd1306.o(i.ssd1306_WriteString)
-    ssm_reset_all                            0x08004699   Thumb Code    26  main.o(i.ssm_reset_all)
-    ssm_update                               0x080046b9   Thumb Code   132  main.o(i.ssm_update)
-    ssm_update_all                           0x08004749   Thumb Code    32  main.o(i.ssm_update_all)
-    stdout_putchar                           0x0800476d   Thumb Code     4  main.o(i.stdout_putchar)
-    ttywrch                                  0x08004771   Thumb Code     2  main.o(i.ttywrch)
-    _get_lc_numeric                          0x08004775   Thumb Code    44  lc_numeric_c.o(locale$$code)
-    _printf_fp_dec                           0x080047a1   Thumb Code    16  printf1.o(x$fpl$printf1)
-    __I$use$fp                               0x080047b0   Number         0  usenofp.o(x$fpl$usenofp)
-    AHBPrescTable                            0x08005c98   Data          16  system_stm32f0xx.o(.constdata)
-    APBPrescTable                            0x08005ca8   Data           8  system_stm32f0xx.o(.constdata)
-    __stdin_name                             0x08005cb0   Data           7  retarget_io.o(.constdata)
-    __stdout_name                            0x08005cb7   Data           8  retarget_io.o(.constdata)
-    __stderr_name                            0x08005cbf   Data           8  retarget_io.o(.constdata)
-    Region$$Table$$Base                      0x08005e0c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08005e2c   Number         0  anon$$obj.o(Region$$Table)
+    print_results_all_sources                0x08003f31   Thumb Code   100  main.o(i.print_results_all_sources)
+    print_single_result                      0x08003fb5   Thumb Code   170  main.o(i.print_single_result)
+    print_timeout                            0x08004075   Thumb Code    72  main.o(i.print_timeout)
+    print_triple_result                      0x080040d9   Thumb Code   442  main.o(i.print_triple_result)
+    reset_ssm                                0x080042a9   Thumb Code    14  main.o(i.reset_ssm)
+    ssd1306_DrawPixel                        0x080042b9   Thumb Code    42  ssd1306.o(i.ssd1306_DrawPixel)
+    ssd1306_Fill                             0x080042e9   Thumb Code    30  ssd1306.o(i.ssd1306_Fill)
+    ssd1306_FillRectangle                    0x0800430d   Thumb Code    82  ssd1306.o(i.ssd1306_FillRectangle)
+    ssd1306_Init                             0x08004361   Thumb Code   198  ssd1306.o(i.ssd1306_Init)
+    ssd1306_Line                             0x0800442d   Thumb Code   130  ssd1306.o(i.ssd1306_Line)
+    ssd1306_Reset                            0x080044b1   Thumb Code    50  ssd1306.o(i.ssd1306_Reset)
+    ssd1306_SetContrast                      0x080044e9   Thumb Code    18  ssd1306.o(i.ssd1306_SetContrast)
+    ssd1306_SetCursor                        0x080044fd   Thumb Code     8  ssd1306.o(i.ssd1306_SetCursor)
+    ssd1306_SetDisplayOn                     0x08004509   Thumb Code    26  ssd1306.o(i.ssd1306_SetDisplayOn)
+    ssd1306_UpdateScreen                     0x08004529   Thumb Code    48  ssd1306.o(i.ssd1306_UpdateScreen)
+    ssd1306_WriteChar                        0x0800455d   Thumb Code   146  ssd1306.o(i.ssd1306_WriteChar)
+    ssd1306_WriteCommand                     0x080045f5   Thumb Code    52  ssd1306.o(i.ssd1306_WriteCommand)
+    ssd1306_WriteData                        0x08004631   Thumb Code    56  ssd1306.o(i.ssd1306_WriteData)
+    ssd1306_WriteString                      0x08004671   Thumb Code    44  ssd1306.o(i.ssd1306_WriteString)
+    ssm_reset_all                            0x0800469d   Thumb Code    26  main.o(i.ssm_reset_all)
+    ssm_update                               0x080046bd   Thumb Code   132  main.o(i.ssm_update)
+    ssm_update_all                           0x0800474d   Thumb Code    32  main.o(i.ssm_update_all)
+    stdout_putchar                           0x08004771   Thumb Code     4  main.o(i.stdout_putchar)
+    ttywrch                                  0x08004775   Thumb Code     2  main.o(i.ttywrch)
+    _get_lc_numeric                          0x08004779   Thumb Code    44  lc_numeric_c.o(locale$$code)
+    _printf_fp_dec                           0x080047a5   Thumb Code    16  printf1.o(x$fpl$printf1)
+    __I$use$fp                               0x080047b4   Number         0  usenofp.o(x$fpl$usenofp)
+    AHBPrescTable                            0x08005c9c   Data          16  system_stm32f0xx.o(.constdata)
+    APBPrescTable                            0x08005cac   Data           8  system_stm32f0xx.o(.constdata)
+    __stdin_name                             0x08005cb4   Data           7  retarget_io.o(.constdata)
+    __stdout_name                            0x08005cbb   Data           8  retarget_io.o(.constdata)
+    __stderr_name                            0x08005cc3   Data           8  retarget_io.o(.constdata)
+    Region$$Table$$Base                      0x08005e10   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08005e30   Number         0  anon$$obj.o(Region$$Table)
     Font_7x10                                0x20000008   Data           8  ssd1306_fonts.o(.data)
     Font_11x18                               0x20000010   Data           8  ssd1306_fonts.o(.data)
     fw_version_major                         0x20000018   Data           1  main.o(.data)
@@ -2829,9 +2829,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000c1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00005e90, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00005e94, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005e48, Max: 0x00008000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005e4c, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3039,76 +3039,76 @@ Memory Map of the image
     0x08003d72   0x08003d72   0x00000002   PAD
     0x08003d74   0x08003d74   0x00000134   Code   RO          331    i.print_double_result  main.o
     0x08003ea8   0x08003ea8   0x00000088   Code   RO          332    i.print_ready       main.o
-    0x08003f30   0x08003f30   0x00000080   Code   RO          333    i.print_results_all_sources  main.o
-    0x08003fb0   0x08003fb0   0x000000c0   Code   RO          334    i.print_single_result  main.o
-    0x08004070   0x08004070   0x00000064   Code   RO          335    i.print_timeout     main.o
-    0x080040d4   0x080040d4   0x000001d0   Code   RO          336    i.print_triple_result  main.o
-    0x080042a4   0x080042a4   0x0000000e   Code   RO          337    i.reset_ssm         main.o
-    0x080042b2   0x080042b2   0x00000002   PAD
-    0x080042b4   0x080042b4   0x00000030   Code   RO           17    i.ssd1306_DrawPixel  ssd1306.o
-    0x080042e4   0x080042e4   0x00000024   Code   RO           19    i.ssd1306_Fill      ssd1306.o
-    0x08004308   0x08004308   0x00000052   Code   RO           22    i.ssd1306_FillRectangle  ssd1306.o
-    0x0800435a   0x0800435a   0x00000002   PAD
-    0x0800435c   0x0800435c   0x000000cc   Code   RO           24    i.ssd1306_Init      ssd1306.o
-    0x08004428   0x08004428   0x00000082   Code   RO           25    i.ssd1306_Line      ssd1306.o
-    0x080044aa   0x080044aa   0x00000002   PAD
-    0x080044ac   0x080044ac   0x00000038   Code   RO           28    i.ssd1306_Reset     ssd1306.o
-    0x080044e4   0x080044e4   0x00000012   Code   RO           29    i.ssd1306_SetContrast  ssd1306.o
-    0x080044f6   0x080044f6   0x00000002   PAD
-    0x080044f8   0x080044f8   0x0000000c   Code   RO           30    i.ssd1306_SetCursor  ssd1306.o
-    0x08004504   0x08004504   0x00000020   Code   RO           31    i.ssd1306_SetDisplayOn  ssd1306.o
-    0x08004524   0x08004524   0x00000034   Code   RO           32    i.ssd1306_UpdateScreen  ssd1306.o
-    0x08004558   0x08004558   0x00000098   Code   RO           33    i.ssd1306_WriteChar  ssd1306.o
-    0x080045f0   0x080045f0   0x0000003c   Code   RO           34    i.ssd1306_WriteCommand  ssd1306.o
-    0x0800462c   0x0800462c   0x00000040   Code   RO           35    i.ssd1306_WriteData  ssd1306.o
-    0x0800466c   0x0800466c   0x0000002c   Code   RO           36    i.ssd1306_WriteString  ssd1306.o
-    0x08004698   0x08004698   0x00000020   Code   RO          338    i.ssm_reset_all     main.o
-    0x080046b8   0x080046b8   0x00000090   Code   RO          339    i.ssm_update        main.o
-    0x08004748   0x08004748   0x00000024   Code   RO          340    i.ssm_update_all    main.o
-    0x0800476c   0x0800476c   0x00000004   Code   RO          342    i.stdout_putchar    main.o
-    0x08004770   0x08004770   0x00000002   Code   RO          343    i.ttywrch           main.o
-    0x08004772   0x08004772   0x00000002   PAD
-    0x08004774   0x08004774   0x0000002c   Code   RO         4215    locale$$code        c_p.l(lc_numeric_c.o)
-    0x080047a0   0x080047a0   0x00000010   Code   RO         4091    x$fpl$printf1       fz_ps.l(printf1.o)
-    0x080047b0   0x080047b0   0x00000000   Code   RO         4139    x$fpl$usenofp       fz_ps.l(usenofp.o)
-    0x080047b0   0x080047b0   0x0000076c   Data   RO          299    .constdata          ssd1306_fonts.o
-    0x08004f1c   0x08004f1c   0x00000d5c   Data   RO          300    .constdata          ssd1306_fonts.o
-    0x08005c78   0x08005c78   0x00000020   Data   RO          979    .constdata          stm32f0xx_hal_rcc.o
-    0x08005c98   0x08005c98   0x00000010   Data   RO         3901    .constdata          system_stm32f0xx.o
-    0x08005ca8   0x08005ca8   0x00000008   Data   RO         3902    .constdata          system_stm32f0xx.o
-    0x08005cb0   0x08005cb0   0x00000007   Data   RO         3939    .constdata          retarget_io.o
-    0x08005cb7   0x08005cb7   0x00000008   Data   RO         3940    .constdata          retarget_io.o
-    0x08005cbf   0x08005cbf   0x00000008   Data   RO         3941    .constdata          retarget_io.o
-    0x08005cc7   0x08005cc7   0x00000080   Data   RO         4074    .constdata          fz_ps.l(ddiv.o)
-    0x08005d47   0x08005d47   0x00000001   PAD
-    0x08005d48   0x08005d48   0x00000094   Data   RO         4202    .constdata          c_p.l(bigflt0.o)
-    0x08005ddc   0x08005ddc   0x0000002e   Data   RO          346    .conststring        main.o
-    0x08005e0a   0x08005e0a   0x00000002   PAD
-    0x08005e0c   0x08005e0c   0x00000020   Data   RO         4495    Region$$Table       anon$$obj.o
-    0x08005e2c   0x08005e2c   0x0000001c   Data   RO         4214    locale$$data        c_p.l(lc_numeric_c.o)
+    0x08003f30   0x08003f30   0x00000084   Code   RO          333    i.print_results_all_sources  main.o
+    0x08003fb4   0x08003fb4   0x000000c0   Code   RO          334    i.print_single_result  main.o
+    0x08004074   0x08004074   0x00000064   Code   RO          335    i.print_timeout     main.o
+    0x080040d8   0x080040d8   0x000001d0   Code   RO          336    i.print_triple_result  main.o
+    0x080042a8   0x080042a8   0x0000000e   Code   RO          337    i.reset_ssm         main.o
+    0x080042b6   0x080042b6   0x00000002   PAD
+    0x080042b8   0x080042b8   0x00000030   Code   RO           17    i.ssd1306_DrawPixel  ssd1306.o
+    0x080042e8   0x080042e8   0x00000024   Code   RO           19    i.ssd1306_Fill      ssd1306.o
+    0x0800430c   0x0800430c   0x00000052   Code   RO           22    i.ssd1306_FillRectangle  ssd1306.o
+    0x0800435e   0x0800435e   0x00000002   PAD
+    0x08004360   0x08004360   0x000000cc   Code   RO           24    i.ssd1306_Init      ssd1306.o
+    0x0800442c   0x0800442c   0x00000082   Code   RO           25    i.ssd1306_Line      ssd1306.o
+    0x080044ae   0x080044ae   0x00000002   PAD
+    0x080044b0   0x080044b0   0x00000038   Code   RO           28    i.ssd1306_Reset     ssd1306.o
+    0x080044e8   0x080044e8   0x00000012   Code   RO           29    i.ssd1306_SetContrast  ssd1306.o
+    0x080044fa   0x080044fa   0x00000002   PAD
+    0x080044fc   0x080044fc   0x0000000c   Code   RO           30    i.ssd1306_SetCursor  ssd1306.o
+    0x08004508   0x08004508   0x00000020   Code   RO           31    i.ssd1306_SetDisplayOn  ssd1306.o
+    0x08004528   0x08004528   0x00000034   Code   RO           32    i.ssd1306_UpdateScreen  ssd1306.o
+    0x0800455c   0x0800455c   0x00000098   Code   RO           33    i.ssd1306_WriteChar  ssd1306.o
+    0x080045f4   0x080045f4   0x0000003c   Code   RO           34    i.ssd1306_WriteCommand  ssd1306.o
+    0x08004630   0x08004630   0x00000040   Code   RO           35    i.ssd1306_WriteData  ssd1306.o
+    0x08004670   0x08004670   0x0000002c   Code   RO           36    i.ssd1306_WriteString  ssd1306.o
+    0x0800469c   0x0800469c   0x00000020   Code   RO          338    i.ssm_reset_all     main.o
+    0x080046bc   0x080046bc   0x00000090   Code   RO          339    i.ssm_update        main.o
+    0x0800474c   0x0800474c   0x00000024   Code   RO          340    i.ssm_update_all    main.o
+    0x08004770   0x08004770   0x00000004   Code   RO          342    i.stdout_putchar    main.o
+    0x08004774   0x08004774   0x00000002   Code   RO          343    i.ttywrch           main.o
+    0x08004776   0x08004776   0x00000002   PAD
+    0x08004778   0x08004778   0x0000002c   Code   RO         4215    locale$$code        c_p.l(lc_numeric_c.o)
+    0x080047a4   0x080047a4   0x00000010   Code   RO         4091    x$fpl$printf1       fz_ps.l(printf1.o)
+    0x080047b4   0x080047b4   0x00000000   Code   RO         4139    x$fpl$usenofp       fz_ps.l(usenofp.o)
+    0x080047b4   0x080047b4   0x0000076c   Data   RO          299    .constdata          ssd1306_fonts.o
+    0x08004f20   0x08004f20   0x00000d5c   Data   RO          300    .constdata          ssd1306_fonts.o
+    0x08005c7c   0x08005c7c   0x00000020   Data   RO          979    .constdata          stm32f0xx_hal_rcc.o
+    0x08005c9c   0x08005c9c   0x00000010   Data   RO         3901    .constdata          system_stm32f0xx.o
+    0x08005cac   0x08005cac   0x00000008   Data   RO         3902    .constdata          system_stm32f0xx.o
+    0x08005cb4   0x08005cb4   0x00000007   Data   RO         3939    .constdata          retarget_io.o
+    0x08005cbb   0x08005cbb   0x00000008   Data   RO         3940    .constdata          retarget_io.o
+    0x08005cc3   0x08005cc3   0x00000008   Data   RO         3941    .constdata          retarget_io.o
+    0x08005ccb   0x08005ccb   0x00000080   Data   RO         4074    .constdata          fz_ps.l(ddiv.o)
+    0x08005d4b   0x08005d4b   0x00000001   PAD
+    0x08005d4c   0x08005d4c   0x00000094   Data   RO         4202    .constdata          c_p.l(bigflt0.o)
+    0x08005de0   0x08005de0   0x0000002e   Data   RO          346    .conststring        main.o
+    0x08005e0e   0x08005e0e   0x00000002   PAD
+    0x08005e10   0x08005e10   0x00000020   Data   RO         4495    Region$$Table       anon$$obj.o
+    0x08005e30   0x08005e30   0x0000001c   Data   RO         4214    locale$$data        c_p.l(lc_numeric_c.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005e48, Size: 0x00000b58, Max: 0x00001800, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005e4c, Size: 0x00000b58, Max: 0x00001800, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08005e48   0x00000006   Data   RW           38    .data               ssd1306.o
-    0x20000006   0x08005e4e   0x00000002   PAD
-    0x20000008   0x08005e50   0x00000008   Data   RW          301    .data               ssd1306_fonts.o
-    0x20000010   0x08005e58   0x00000008   Data   RW          302    .data               ssd1306_fonts.o
-    0x20000018   0x08005e60   0x00000014   Data   RW          347    .data               main.o
-    0x2000002c   0x08005e74   0x0000000c   Data   RW         1170    .data               stm32f0xx_hal.o
-    0x20000038   0x08005e80   0x00000004   Data   RW         3903    .data               system_stm32f0xx.o
-    0x2000003c   0x08005e84   0x00000004   Data   RW         4134    .data               c_p.l(stdio_streams.o)
-    0x20000040   0x08005e88   0x00000004   Data   RW         4135    .data               c_p.l(stdio_streams.o)
-    0x20000044   0x08005e8c   0x00000004   Data   RW         4136    .data               c_p.l(stdio_streams.o)
+    0x20000000   0x08005e4c   0x00000006   Data   RW           38    .data               ssd1306.o
+    0x20000006   0x08005e52   0x00000002   PAD
+    0x20000008   0x08005e54   0x00000008   Data   RW          301    .data               ssd1306_fonts.o
+    0x20000010   0x08005e5c   0x00000008   Data   RW          302    .data               ssd1306_fonts.o
+    0x20000018   0x08005e64   0x00000014   Data   RW          347    .data               main.o
+    0x2000002c   0x08005e78   0x0000000c   Data   RW         1170    .data               stm32f0xx_hal.o
+    0x20000038   0x08005e84   0x00000004   Data   RW         3903    .data               system_stm32f0xx.o
+    0x2000003c   0x08005e88   0x00000004   Data   RW         4134    .data               c_p.l(stdio_streams.o)
+    0x20000040   0x08005e8c   0x00000004   Data   RW         4135    .data               c_p.l(stdio_streams.o)
+    0x20000044   0x08005e90   0x00000004   Data   RW         4136    .data               c_p.l(stdio_streams.o)
     0x20000048        -       0x00000200   Zero   RW           37    .bss                ssd1306.o
     0x20000248        -       0x000001b0   Zero   RW          345    .bss                main.o
     0x200003f8        -       0x00000054   Zero   RW         4131    .bss                c_p.l(stdio_streams.o)
     0x2000044c        -       0x00000054   Zero   RW         4132    .bss                c_p.l(stdio_streams.o)
     0x200004a0        -       0x00000054   Zero   RW         4133    .bss                c_p.l(stdio_streams.o)
     0x200004f4        -       0x00000060   Zero   RW         4228    .bss                c_p.l(libspace.o)
-    0x20000554   0x08005e90   0x00000004   PAD
+    0x20000554   0x08005e94   0x00000004   PAD
     0x20000558        -       0x00000200   Zero   RW            2    HEAP                startup_stm32f042x6.o
     0x20000758        -       0x00000400   Zero   RW            1    STACK               startup_stm32f042x6.o
 
@@ -3120,7 +3120,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      2888        382         46         20        432      19406   main.o
+      2892        380         46         20        432      19454   main.o
        254         62         23          0          0       5689   retarget_io.o
        990         60          0          6        512     470009   ssd1306.o
          0          0       5320         16          0       1063   ssd1306_fonts.o
@@ -3138,7 +3138,7 @@ Image component sizes
          2          0         24          4          0       1099   system_stm32f0xx.o
 
     ----------------------------------------------------------------------
-      9828        814       5671         60       2480     554273   Object Totals
+      9832        812       5671         60       2480     554321   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         24          0          2          2          0          0   (incl. Padding)
 
@@ -3247,15 +3247,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     18160       1178       5976         72       2832     552633   Grand Totals
-     18160       1178       5976         72       2832     552633   ELF Image Totals
-     18160       1178       5976         72          0          0   ROM Totals
+     18164       1176       5976         72       2832     552681   Grand Totals
+     18164       1176       5976         72       2832     552681   ELF Image Totals
+     18164       1176       5976         72          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                24136 (  23.57kB)
+    Total RO  Size (Code + RO Data)                24140 (  23.57kB)
     Total RW  Size (RW Data + ZI Data)              2904 (   2.84kB)
-    Total ROM Size (Code + RO Data + RW Data)      24208 (  23.64kB)
+    Total ROM Size (Code + RO Data + RW Data)      24212 (  23.64kB)
 
 ==============================================================================
 

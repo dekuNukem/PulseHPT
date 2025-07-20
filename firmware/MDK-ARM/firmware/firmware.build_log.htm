@@ -27,14 +27,7 @@ Project File Date:  10/10/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'firmware'
-compiling main.c...
-../Core/Inc/ssd1306.h(181): warning:  #1295-D: Deprecated declaration ssd1306_GetDisplayOn - give arg types
-  uint8_t ssd1306_GetDisplayOn();
-../Core/Src/main.c: 1 warning, 0 errors
-linking...
-Program Size: Code=18160 RO-data=5976 RW-data=72 ZI-data=2832  
-FromELF: creating hex file...
-"firmware\firmware.axf" - 0 Error(s), 1 Warning(s).
+"firmware\firmware.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -72,20 +65,20 @@ Package Vendor: Keil
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDIN:User:1.2.0
       Source file:   Template\stdin_USART.c
-      Source file:   Source\retarget_io.c
-      Source file:   Template\stdin_user.c
       Source file:   Template\stdin_keyboard.c
+      Source file:   Template\stdin_user.c
+      Source file:   Source\retarget_io.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:User:1.2.0
-      Source file:   Source\retarget_io.c
       Source file:   Template\stdout_display.c
-      Source file:   Template\stdout_USART.c
+      Source file:   Source\retarget_io.c
       Source file:   Template\stdout_user.c
+      Source file:   Template\stdout_USART.c
 
    * Component: Keil.ARM Compiler::Compiler:I/O:TTY:User:1.2.0
-      Source file:   Source\retarget_io.c
       Source file:   Template\tty_user.c
-Build Time Elapsed:  00:00:01
+      Source file:   Source\retarget_io.c
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

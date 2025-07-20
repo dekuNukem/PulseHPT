@@ -52,10 +52,15 @@ blank out result screen during a new measurement
 
 2023 11 30 0.2.1
 skipped blanking out at first measurement
+
+2025 07 20
+0.2.2
+added 115us of light sensor compensation
 */
+
 uint8_t fw_version_major = 0;
 uint8_t fw_version_minor = 2;
-uint8_t fw_version_patch = 1;
+uint8_t fw_version_patch = 2;
 
 
 #define SHUTTER_STATE_IDLE 0
@@ -393,6 +398,8 @@ void ssm_update_all(void)
   ssm_update(&all_ssms[SSM_SOURCE_LIGHT_SENSOR], PIN_STATE_NO_CHANGE);
 }
 
+#define LIGHT_SENSOR_COMPENSATION_US 115
+
 void print_results_all_sources(void)
 {
   uint8_t active_sources = count_state(SHUTTER_STATE_RESULT_AVAILABLE);
@@ -400,6 +407,9 @@ void print_results_all_sources(void)
   4  3  2  1
   X  LS PC HS
   */
+
+  all_ssms[SSM_SOURCE_LIGHT_SENSOR].duration -= LIGHT_SENSOR_COMPENSATION_US;
+
   if(active_sources == 1) // 0001 hot shoe only
     print_single_result(oled_str_hotshoe, &all_ssms[SSM_SOURCE_HOTSHOE]);
 
