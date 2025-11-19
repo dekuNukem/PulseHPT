@@ -33,7 +33,7 @@ Ideal for **in-the-field testing** of unknown cameras
 
 ## Buy One / Discussions
 
-* United Kingdom: [https://www.ebay.co.uk/itm/364611119604](https://www.ebay.co.uk/itm/365904291256)
+* United Kingdom: [https://www.ebay.co.uk/itm/365904291256](https://www.ebay.co.uk/itm/365904291256)
 
 * Rest of the world: [https://www.tindie.com/products/33002/](https://www.tindie.com/products/33002/)
 
