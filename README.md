@@ -125,15 +125,11 @@ Thus the approximate shutter speed can be measured.
 
 ## Built-in Light Sensor
 
-This feature was added on a recent hardware revision.
-
-Check that your tester has this option.
-
-It should stick out on the left-hand side.
+The built-in sensor sticks out on the left-hand side.
 
 ![Alt text](resources/photos/int.jpeg)
 
-Slide light sensor source switch to `INTERAL` position.
+Slide the light sensor source switch to `INTERAL` position.
 
 ![Alt text](resources/photos/swint.jpeg)
 
@@ -148,7 +144,7 @@ Now you know how bright the light needs to be.
 To test:
 
 * Remove lens if possible
-* Largest aperture otherwise
+	* Largest aperture otherwise
 * Shine light from front
 * Place tester **near the center** of film gate
 * Fire shutter
@@ -198,7 +194,7 @@ Use double side tape, mount the sensor on a vertical surface, e.g. a box.
 ![Alt text](resources/photos/box.jpeg)
 
 * Test **without lens** if possible
-* Largest aperture otherwise
+	* Largest aperture otherwise
 * Sensor behind shutter
 * Shine light
 * If possible, use Bulb mode to ensure sensor is at the **center of the light circle**.
